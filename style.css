@@ -1,0 +1,46 @@
+@font-face {
+  font-family: Akrobat-Black;
+  src: url(fonts/Akrobat-Black.woff2);
+}
+
+body
+{
+    size: 100%;
+    margin: 0;
+}
+
+header {
+    background-color: #FDEAE8;
+}
+
+header h1 {
+    margin: 0;
+    padding: 50px 0 50px 0;
+    text-align: center;
+    color: #914360;
+    font-size: 50px;
+    font-family: Broadway;
+}
+
+header nav ul {
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    color: white;
+    font-size: 36px;
+    padding-right: 30px;
+    font-family: Akrobat-Black, arial;
+}
+
+header nav ul li:hover {
+    color: #d7d2d2;
+}
+
+header nav {
+    background-color: #914360;
+    margin: 0;
+}
+
