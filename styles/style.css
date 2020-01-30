@@ -1,17 +1,19 @@
 @font-face {
-    font-family: AlexBrush-Regular;
-    src: url(fonts/AlexBrush-Regular.ttf);
-}
-
-@font-face {
     font-family: Akrobat-Black;
-    src: url(fonts/Akrobat-Black.woff2);
+    src: url(../fonts/Akrobat-Black.woff2);
 }
 
 body
 {
     size: 100%;
     margin: 0;
+    background-color: white;
+}
+
+.main-section {
+    margin: 0 100px 0 100px;
+    padding: 10px 10px 10px 10px;
+    background-color: #f3f0f0;
 }
 
 header {
@@ -57,4 +59,11 @@ header nav ul li:hover {
     color: #d7d2d2;
     cursor: pointer;
 }
-    
+
+.logo-wrapper {
+    text-align: center;
+}
+
+.logo-wrapper img {
+    width: 50%;
+}

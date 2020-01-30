@@ -1,5 +1,5 @@
 $(window).scroll(function (e) {
-  if ($(window).scrollTop() >= 162) {
+  if ($(window).scrollTop() >= $(".logo-wrapper").height()) {
     $("header nav").addClass("fixed-header");
     //$("nav div").addClass("visible-title");
   } else {
