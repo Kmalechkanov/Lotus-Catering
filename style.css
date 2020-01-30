@@ -1,6 +1,11 @@
 @font-face {
-  font-family: Akrobat-Black;
-  src: url(fonts/Akrobat-Black.woff2);
+    font-family: AlexBrush-Regular;
+    src: url(fonts/AlexBrush-Regular.ttf);
+}
+
+@font-face {
+    font-family: Akrobat-Black;
+    src: url(fonts/Akrobat-Black.woff2);
 }
 
 body
@@ -11,36 +16,45 @@ body
 
 header {
     background-color: #FDEAE8;
+    z-index: 10;
 }
 
 header h1 {
     margin: 0;
-    padding: 50px 0 50px 0;
+    padding: 30px 0 20px 0;
     text-align: center;
     color: #914360;
-    font-size: 50px;
-    font-family: Broadway;
+    font-size: 90px;
+    font-family: AlexBrush-Regular, arial;
+}
+
+header nav {
+    background-color: #914360;
 }
 
 header nav ul {
     padding: 10px 0 10px 0;
+    margin: 0;
     text-align: center;
 }
 
 header nav ul li {
     display: inline-block;
     color: white;
-    font-size: 36px;
-    padding-right: 30px;
+    font-size: 35px;
+    padding: 5px 15px 5px 15px;
     font-family: Akrobat-Black, arial;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
 }
 
 header nav ul li:hover {
     color: #d7d2d2;
+    cursor: pointer;
 }
-
-header nav {
-    background-color: #914360;
-    margin: 0;
-}
-
+    
