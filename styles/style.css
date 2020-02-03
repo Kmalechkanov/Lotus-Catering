@@ -12,7 +12,7 @@ body
 
 .main-section {
     margin: 0 10% 0 10%;
-    padding: 10px 10px 10px 10px;
+    padding: 40px 10px 10px 10px;
     background-color: #f3f0f0;
 }
 
@@ -31,7 +31,6 @@ header h1 {
 }
 
 header nav {
-    background-color: #914360;
     text-align: center;
 }
 /* 
@@ -40,13 +39,13 @@ header nav:nth-child(2) {
 } */
 
 header nav ul {
+    background-color: #914360;
     padding: 10px 0 10px 0;
     margin: 0;
     text-align: center;
     size: initial;
     width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding: 0 10% 0 10%;
 }
 
 .center-align {
@@ -57,19 +56,20 @@ header nav ul {
     text-align: right;
 }
 
-header nav ul li {
-    display: inline-block;
-    color: white;
-    font-size: 35px;
-    padding: 5px 5% 5px 5%;
-    font-family: Akrobat-Black, arial;
-}
 
 .fixed-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%; 
+}
+
+header nav ul li {
+    display: inline-block;
+    color: white;
+    font-size: 35px;
+    padding: 5px 5% 5px 5%;
+    font-family: Akrobat-Black, arial;
 }
 
 header nav ul li:hover {
@@ -85,3 +85,52 @@ header nav ul li:hover {
     margin: 50px 0 30px 0;
     width: 50%;
 }
+
+.secondHeader {
+    background-color: #ffe6c0;
+}
+
+.secondHeader li {
+    font-size: 20px;
+    color: #914360;
+    padding: 0 5px 0 0;
+}
+
+.secondHeader li:hover {
+    color: #1616167a;
+}
+
+.hidden {
+    display: none;
+}
+
+.show-block {
+	animation: show-block-animation 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse forwards;
+}
+
+.hide-block {
+	animation: hide-block-animation 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse forwards;
+}
+
+@keyframes show-block-animation {
+    0% {
+      transform: scaleY(1);
+      transform-origin: 100% 0%;
+    }
+    100% {
+      transform: scaleY(0);
+      transform-origin: 100% 0%;
+    }
+}
+
+@keyframes hide-block-animation {
+    0% {
+      transform: scaleY(0);
+      transform-origin: 100% 0%;
+    }
+    100% {
+      transform: scaleY(1);
+      transform-origin: 100% 0%;
+    }
+}
+  
