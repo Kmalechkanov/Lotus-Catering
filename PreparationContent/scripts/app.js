@@ -9,7 +9,6 @@ $(window).scroll(function (e) {
     //$("nav div").removeClass("visible-title");
   }
   
-  console.log($(window).scrollTop() + " " + $(".logo-wrapper").height());
   if ($(window).scrollTop() <= lastScroll || $(window).scrollTop() <= $(".logo-wrapper").height()) {
     $(".secondHeader").addClass("show-block");
     $(".secondHeader").removeClass("hide-block");
