@@ -1,71 +1,136 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+﻿@font-face {
+    font-family: Akrobat-Black;
+    src: url(../fonts/Akrobat-Black.woff2);
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    padding: 0;
+    margin: 0;
+    background-color: white;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.container {
+    margin: 0 10% 0 10%;
+    padding: 100px 10px 10px 10px;
+    background-color: #f3f0f0;
+}
+
+header {
+    background-color: #FDEAE8;
+    z-index: 10;
+}
+
+header h1 {
+    margin: 0;
+    padding: 30px 0 20px 0;
+    text-align: center;
+    color: #914360;
+    font-size: 90px;
+    font-family: AlexBrush-Regular, arial;
+}
+
+header nav {
+    text-align: center;
+}
+        /* 
+header nav:nth-child(2) {
+    background-color: #fcd8e5;
+} */
+
+header nav ul {
+    background-color: #914360;
+    padding: 10px 0 10px 0;
+    margin: 0;
+    text-align: center;
+    size: initial;
+    width: 80%;
+    padding: 0 10% 0 10%;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
+}
+
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+header nav ul li {
+    display: inline-block;
+    color: white;
+    font-size: 35px;
+    padding: 5px 5% 5px 5%;
+    font-family: Akrobat-Black, arial;
+}
+
+header nav ul li:hover {
+    color: #d7d2d2;
+    cursor: pointer;
+}
+
+.logo-wrapper {
+    text-align: center;
+}
+
+.logo-wrapper img {
+    margin: 50px 0 30px 0;
+    width: 50%;
+}
+
+.secondHeader {
+    background-color: #ffe6c0;
+}
+
+.secondHeader li {
+    font-size: 20px;
+    color: #914360;
+    padding: 0 5px 0 0;
+}
+
+.secondHeader li:hover {
+    color: #1616167a;
+}
+
+.hidden {
+    display: none;
+}
+
+.show-block {
+    animation: show-block-animation 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse forwards;
+}
+
+.hide-block {
+    animation: hide-block-animation 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse forwards;
+}
+
+@keyframes show-block-animation {
+    0% {
+        transform: scaleY(1);
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: 100% 0%;
+    }
+}
+
+@keyframes hide-block-animation {
+    0% {
+        transform: scaleY(0);
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: 100% 0%;
+    }
 }
