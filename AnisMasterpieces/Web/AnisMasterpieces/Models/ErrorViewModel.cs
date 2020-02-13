@@ -1,6 +1,6 @@
 using System;
 
-namespace AnisMasterpieces.Models
+namespace AnisMasterpieces.Web.Models
 {
     public class ErrorViewModel
     {

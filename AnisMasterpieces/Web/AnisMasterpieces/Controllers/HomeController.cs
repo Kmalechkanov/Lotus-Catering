@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AnisMasterpieces.Models;
+using AnisMasterpieces.Web.Models;
 
-namespace AnisMasterpieces.Controllers
+namespace AnisMasterpieces.Web.Controllers
 {
     public class HomeController : Controller
     {

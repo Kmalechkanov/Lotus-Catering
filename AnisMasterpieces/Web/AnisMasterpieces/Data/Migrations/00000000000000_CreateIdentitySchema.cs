@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AnisMasterpieces.Data.Migrations
+namespace AnisMasterpieces.Web.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

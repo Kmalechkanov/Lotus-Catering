@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AnisMasterpieces.Data
+namespace AnisMasterpieces.Web.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
