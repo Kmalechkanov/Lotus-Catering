@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Web", "Web\AnisMasterpieces\AnisMasterpieces.Web.csproj", "{4820CBD9-1B3F-480E-9241-7AFFDD438FD0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Data", "Data\AnisMasterpieces.Data\AnisMasterpieces.Data.csproj", "{81F6B823-D723-417E-8639-2B3F96EF2670}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D0261007-81BA-4907-AD20-9FB45F53195A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{75A24AA1-C8EA-4CCC-9D0F-3DC0F8FAF86D}"
@@ -15,21 +13,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{15344B8B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{802FF3F4-23FC-4457-8181-A51F3BE2F97A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Services", "Services\AnisMasterpieces.Services\AnisMasterpieces.Services.csproj", "{BB1C75E9-F1FC-4153-B106-E4881EC639A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Services", "Services\AnisMasterpieces.Services\AnisMasterpieces.Services.csproj", "{BB1C75E9-F1FC-4153-B106-E4881EC639A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Web.Infrastructure", "Web\AnisMasterpieces.Web.Infrastructure\AnisMasterpieces.Web.Infrastructure.csproj", "{C16DFB75-C639-4AA1-B52A-601DDD4FBBB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Web.Infrastructure", "Web\AnisMasterpieces.Web.Infrastructure\AnisMasterpieces.Web.Infrastructure.csproj", "{C16DFB75-C639-4AA1-B52A-601DDD4FBBB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Web.ViewModels", "Web\AnisMasterpieces.Web.ViewModels\AnisMasterpieces.Web.ViewModels.csproj", "{4DD7B5AB-4D6A-4F12-8779-450F071868EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Web.ViewModels", "Web\AnisMasterpieces.Web.ViewModels\AnisMasterpieces.Web.ViewModels.csproj", "{4DD7B5AB-4D6A-4F12-8779-450F071868EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Services.Data", "Services\AnisMasterpieces.Services.Data\AnisMasterpieces.Services.Data.csproj", "{0D279CFA-7600-415D-B3CA-CBAEDFA9A5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Services.Data", "Services\AnisMasterpieces.Services.Data\AnisMasterpieces.Services.Data.csproj", "{0D279CFA-7600-415D-B3CA-CBAEDFA9A5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Services.Mapping", "Services\AnisMasterpieces.Services.Mapping\AnisMasterpieces.Services.Mapping.csproj", "{7C2B8C52-3D41-465C-AC87-80F5744909C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Services.Mapping", "Services\AnisMasterpieces.Services.Mapping\AnisMasterpieces.Services.Mapping.csproj", "{7C2B8C52-3D41-465C-AC87-80F5744909C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Services.Messaging", "Services\AnisMasterpieces.Services.Messaging\AnisMasterpieces.Services.Messaging.csproj", "{D2CD0637-76A3-45F3-A58A-F5E2EB1D9440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Services.Messaging", "Services\AnisMasterpieces.Services.Messaging\AnisMasterpieces.Services.Messaging.csproj", "{D2CD0637-76A3-45F3-A58A-F5E2EB1D9440}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Data.Common", "Data\AnisMasterpieces.Data.Common\AnisMasterpieces.Data.Common.csproj", "{F33B17A9-70FC-4DF7-86DB-AFA6351B22FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Data.Common", "Data\AnisMasterpieces.Data.Common\AnisMasterpieces.Data.Common.csproj", "{F33B17A9-70FC-4DF7-86DB-AFA6351B22FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Data.Models", "Data\AnisMasterpieces.Data.Models\AnisMasterpieces.Data.Models.csproj", "{16942D01-DCE7-480D-ACDC-944B5E433B3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Data.Models", "Data\AnisMasterpieces.Data.Models\AnisMasterpieces.Data.Models.csproj", "{16942D01-DCE7-480D-ACDC-944B5E433B3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Data", "Data\AnisMasterpieces.Data\AnisMasterpieces.Data.csproj", "{C8BA337B-B3DC-4C12-9868-7F7931F1E338}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,6 @@ Global
 		{4820CBD9-1B3F-480E-9241-7AFFDD438FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4820CBD9-1B3F-480E-9241-7AFFDD438FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4820CBD9-1B3F-480E-9241-7AFFDD438FD0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81F6B823-D723-417E-8639-2B3F96EF2670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81F6B823-D723-417E-8639-2B3F96EF2670}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81F6B823-D723-417E-8639-2B3F96EF2670}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81F6B823-D723-417E-8639-2B3F96EF2670}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB1C75E9-F1FC-4153-B106-E4881EC639A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB1C75E9-F1FC-4153-B106-E4881EC639A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB1C75E9-F1FC-4153-B106-E4881EC639A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,13 +73,16 @@ Global
 		{16942D01-DCE7-480D-ACDC-944B5E433B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16942D01-DCE7-480D-ACDC-944B5E433B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16942D01-DCE7-480D-ACDC-944B5E433B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8BA337B-B3DC-4C12-9868-7F7931F1E338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8BA337B-B3DC-4C12-9868-7F7931F1E338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8BA337B-B3DC-4C12-9868-7F7931F1E338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8BA337B-B3DC-4C12-9868-7F7931F1E338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4820CBD9-1B3F-480E-9241-7AFFDD438FD0} = {802FF3F4-23FC-4457-8181-A51F3BE2F97A}
-		{81F6B823-D723-417E-8639-2B3F96EF2670} = {D0261007-81BA-4907-AD20-9FB45F53195A}
 		{BB1C75E9-F1FC-4153-B106-E4881EC639A3} = {75A24AA1-C8EA-4CCC-9D0F-3DC0F8FAF86D}
 		{C16DFB75-C639-4AA1-B52A-601DDD4FBBB1} = {802FF3F4-23FC-4457-8181-A51F3BE2F97A}
 		{4DD7B5AB-4D6A-4F12-8779-450F071868EA} = {802FF3F4-23FC-4457-8181-A51F3BE2F97A}
@@ -92,6 +91,7 @@ Global
 		{D2CD0637-76A3-45F3-A58A-F5E2EB1D9440} = {75A24AA1-C8EA-4CCC-9D0F-3DC0F8FAF86D}
 		{F33B17A9-70FC-4DF7-86DB-AFA6351B22FC} = {D0261007-81BA-4907-AD20-9FB45F53195A}
 		{16942D01-DCE7-480D-ACDC-944B5E433B3E} = {D0261007-81BA-4907-AD20-9FB45F53195A}
+		{C8BA337B-B3DC-4C12-9868-7F7931F1E338} = {D0261007-81BA-4907-AD20-9FB45F53195A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCBD93FB-B336-41D0-83F6-8A947F6ECE8B}
