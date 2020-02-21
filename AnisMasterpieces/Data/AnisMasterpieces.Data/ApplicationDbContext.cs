@@ -24,7 +24,7 @@
         {
         }
 
-        public DbSet<Settings> Settings { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         public DbSet<Tab> Tabs { get; set; }
 
