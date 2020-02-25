@@ -17,7 +17,8 @@ a {
 .container {
     margin: 0 10% 0 10%;
     padding: 100px 10px 10px 10px;
-    background-color: #f3f0f0;
+    background-color: #fbf9f9;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 header {
@@ -114,6 +115,75 @@ header nav ul li:hover {
 
 .hide-block {
     animation: hide-block-animation 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse forwards;
+}
+
+.login-page {
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.form {
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #914360;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FDEAE8;
+    font-weight: bold;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.form button:hover, .form button:active, .form button:focus {
+    background: #903557;
+    color: #FDEAE8;
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.form .message a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.form .inline {
+    display: inline;
+    text-align: center;
+    padding: 0 5px;
+    width: auto;
+}
+
+.inline input {
+    width: auto;
 }
 
 @keyframes show-block-animation {
