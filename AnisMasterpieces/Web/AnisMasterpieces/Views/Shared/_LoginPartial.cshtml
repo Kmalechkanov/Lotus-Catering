@@ -1,27 +1,28 @@
 ﻿@using AnisMasterpieces.Data.Models
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
-    @if (this.SignInManager.IsSignedIn(this.User))
+<ul class="right-align secondHeader">
+    @if (!this.SignInManager.IsSignedIn(this.User))
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @this.User.Identity.Name!</a>
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-poo"></i>Вход</a>
         </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Register"><i class="fas fa-poo"></i>Регистрация</a>
         </li>
     }
     else
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <li>
+            <a asp-area="Profile" asp-page="/Cart"><i class="fas fa-shopping-cart"></i>Количка</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <li>
+            <a asp-area="Profile" asp-page="/"><i class="fas fa-user"></i>Профил</a>
+        </li>
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Logout"><i class="fas fa-poo"></i>Изход</a>
         </li>
     }
 </ul>

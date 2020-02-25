@@ -9,6 +9,11 @@ body {
     background-color: white;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .container {
     margin: 0 10% 0 10%;
     padding: 100px 10px 10px 10px;
