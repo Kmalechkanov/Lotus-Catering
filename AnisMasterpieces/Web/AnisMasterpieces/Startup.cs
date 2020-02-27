@@ -20,6 +20,7 @@ namespace AnisMasterpieces.Web
     using AnisMasterpieces.Data.Repositories;
     using AnisMasterpieces.Web.Models;
     using System.Reflection;
+    using AnisMasterpieces.Services.Data.Interfaces;
 
     public class Startup
     {
@@ -60,6 +61,7 @@ namespace AnisMasterpieces.Web
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<ICategoryService, CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

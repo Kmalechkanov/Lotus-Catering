@@ -1,0 +1,16 @@
+﻿@model AnisMasterpieces.Web.ViewModels.NavBar.NavBarViewModel
+@foreach (var category in Model.Categories)
+{
+    <li>
+        <a asp-controller="Category" asp-action="@category">
+            <i class="fas fa-exclamation-triangle"></i>
+            @category
+        </a>
+    </li>
+}
+<li>
+    <i class="fas fa-exclamation-triangle"></i> Галерия
+</li>
+<li>
+    <i class="fas fa-exclamation-triangle"></i> Контакти
+</li>

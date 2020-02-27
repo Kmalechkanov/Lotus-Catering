@@ -1,4 +1,4 @@
-﻿namespace AnisMasterpieces.Services.Data
+﻿namespace AnisMasterpieces.Services.Data.Interfaces
 {
     using System.Collections.Generic;
 

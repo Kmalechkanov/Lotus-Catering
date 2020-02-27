@@ -11,4 +11,8 @@
     <ProjectReference Include="..\..\Services\AnisMasterpieces.Services\AnisMasterpieces.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Category\" />
+  </ItemGroup>
+
 </Project>

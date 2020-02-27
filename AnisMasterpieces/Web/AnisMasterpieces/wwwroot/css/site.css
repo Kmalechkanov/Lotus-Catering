@@ -77,6 +77,10 @@ header nav ul li {
     font-family: Akrobat-Black, arial;
 }
 
+nav a {
+
+}
+
 header nav ul li:hover {
     color: #d7d2d2;
     cursor: pointer;

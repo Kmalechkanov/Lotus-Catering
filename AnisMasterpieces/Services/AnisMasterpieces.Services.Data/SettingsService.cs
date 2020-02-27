@@ -2,6 +2,7 @@
 {
     using AnisMasterpieces.Data.Common.Repositories;
     using AnisMasterpieces.Data.Models;
+    using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Services.Mapping;
     using System.Collections.Generic;
     using System.Linq;

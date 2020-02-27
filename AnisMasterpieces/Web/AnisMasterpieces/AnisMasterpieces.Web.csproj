@@ -24,6 +24,7 @@
     <ProjectReference Include="..\..\Services\AnisMasterpieces.Services.Messaging\AnisMasterpieces.Services.Messaging.csproj" />
     <ProjectReference Include="..\..\Services\AnisMasterpieces.Services\AnisMasterpieces.Services.csproj" />
     <ProjectReference Include="..\AnisMasterpieces.Web.Infrastructure\AnisMasterpieces.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\AnisMasterpieces.Web.ViewComponents\AnisMasterpieces.Web.ViewComponents.csproj" />
     <ProjectReference Include="..\AnisMasterpieces.Web.ViewModels\AnisMasterpieces.Web.ViewModels.csproj" />
   </ItemGroup>
 
