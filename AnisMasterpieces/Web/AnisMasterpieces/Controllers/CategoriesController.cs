@@ -9,12 +9,12 @@
     using System.Threading.Tasks;
     using System.Web.Helpers;
 
-    public class CategoryController : BaseController
+    public class CategoriesController : BaseController
     {
         private readonly ICategoryService categoryService;
         private readonly ITabService tabService;
 
-        public CategoryController(ICategoryService categoryService, ITabService tabService)
+        public CategoriesController(ICategoryService categoryService, ITabService tabService)
         {
             this.categoryService = categoryService;
             this.tabService = tabService;
@@ -30,7 +30,7 @@
             return this.View(categories);
         }
 
-        public IActionResult Specific(string id)
+        public IActionResult Id(string id)
         {
             if (!categoryService.IsValidId(id))
             {

@@ -3,7 +3,7 @@
 @foreach (var category in Model.Categories)
 {
     <li>
-        <a asp-controller="Category" asp-action="Specific" asp-route-id=@category.Id>
+        <a asp-controller="Categories" asp-action="Id" asp-route-id=@category.Id>
             <i class="fas fa-exclamation-triangle"></i>
             @category.Name
         </a>

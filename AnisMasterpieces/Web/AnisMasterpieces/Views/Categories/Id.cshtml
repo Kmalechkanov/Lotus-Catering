@@ -6,8 +6,10 @@
 <h1>@Model.Name</h1>
 @foreach (var tab in Model.Tabs)
 {
-    <h3>@tab.Id</h3>
-    <h4>@tab.Name</h4>
+    <a asp-controller="Tabs" asp-action="Id" asp-route-id=@tab.Id>
+        <i class="fas fa-exclamation-triangle"></i>
+        @tab.Name
+    </a>
 }
 
 
