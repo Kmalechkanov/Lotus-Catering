@@ -17,11 +17,15 @@
         {
             this.deletableEntityRepository = deletableEntityRepository;
         }
+
+        public string GetItemName(string id)
+            => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).Name;
+
         public ICollection<ItemNameViewModel> GetItemsByTabId(string tabId)
-            => this.deletableEntityRepository.All().Where(t => t.TabId == tabId).Select(t => new ItemNameViewModel()
+            => this.deletableEntityRepository.All().Where(i => i.TabId == tabId).Select(i => new ItemNameViewModel()
             {
-                Id = t.Id,
-                Name = t.Name
+                Id = i.Id,
+                Name = i.Name
             }).ToArray();
     }
 }
