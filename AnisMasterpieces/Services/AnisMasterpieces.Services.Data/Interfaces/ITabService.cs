@@ -10,5 +10,7 @@
         IEnumerable<string> GetAll();
         
         IEnumerable<TabIdNameViewModel> GetAllNamesByCategoryId(string categoryId);
+
+        string GetNameById(string id);
     }
 }

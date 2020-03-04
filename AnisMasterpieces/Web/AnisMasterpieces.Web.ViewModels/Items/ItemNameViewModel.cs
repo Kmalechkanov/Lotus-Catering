@@ -1,10 +1,10 @@
-﻿namespace AnisMasterpieces.Web.ViewModels.Category
+﻿namespace AnisMasterpieces.Web.ViewModels.Items
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
 
-    public class CategoryIdAndNameViewModel
+    public class ItemNameViewModel
     {
         public string Id { get; set; }
 

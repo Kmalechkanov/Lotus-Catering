@@ -25,5 +25,8 @@
                 Id = t.Id,
                 Name = t.Name
             }).ToArray();
+
+        public string GetNameById(string id)
+            => this.deletableEntityRepository.All().FirstOrDefault(t => t.Id == id).Name;
     }
 }

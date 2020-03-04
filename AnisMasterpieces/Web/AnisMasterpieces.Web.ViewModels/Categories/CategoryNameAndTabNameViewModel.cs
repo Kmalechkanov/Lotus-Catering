@@ -1,4 +1,4 @@
-﻿namespace AnisMasterpieces.Web.ViewModels.Category
+﻿namespace AnisMasterpieces.Web.ViewModels.Categories
 {
     using AnisMasterpieces.Web.ViewModels.Tabs;
     using System;
