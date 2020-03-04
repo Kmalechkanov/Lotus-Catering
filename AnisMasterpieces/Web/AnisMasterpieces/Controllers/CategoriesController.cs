@@ -1,7 +1,7 @@
 ﻿namespace AnisMasterpieces.Web.Controllers
 {
     using AnisMasterpieces.Services.Data.Interfaces;
-    using AnisMasterpieces.Web.ViewModels.Category;
+    using AnisMasterpieces.Web.ViewModels.Categories;
     using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;

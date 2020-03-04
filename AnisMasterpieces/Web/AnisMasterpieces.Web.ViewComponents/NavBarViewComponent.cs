@@ -1,7 +1,7 @@
 ﻿namespace AnisMasterpieces.Web.ViewComponents
 {
     using AnisMasterpieces.Services.Data.Interfaces;
-    using AnisMasterpieces.Web.ViewModels.Category;
+    using AnisMasterpieces.Web.ViewModels.Categories;
     using AnisMasterpieces.Web.ViewModels.NavBar;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;

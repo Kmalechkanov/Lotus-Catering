@@ -7,7 +7,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using AnisMasterpieces.Services;
-    using AnisMasterpieces.Web.ViewModels.Category;
+    using AnisMasterpieces.Web.ViewModels.Categories;
     using AnisMasterpieces.Web.ViewModels.Tabs;
 
     public class CategoryService : ICategoryService

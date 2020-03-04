@@ -1,8 +1,14 @@
-﻿
+﻿@model AnisMasterpieces.Web.ViewModels.Tabs.TabInfoWithItemsViewModel
 @{
-    ViewData["Title"] = "Id";
+    ViewData["Title"] = Model.Name;
 }
 
-<h1>@Model.Id</h1>
 <h1>@Model.Name</h1>
+@foreach (var item in Model.Items)
+{
+    <a asp-controller="Items" asp-action="Id" asp-route-id=@item.Id>
+        <i class="fas fa-exclamation-triangle"></i>
+        @item.Name
+    </a>
+}
 

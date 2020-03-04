@@ -1,6 +1,6 @@
 ﻿namespace AnisMasterpieces.Web.ViewModels.NavBar
 {
-    using AnisMasterpieces.Web.ViewModels.Category;
+    using AnisMasterpieces.Web.ViewModels.Categories;
     using System;
     using System.Collections.Generic;
     using System.Text;
