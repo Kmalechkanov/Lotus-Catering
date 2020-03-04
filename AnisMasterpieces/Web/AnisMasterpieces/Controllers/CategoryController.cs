@@ -7,14 +7,17 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using System.Web.Helpers;
 
     public class CategoryController : BaseController
     {
         private readonly ICategoryService categoryService;
+        private readonly ITabService tabService;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(ICategoryService categoryService, ITabService tabService)
         {
             this.categoryService = categoryService;
+            this.tabService = tabService;
         }
 
         public IActionResult Index()
@@ -34,7 +37,13 @@
                 return this.Redirect("/");
             }
 
-            return this.View(model: id);
+            var tabs = new CategoryNameAndTabNameViewModel() {
+                Id = id,
+                Name = categoryService.GetNameById(id),
+                Tabs = tabService.GetAllNamesByCategoryId(id).ToArray()
+            };
+
+            return this.View(tabs);
         }
     }
 }

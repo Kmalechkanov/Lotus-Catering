@@ -62,6 +62,7 @@ namespace AnisMasterpieces.Web
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ITabService, TabService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,13 @@
-﻿@{
-    ViewData["Title"] = @Model;
+﻿@model AnisMasterpieces.Web.ViewModels.Category.CategoryNameAndTabNameViewModel
+@{
+    ViewData["Title"] = Model.Name;
 }
 
-<h1>@Model</h1>
+<h1>@Model.Name</h1>
+@foreach (var tab in Model.Tabs)
+{
+    <h3>@tab.Id</h3>
+    <h4>@tab.Name</h4>
+}
 
 

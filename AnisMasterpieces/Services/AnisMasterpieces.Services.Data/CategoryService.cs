@@ -8,6 +8,7 @@
     using System.Linq;
     using AnisMasterpieces.Services;
     using AnisMasterpieces.Web.ViewModels.Category;
+    using AnisMasterpieces.Web.ViewModels.Tabs;
 
     public class CategoryService : ICategoryService
     {
@@ -18,12 +19,6 @@
             this.categoriesRepository = categoriesRepository;
         }
 
-        public IEnumerable<string> CategoryTabs()
-        {
-            var test = this.categoriesRepository.All().SelectMany(c => c.Tabs.Select(x => x.Id)).ToArray();
-            return test;
-        }
-
         public IEnumerable<CategoryIdAndNameViewModel> GetAll()
             => this.categoriesRepository.All().Select(c => new CategoryIdAndNameViewModel() { 
                 Id = c.Id,
@@ -32,5 +27,9 @@
 
         public bool IsValidId(string id)
             => this.categoriesRepository.All().Any(c => c.Id == id);
+
+        public string GetNameById(string id)
+            => this.categoriesRepository.All().FirstOrDefault(c => c.Id == id).Name;
+
     }
 }
