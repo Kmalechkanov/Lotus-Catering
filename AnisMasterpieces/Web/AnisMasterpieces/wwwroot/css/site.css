@@ -121,11 +121,6 @@ header nav ul li:hover {
     animation: hide-block-animation 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse forwards;
 }
 
-.login-page {
-    padding: 8% 0 0;
-    margin: auto;
-}
-
 .form {
     background: #FFFFFF;
     max-width: 360px;
@@ -149,7 +144,7 @@ header nav ul li:hover {
 
 .form button {
     font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
+    text-transform: uppercase;middle
     outline: 0;
     background: #914360;
     width: 100%;

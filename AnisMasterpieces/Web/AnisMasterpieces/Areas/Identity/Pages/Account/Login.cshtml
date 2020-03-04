@@ -5,16 +5,19 @@
     ViewData["Title"] = "Log in";
 }
 
-<div class="login-page">
+<div>
     <section class="form">
-        <form class="register-form" method="post">
+        <form class="login-form" method="post">
+            <hr />
+            <h2>Log into your account!</h2>
+            <hr />
             <div asp-validation-summary="All"></div>
             <div>
-                <input asp-for="Input.Email" placeholder="Email"/>
+                <input asp-for="Input.Email" placeholder="Email" />
                 <span asp-validation-for="Input.Email"></span>
             </div>
             <div>
-                <input asp-for="Input.Password" class="form-control" placeholder="Password"/>
+                <input asp-for="Input.Password" class="form-control" placeholder="Password" />
                 <span asp-validation-for="Input.Password"></span>
             </div>
             <div class="inline">
