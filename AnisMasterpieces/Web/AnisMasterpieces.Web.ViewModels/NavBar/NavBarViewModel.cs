@@ -1,11 +1,12 @@
 ﻿namespace AnisMasterpieces.Web.ViewModels.NavBar
 {
+    using AnisMasterpieces.Web.ViewModels.Category;
     using System;
     using System.Collections.Generic;
     using System.Text;
 
     public class NavBarViewModel
     {
-        public IEnumerable<string> Categories { get; set; }
+        public IEnumerable<CategoryIdAndNameViewModel> Categories { get; set; }
     }
 }

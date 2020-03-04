@@ -1,0 +1,12 @@
+﻿@model AnisMasterpieces.Web.ViewModels.Category.CategoryCollectionOfIdAndNameViewModel
+@{
+    ViewData["Title"] = "Категории";
+}
+
+<h1>Категории</h1>
+
+@foreach (var category in Model.Categories)
+{
+    <h4>@category.Name</h4>
+    <h5>@category.Id</h5>
+}

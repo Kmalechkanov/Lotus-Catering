@@ -2,6 +2,8 @@
 {
     using AnisMasterpieces.Data.Common.Models;
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Category : IAuditInfo, IDeletableEntity
@@ -31,5 +33,8 @@
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
+
+        public ICollection<Tab> Tabs { get; set; }
+            = new HashSet<Tab>();
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -12,7 +12,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\AnisMasterpieces.Data.Common\AnisMasterpieces.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\AnisMasterpieces.Data.Models\AnisMasterpieces.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\AnisMasterpieces.Web.ViewModels\AnisMasterpieces.Web.ViewModels.csproj" />
     <ProjectReference Include="..\AnisMasterpieces.Services.Mapping\AnisMasterpieces.Services.Mapping.csproj" />
+    <ProjectReference Include="..\AnisMasterpieces.Services\AnisMasterpieces.Services.csproj" />
   </ItemGroup>
 
 </Project>

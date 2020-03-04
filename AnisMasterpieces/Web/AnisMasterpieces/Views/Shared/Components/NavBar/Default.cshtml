@@ -1,10 +1,11 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.NavBar.NavBarViewModel
+
 @foreach (var category in Model.Categories)
 {
     <li>
-        <a asp-controller="Category" asp-action="@category">
+        <a asp-controller="Category" asp-action="Specific" asp-route-id=@category.Id>
             <i class="fas fa-exclamation-triangle"></i>
-            @category
+            @category.Name
         </a>
     </li>
 }

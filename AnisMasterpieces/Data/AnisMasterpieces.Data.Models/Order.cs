@@ -1,6 +1,7 @@
 ﻿namespace AnisMasterpieces.Data.Models
 {
     using System;
+    using System.Collections.Generic;
 
     public class Order
     {
@@ -15,5 +16,8 @@
         public DateTime PaymentDate { get; set; }
 
         public DateTime DeliveryDate { get; set; }
+
+        public ICollection<OrderItem> OrderItems { get; set; }
+            = new HashSet<OrderItem>();
     }
 }
