@@ -24,7 +24,7 @@
         <li>
             <form  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))">
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                <a asp-area="Identity" asp-page="/Account/Logout"><i class="fas fa-poo"></i>Изход</a>
+                <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))"><i class="fas fa-poo"></i>Изход</a>
             </form>
         </li>
     }
