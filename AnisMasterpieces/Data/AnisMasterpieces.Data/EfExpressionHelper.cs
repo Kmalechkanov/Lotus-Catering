@@ -1,22 +1,21 @@
 ﻿namespace AnisMasterpieces.Data
 {
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Metadata;
-    using Microsoft.EntityFrameworkCore.Metadata.Internal;
-    using Microsoft.EntityFrameworkCore.Storage;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
 
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata;
+    using Microsoft.EntityFrameworkCore.Metadata.Internal;
+    using Microsoft.EntityFrameworkCore.Storage;
+
     internal static class EfExpressionHelper
     {
         private static readonly Type StringType = typeof(string);
-
         private static readonly MethodInfo ValueBufferGetValueMethod =
-            typeof(ValueBuffer).GetRuntimeProperties()
-            .Single(p => p.GetIndexParameters().Any()).GetMethod;
+            typeof(ValueBuffer).GetRuntimeProperties().Single(p => p.GetIndexParameters().Any()).GetMethod;
 
         private static readonly MethodInfo EfPropertyMethod =
             typeof(EF).GetTypeInfo().GetDeclaredMethod(nameof(Property));
@@ -44,10 +43,10 @@
             ValueBuffer keyValues,
             ParameterExpression entityParameter)
         {
-            var keyValueConstant = Expression.Constant(keyValues);
+            var keyValuesConstant = Expression.Constant(keyValues);
 
             BinaryExpression predicate = null;
-            for (int i = 0; i < keyProperties.Count; i++)
+            for (var i = 0; i < keyProperties.Count; i++)
             {
                 var property = keyProperties[i];
                 var equalsExpression = Expression.Equal(
@@ -56,14 +55,10 @@
                         entityParameter,
                         Expression.Constant(property.Name, StringType)),
                     Expression.Convert(
-                        Expression.Call(
-                            keyValueConstant,
-                            ValueBufferGetValueMethod,
-                            Expression.Constant(i)),
+                        Expression.Call(keyValuesConstant, ValueBufferGetValueMethod, Expression.Constant(i)),
                         property.ClrType));
 
-                predicate = predicate == null ? 
-                    equalsExpression : Expression.AndAlso(predicate, equalsExpression);
+                predicate = predicate == null ? equalsExpression : Expression.AndAlso(predicate, equalsExpression);
             }
 
             return predicate;

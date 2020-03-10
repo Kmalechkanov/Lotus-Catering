@@ -1,15 +1,16 @@
 ﻿namespace AnisMasterpieces.Data.Models
 {
-    using AnisMasterpieces.Data.Common.Models;
-    using Microsoft.AspNetCore.Identity;
     using System;
+
+    using AnisMasterpieces.Data.Common.Models;
+
+    using Microsoft.AspNetCore.Identity;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {
         public ApplicationRole()
             : this(null)
         {
-                
         }
 
         public ApplicationRole(string name)

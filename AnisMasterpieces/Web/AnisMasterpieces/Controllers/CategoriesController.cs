@@ -1,13 +1,14 @@
 ﻿namespace AnisMasterpieces.Web.Controllers
 {
-    using AnisMasterpieces.Services.Data.Interfaces;
-    using AnisMasterpieces.Web.ViewModels.Categories;
-    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using System.Web.Helpers;
+
+    using AnisMasterpieces.Services.Data.Interfaces;
+    using AnisMasterpieces.Web.ViewModels.Categories;
+    using AnisMasterpieces.Web.ViewModels.Tabs;
+    using Microsoft.AspNetCore.Mvc;
 
     public class CategoriesController : BaseController
     {
@@ -24,7 +25,7 @@
         {
             var categories = new CategoryCollectionOfIdAndNameViewModel()
             {
-                Categories = categoryService.GetAll().ToArray()
+                Categories = this.categoryService.GetAll<CategoryIdNameViewModel>().ToArray(),
             };
 
             return this.View(categories);
@@ -32,15 +33,15 @@
 
         public IActionResult Id(string id)
         {
-            if (!categoryService.IsValidId(id))
+            if (!this.categoryService.IsValidId(id))
             {
                 return this.Redirect("/");
             }
 
             var tabs = new CategoryNameAndTabNameViewModel() {
                 Id = id,
-                Name = categoryService.GetNameById(id),
-                Tabs = tabService.GetAllNamesByCategoryId(id).ToArray()
+                Name = this.categoryService.GetNameById(id),
+                Tabs = this.tabService.GetAll<TabIdNameViewModel>(id).ToArray(),
             };
 
             return this.View(tabs);

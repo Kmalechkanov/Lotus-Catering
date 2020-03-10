@@ -7,7 +7,7 @@
 
     public interface IItemService
     {
-        ICollection<ItemNameViewModel> GetItemsByTabId(string tabId);
+        IEnumerable<T> GetItemsByTabId<T>(string tabId);
 
         string GetItemName(string id); 
     }

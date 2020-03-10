@@ -1,25 +1,30 @@
 ﻿namespace AnisMasterpieces.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     using AnisMasterpieces.Data.Common.Repositories;
     using AnisMasterpieces.Data.Models;
     using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Services.Mapping;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public class SettingsService : ISettingsService
     {
-        private readonly IDeletableEntityRepository<Setting> settingRepository;
+        private readonly IDeletableEntityRepository<Setting> settingsRepository;
 
-        public SettingsService(IDeletableEntityRepository<Setting> settingRepository)
+        public SettingsService(IDeletableEntityRepository<Setting> settingsRepository)
         {
-            this.settingRepository = settingRepository;
+            this.settingsRepository = settingsRepository;
         }
-         
-        public IEnumerable<T> GetAll<T>()
-            => this.settingRepository.All().To<T>().ToList();
 
         public int GetCount()
-            => this.settingRepository.All().Count();
+        {
+            return this.settingsRepository.All().Count();
+        }
+
+        public IEnumerable<T> GetAll<T>()
+        {
+            return this.settingsRepository.All().To<T>().ToList();
+        }
     }
 }

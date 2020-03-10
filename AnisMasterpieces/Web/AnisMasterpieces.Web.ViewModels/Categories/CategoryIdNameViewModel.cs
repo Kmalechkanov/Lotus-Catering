@@ -4,7 +4,11 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class CategoryIdAndNameViewModel
+    using AnisMasterpieces.Data.Models;
+    using AnisMasterpieces.Services.Mapping;
+    using AutoMapper;
+
+    public class CategoryIdNameViewModel : IMapFrom<Category>
     {
         public string Id { get; set; }
 

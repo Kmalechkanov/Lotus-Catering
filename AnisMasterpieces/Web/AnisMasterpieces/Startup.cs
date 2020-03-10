@@ -1,26 +1,25 @@
 namespace AnisMasterpieces.Web
 {
+    using System.Reflection;
+
     using AnisMasterpieces.Data;
     using AnisMasterpieces.Data.Common;
+    using AnisMasterpieces.Data.Common.Repositories;
     using AnisMasterpieces.Data.Models;
+    using AnisMasterpieces.Data.Repositories;
     using AnisMasterpieces.Services.Data;
+    using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Services.Mapping;
     using AnisMasterpieces.Services.Messaging;
     using AnisMasterpieces.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Microsoft.AspNetCore.Http;
-    using AnisMasterpieces.Data.Common.Repositories;
-    using AnisMasterpieces.Data.Repositories;
-    using AnisMasterpieces.Web.Models;
-    using System.Reflection;
-    using AnisMasterpieces.Services.Data.Interfaces;
 
     public class Startup
     {

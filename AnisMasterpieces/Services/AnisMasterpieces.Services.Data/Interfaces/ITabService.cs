@@ -9,7 +9,7 @@
     {
         IEnumerable<string> GetAll();
         
-        IEnumerable<TabIdNameViewModel> GetAllNamesByCategoryId(string categoryId);
+        IEnumerable<T> GetAll<T>(string categoryId);
 
         string GetNameById(string id);
     }

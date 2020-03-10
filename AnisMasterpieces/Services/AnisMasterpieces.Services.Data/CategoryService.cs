@@ -19,11 +19,8 @@
             this.categoriesRepository = categoriesRepository;
         }
 
-        public IEnumerable<CategoryIdAndNameViewModel> GetAll()
-            => this.categoriesRepository.All().Select(c => new CategoryIdAndNameViewModel() { 
-                Id = c.Id,
-                Name = c.Name
-            });
+        public IEnumerable<T> GetAll<T>()
+           => this.categoriesRepository.All().To<T>();
 
         public bool IsValidId(string id)
             => this.categoriesRepository.All().Any(c => c.Id == id);

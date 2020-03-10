@@ -2,7 +2,7 @@
 {
     public class EmailAttachment
     {
-        public byte[] Context { get; set; }
+        public byte[] Content { get; set; }
 
         public string FileName { get; set; }
 

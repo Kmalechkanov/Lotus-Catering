@@ -1,12 +1,14 @@
 ﻿namespace AnisMasterpieces.Web.Controllers
 {
-    using AnisMasterpieces.Services.Data.Interfaces;
-    using AnisMasterpieces.Web.ViewModels.Tabs;
-    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using AnisMasterpieces.Services.Data.Interfaces;
+    using AnisMasterpieces.Web.ViewModels.Items;
+    using AnisMasterpieces.Web.ViewModels.Tabs;
+    using Microsoft.AspNetCore.Mvc;
 
     public class TabsController : BaseController
     {
@@ -24,8 +26,8 @@
             var model = new TabInfoWithItemsViewModel()
             {
                 Id = id,
-                Name = tabService.GetNameById(id),
-                Items = itemService.GetItemsByTabId(id)
+                Name = this.tabService.GetNameById(id),
+                Items = this.itemService.GetItemsByTabId<ItemNameViewModel>(id),
             };
 
             return this.View(model);

@@ -4,7 +4,10 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class ItemNameViewModel
+    using AnisMasterpieces.Data.Models;
+    using AnisMasterpieces.Services.Mapping;
+
+    public class ItemNameViewModel : IMapFrom<Item>
     {
         public string Id { get; set; }
 

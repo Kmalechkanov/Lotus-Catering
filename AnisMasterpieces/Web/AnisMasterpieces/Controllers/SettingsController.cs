@@ -1,23 +1,25 @@
 ﻿namespace AnisMasterpieces.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     using AnisMasterpieces.Data.Common.Repositories;
     using AnisMasterpieces.Data.Models;
     using AnisMasterpieces.Services.Data;
     using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Web.ViewModels.Settings;
     using Microsoft.AspNetCore.Mvc;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     public class SettingsController : BaseController
     {
         private readonly ISettingsService settingsService;
-        
+
         private readonly IDeletableEntityRepository<Setting> repository;
 
-        public SettingsController(ISettingsService settingsService, 
+        public SettingsController(
+            ISettingsService settingsService,
             IDeletableEntityRepository<Setting> repository)
         {
             this.settingsService = settingsService;

@@ -1,10 +1,11 @@
 ﻿namespace AnisMasterpieces.Data.Models
 {
-    using AnisMasterpieces.Data.Common.Models;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using AnisMasterpieces.Data.Common.Models;
 
     public class Category : IAuditInfo, IDeletableEntity
     {

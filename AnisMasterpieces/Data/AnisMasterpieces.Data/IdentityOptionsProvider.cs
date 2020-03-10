@@ -1,9 +1,6 @@
 ﻿namespace AnisMasterpieces.Data
 {
     using Microsoft.AspNetCore.Identity;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
 
     public static class IdentityOptionsProvider
     {
@@ -15,6 +12,5 @@
             options.Password.RequireNonAlphanumeric = false;
             options.Password.RequiredLength = 6;
         }
-
     }
 }

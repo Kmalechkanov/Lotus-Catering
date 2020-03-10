@@ -1,14 +1,14 @@
 ﻿namespace AnisMasterpieces.Data
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+
     using AnisMasterpieces.Data.Common.Models;
     using AnisMasterpieces.Data.Models;
+
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -60,9 +60,9 @@
         {
             base.OnModelCreating(builder);
 
-            ConfigureOrderItemRelations(builder);
+            this.ConfigureOrderItemRelations(builder);
 
-            ConfigureUserIdentityRelations(builder);
+            this.ConfigureUserIdentityRelations(builder);
 
             EntityIndexesConfiguration.Configure(builder);
 
@@ -95,28 +95,7 @@
         }
 
         private void ConfigureUserIdentityRelations(ModelBuilder builder)
-        {
-            builder.Entity<ApplicationUser>()
-                .HasMany(e => e.Claims)
-                .WithOne()
-                .HasForeignKey(e => e.UserId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<ApplicationUser>()
-                .HasMany(e => e.Logins)
-                .WithOne()
-                .HasForeignKey(e => e.UserId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<ApplicationUser>()
-                .HasMany(e => e.Roles)
-                .WithOne()
-                .HasForeignKey(e => e.UserId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-        }
+             => builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)
             where T : class, IDeletableEntity

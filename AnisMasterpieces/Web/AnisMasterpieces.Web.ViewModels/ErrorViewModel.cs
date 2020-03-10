@@ -1,4 +1,4 @@
-﻿namespace AnisMasterpieces.Web.Models
+﻿namespace AnisMasterpieces.Web.ViewModels
 {
     public class ErrorViewModel
     {

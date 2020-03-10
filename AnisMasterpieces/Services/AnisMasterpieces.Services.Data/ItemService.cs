@@ -8,6 +8,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using AnisMasterpieces.Services.Mapping;
 
     public class ItemService : IItemService
     {
@@ -21,11 +22,7 @@
         public string GetItemName(string id)
             => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).Name;
 
-        public ICollection<ItemNameViewModel> GetItemsByTabId(string tabId)
-            => this.deletableEntityRepository.All().Where(i => i.TabId == tabId).Select(i => new ItemNameViewModel()
-            {
-                Id = i.Id,
-                Name = i.Name
-            }).ToArray();
+        public IEnumerable<T> GetItemsByTabId<T>(string tabId)
+            => this.deletableEntityRepository.All().Where(i => i.TabId == tabId).To<T>();
     }
 }

@@ -1,9 +1,11 @@
 ﻿namespace AnisMasterpieces.Data
 {
-    using AnisMasterpieces.Data.Common;
-    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Threading.Tasks;
+
+    using AnisMasterpieces.Data.Common;
+
+    using Microsoft.EntityFrameworkCore;
 
     public class DbQueryRunner : IDbQueryRunner
     {
@@ -12,7 +14,12 @@
             this.Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public ApplicationDbContext Context { get; }
+        public ApplicationDbContext Context { get; set; }
+
+        public Task RunQueryAsync(string query, params object[] parameters)
+        {
+            return this.Context.Database.ExecuteSqlRawAsync(query, parameters);
+        }
 
         public void Dispose()
         {
@@ -20,17 +27,12 @@
             GC.SuppressFinalize(this);
         }
 
-        public virtual void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (disposing)
             {
                 this.Context?.Dispose();
             }
-        }
-
-        public Task RunQueryAsync(string query, params object[] parameters)
-        {
-            return this.Context.Database.ExecuteSqlRawAsync(query, parameters);
         }
     }
 }

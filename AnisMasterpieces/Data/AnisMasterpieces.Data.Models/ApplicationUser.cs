@@ -1,9 +1,11 @@
 ﻿namespace AnisMasterpieces.Data.Models
 {
-    using AnisMasterpieces.Data.Common.Models;
-    using Microsoft.AspNetCore.Identity;
     using System;
     using System.Collections.Generic;
+
+    using AnisMasterpieces.Data.Common.Models;
+
+    using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -15,10 +17,12 @@
             this.Logins = new HashSet<IdentityUserLogin<string>>();
         }
 
+        // Audit info
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
+        // Deletable entity
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }

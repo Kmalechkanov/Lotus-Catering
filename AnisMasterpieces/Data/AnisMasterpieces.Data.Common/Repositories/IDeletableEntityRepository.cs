@@ -1,8 +1,9 @@
 ﻿namespace AnisMasterpieces.Data.Common.Repositories
 {
-    using AnisMasterpieces.Data.Common.Models;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using AnisMasterpieces.Data.Common.Models;
 
     public interface IDeletableEntityRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IDeletableEntity

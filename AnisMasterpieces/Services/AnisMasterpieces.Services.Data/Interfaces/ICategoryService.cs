@@ -6,7 +6,7 @@
 
     public interface ICategoryService
     {
-        IEnumerable<CategoryIdAndNameViewModel> GetAll();
+        IEnumerable<T> GetAll<T>();
 
         string GetNameById(string id);
 

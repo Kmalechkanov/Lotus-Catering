@@ -1,10 +1,9 @@
 ﻿namespace AnisMasterpieces.Web.ViewModels.Tabs
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using AnisMasterpieces.Data.Models;
+    using AnisMasterpieces.Services.Mapping;
 
-    public class TabIdNameViewModel
+    public class TabIdNameViewModel : IMapFrom<Tab>
     {
         public string Id { get; set; }
 

@@ -7,6 +7,8 @@
     using System.Linq;
     using System.Text;
     using AnisMasterpieces.Web.ViewModels.Tabs;
+    using AnisMasterpieces.Services.Mapping;
+
     public class TabService : ITabService
     {
         private readonly IDeletableEntityRepository<Tab> deletableEntityRepository;
@@ -19,12 +21,8 @@
         public IEnumerable<string> GetAll()
             => this.deletableEntityRepository.All().Select(t => t.Id).ToArray();
 
-        public IEnumerable<TabIdNameViewModel> GetAllNamesByCategoryId(string categoryId)
-            =>this.deletableEntityRepository.All().Where(t=>t.CategoryId == categoryId).Select(t => new TabIdNameViewModel()
-            {
-                Id = t.Id,
-                Name = t.Name
-            }).ToArray();
+        public IEnumerable<T> GetAll<T>(string categoryId)
+            => this.deletableEntityRepository.All().Where(t => t.CategoryId == categoryId).To<T>();
 
         public string GetNameById(string id)
             => this.deletableEntityRepository.All().FirstOrDefault(t => t.Id == id).Name;
