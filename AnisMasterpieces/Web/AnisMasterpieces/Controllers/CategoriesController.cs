@@ -38,10 +38,11 @@
                 return this.Redirect("/");
             }
 
-            var tabs = new CategoryNameAndTabNameViewModel() {
+            var tabs = new CategoryNameAndTabNameViewModel()
+            {
                 Id = id,
                 Name = this.categoryService.GetNameById(id),
-                Tabs = this.tabService.GetAll<TabIdNameViewModel>(id).ToArray(),
+                Tabs = this.tabService.GetAll<TabBasicViewModel>(id).ToArray(),
             };
 
             return this.View(tabs);

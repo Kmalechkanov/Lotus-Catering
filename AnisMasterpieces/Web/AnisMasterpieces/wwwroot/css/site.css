@@ -7,6 +7,7 @@ body {
     padding: 0;
     margin: 0;
     background-color: white;
+    word-wrap: break-word;
 }
 
 a {
@@ -16,7 +17,7 @@ a {
 
 .container {
     margin: 0 10% 0 10%;
-    padding: 100px 10px 10px 10px;
+    padding: 10px;
     background-color: #fbf9f9;
     box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -121,6 +122,24 @@ header nav ul li:hover {
     animation: hide-block-animation 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse forwards;
 }
 
+.inline-form {
+    background: #FFFFFF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    width: 250px;
+    height: 260px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.inline-form img {
+    width: 90%;
+    height: 50%;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
 .form {
     background: #FFFFFF;
     max-width: 360px;
@@ -206,5 +225,22 @@ header nav ul li:hover {
     100% {
         transform: scaleY(1);
         transform-origin: 100% 0%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        margin: 0;
+    }
+
+    .inline-form {
+        width: 120px;
+        height: 140px;
+        margin: 5px; 
+        padding: 2px;
+    }
+
+    header nav ul {
+        padding: 0 10%;
     }
 }

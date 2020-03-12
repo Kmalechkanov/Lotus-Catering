@@ -12,6 +12,6 @@
 
         public string Name { get; set; }
 
-        public IEnumerable<ItemNameViewModel> Items { get; set; }
+        public IEnumerable<ItemBasicViewModel> Items { get; set; }
     }
 }

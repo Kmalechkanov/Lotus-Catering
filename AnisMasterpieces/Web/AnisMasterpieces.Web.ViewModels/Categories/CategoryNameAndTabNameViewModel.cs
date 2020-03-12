@@ -13,6 +13,6 @@
 
         public string Name { get; set; }
 
-        public IEnumerable<TabIdNameViewModel> Tabs { get; set; }
+        public IEnumerable<TabBasicViewModel> Tabs { get; set; }
     }
 }

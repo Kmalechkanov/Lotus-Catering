@@ -26,7 +26,7 @@
                 return this.Redirect("/");
             }
 
-            var model = new ItemNameViewModel()
+            var model = new ItemBasicViewModel()
             {
                 Id = id,
                 Name = itemName,

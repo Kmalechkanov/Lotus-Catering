@@ -3,13 +3,16 @@
     ViewData["Title"] = Model.Name;
 }
 
-<h1>@Model.Name</h1>
-@foreach (var tab in Model.Tabs)
-{
-    <a asp-controller="Tabs" asp-action="Id" asp-route-id=@tab.Id>
-        <i class="fas fa-exclamation-triangle"></i>
-        @tab.Name
-    </a>
-}
-
-
+<div class="center-align">
+    <h1>@Model.Name</h1>
+    @foreach (var tab in Model.Tabs)
+    {
+        <a asp-controller="Tabs" asp-action="Id" asp-route-id=@tab.Id>
+            <div class="inline-form">
+                <h2>@tab.Name</h2>
+                <img src="@tab.ImageUrl">
+                <p>@tab.Description</p>
+            </div>
+        </a>
+    }
+</div>
