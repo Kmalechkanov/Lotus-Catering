@@ -19,10 +19,13 @@
             this.deletableEntityRepository = deletableEntityRepository;
         }
 
-        public string GetItemName(string id)
+        public T GetById<T>(string id)
+            => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).CastTo<T>();
+
+        public string GetName(string id)
             => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).Name;
 
-        public IEnumerable<T> GetItemsByTabId<T>(string tabId)
+        public IEnumerable<T> GetAllByTabId<T>(string tabId)
             => this.deletableEntityRepository.All().Where(i => i.TabId == tabId).To<T>();
     }
 }

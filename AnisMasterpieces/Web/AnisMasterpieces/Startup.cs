@@ -1,4 +1,4 @@
-namespace AnisMasterpieces.Web
+﻿namespace AnisMasterpieces.Web
 {
     using System.Reflection;
 
@@ -39,7 +39,6 @@ namespace AnisMasterpieces.Web
             services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
                .AddRoles<ApplicationRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
-
             services.Configure<CookiePolicyOptions>(
                 options =>
                 {
@@ -70,8 +69,7 @@ namespace AnisMasterpieces.Web
         {
             AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
 
-            //Todo// Seed data on application startup
-
+            // Todo// Seed data on application startup
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

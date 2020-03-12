@@ -20,19 +20,14 @@
 
         public IActionResult Id(string id)
         {
-            var itemName = this.itemService.GetItemName(id);
-            if (itemName == null)
+            if (this.itemService.GetName(id) == null)
             {
                 return this.Redirect("/");
             }
 
-            var model = new ItemBasicViewModel()
-            {
-                Id = id,
-                Name = itemName,
-            };
+            var item = this.itemService.GetById<ItemBasicViewModel>(id);
 
-            return this.View(model);
+            return this.View(item);
         }
     }
 }

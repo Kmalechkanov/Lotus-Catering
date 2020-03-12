@@ -7,8 +7,10 @@
 
     public interface IItemService
     {
-        IEnumerable<T> GetItemsByTabId<T>(string tabId);
+        IEnumerable<T> GetAllByTabId<T>(string tabId);
 
-        string GetItemName(string id); 
+        string GetName(string id);
+
+        T GetById<T>(string itemId);
     }
 }

@@ -1,4 +1,4 @@
-namespace AnisMasterpieces.Web
+﻿namespace AnisMasterpieces.Web
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

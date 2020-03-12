@@ -27,7 +27,7 @@
             {
                 Id = id,
                 Name = this.tabService.GetNameById(id),
-                Items = this.itemService.GetItemsByTabId<ItemBasicViewModel>(id),
+                Items = this.itemService.GetAllByTabId<ItemBasicViewModel>(id),
             };
 
             return this.View(model);
