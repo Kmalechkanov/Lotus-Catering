@@ -32,42 +32,24 @@
             return source.ProjectTo<TDestination>(AutoMapperConfig.MapperInstance.ConfigurationProvider, parameters);
         }
 
-        public static T CastTo<T>(this object value)
+        public static TDestination CastTo<TDestination>(this object value)
         {
-            var destinationType = typeof(T);
+            var Instance = Activator.CreateInstance<TDestination>();
+            var properties = Instance.GetType().GetProperties();
 
-            var result = default(T);
-
-            var underlyingType = Nullable.GetUnderlyingType(destinationType) ?? destinationType;
-
-            try
+            foreach (var property in properties)
             {
-                if (underlyingType == typeof(Guid))
+                try
                 {
-                    if (value is string)
-                    {
-                        value = new Guid(value as string);
-                    }
-
-                    if (value is byte[])
-                    {
-                        value = new Guid(value as byte[]);
-                    }
-
-                    return result = (T)Convert.ChangeType(value, underlyingType);
+                    property.SetValue(Instance, value.GetType().GetProperty(property.Name).GetValue(value, null), null);
                 }
-
-                return result = (T)Convert.ChangeType(value, underlyingType);
+                catch
+                {
+                    property.SetValue(Instance, value.GetType().GetProperty(property.Name).GetValue(value, null).ToString(), null);
+                }
             }
-            catch (Exception ex)
-            {
-                var traceMessage = ex is InvalidCastException || ex is FormatException || ex is OverflowException
-                                        ? string.Format("The given value {0} could not be cast as Type {1}.", value, underlyingType.FullName)
-                                        : ex.Message;
 
-                result = default(T);
-                return result;
-            }
+            return Instance;
         }
     }
 }
