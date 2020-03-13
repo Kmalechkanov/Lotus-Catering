@@ -1,9 +1,10 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.NavBar.NavBarViewModel
+@using AnisMasterpieces.Services;
 
 @foreach (var category in Model.Categories)
 {
     <li>
-        <a asp-area=@null asp-controller="Categories" asp-action="Id" asp-route-id=@category.Id>
+        <a asp-area=@null asp-controller="Categories" asp-action="Id" asp-route-id=@category.Id asp-route-title="@ConvertService.CyrillicToLatin(category.Name, true)">
             <i class="fas fa-exclamation-triangle"></i>
             @category.Name
         </a>

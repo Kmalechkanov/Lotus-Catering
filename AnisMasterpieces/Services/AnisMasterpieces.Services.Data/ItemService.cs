@@ -1,14 +1,15 @@
 ﻿namespace AnisMasterpieces.Services.Data
 {
-    using AnisMasterpieces.Data.Common.Repositories;
-    using AnisMasterpieces.Data.Models;
-    using AnisMasterpieces.Services.Data.Interfaces;
-    using AnisMasterpieces.Web.ViewModels.Items;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
+    using AnisMasterpieces.Data.Common.Repositories;
+    using AnisMasterpieces.Data.Models;
+    using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Services.Mapping;
+    using AnisMasterpieces.Web.ViewModels.Items;
 
     public class ItemService : IItemService
     {
@@ -20,7 +21,7 @@
         }
 
         public T GetById<T>(string id)
-            => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).CastTo<T>();
+            => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).То<T>();
 
         public string GetName(string id)
             => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).Name;

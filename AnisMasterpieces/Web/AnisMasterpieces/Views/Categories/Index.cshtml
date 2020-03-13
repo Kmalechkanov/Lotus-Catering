@@ -1,4 +1,5 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.Categories.CategoryCollectionOfIdAndNameViewModel
+@using AnisMasterpieces.Services;
 @{
     ViewData["Title"] = "Категории";
 }
@@ -7,6 +8,7 @@
 
 @foreach (var category in Model.Categories)
 {
-    <h4>@category.Name</h4>
-    <h5>@category.Id</h5>
+    <a asp-controller="Categories" asp-action="Id" asp-route-id=@category.Id asp-route-title="@ConvertService.CyrillicToLatin(category.Name, true)">
+        <h4>@category.Name</h4>
+    </a>
 }

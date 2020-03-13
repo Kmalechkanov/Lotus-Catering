@@ -25,7 +25,7 @@
                 return this.Redirect("/");
             }
 
-            var item = this.itemService.GetById<ItemBasicViewModel>(id);
+            var item = this.itemService.GetById<ItemViewModel>(id);
 
             return this.View(item);
         }

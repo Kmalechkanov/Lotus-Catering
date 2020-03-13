@@ -32,24 +32,24 @@
             return source.ProjectTo<TDestination>(AutoMapperConfig.MapperInstance.ConfigurationProvider, parameters);
         }
 
-        public static TDestination CastTo<TDestination>(this object value)
+        public static TDestination То<TDestination>(this object value)
         {
-            var Instance = Activator.CreateInstance<TDestination>();
-            var properties = Instance.GetType().GetProperties();
+            var instance = Activator.CreateInstance<TDestination>();
+            var properties = instance.GetType().GetProperties();
 
             foreach (var property in properties)
             {
                 try
                 {
-                    property.SetValue(Instance, value.GetType().GetProperty(property.Name).GetValue(value, null), null);
+                    property.SetValue(instance, value.GetType().GetProperty(property.Name).GetValue(value, null), null);
                 }
                 catch
                 {
-                    property.SetValue(Instance, value.GetType().GetProperty(property.Name).GetValue(value, null).ToString(), null);
+                    property.SetValue(instance, value.GetType().GetProperty(property.Name).GetValue(value, null).ToString(), null);
                 }
             }
 
-            return Instance;
+            return instance;
         }
     }
 }

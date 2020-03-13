@@ -1,4 +1,5 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.Tabs.TabInfoWithItemsViewModel
+@using AnisMasterpieces.Services;
 @{
     ViewData["Title"] = Model.Name;
 }
@@ -7,11 +8,10 @@
     <h1>@Model.Name</h1>
     @foreach (var tab in Model.Items)
     {
-        <a asp-controller="Items" asp-action="Id" asp-route-id=@tab.Id>
+        <a asp-controller="Items" asp-action="Id" asp-route-id=@tab.Id asp-route-title="@ConvertService.CyrillicToLatin(tab.Name, true)">
             <div class="inline-form">
                 <h2>@tab.Name</h2>
                 <img src="@tab.ImageUrl">
-                <p>@tab.Description</p>
                 <p>Цена: @tab.Price лв.</p>
             </div>
         </a>
