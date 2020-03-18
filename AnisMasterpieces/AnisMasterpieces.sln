@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Web.ViewCo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{77734CF4-7E1A-4FE6-B5C5-9E3BBF97760B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Common", "AnisMasterpieces.Common\AnisMasterpieces.Common.csproj", "{6A244FD7-B96F-4A24-9474-A3148F1A10C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Common", "Common\AnisMasterpieces.Common\AnisMasterpieces.Common.csproj", "{6A244FD7-B96F-4A24-9474-A3148F1A10C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
