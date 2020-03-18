@@ -96,6 +96,9 @@
         {
             builder.Entity<OrderItem>()
                 .HasKey(oi => new { oi.ItemId, oi.OrderId });
+
+            builder.Entity<CartItem>()
+                .HasKey(ci => new { ci.ItemId, ci.CartId });
         }
 
         private void ConfigureUserIdentityRelations(ModelBuilder builder)
