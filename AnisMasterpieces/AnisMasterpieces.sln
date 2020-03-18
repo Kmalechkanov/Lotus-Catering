@@ -31,7 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Data.Model
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Data", "Data\AnisMasterpieces.Data\AnisMasterpieces.Data.csproj", "{C8BA337B-B3DC-4C12-9868-7F7931F1E338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Web.ViewComponents", "Web\AnisMasterpieces.Web.ViewComponents\AnisMasterpieces.Web.ViewComponents.csproj", "{8D51405D-608F-4546-8C48-586FFF86B434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnisMasterpieces.Web.ViewComponents", "Web\AnisMasterpieces.Web.ViewComponents\AnisMasterpieces.Web.ViewComponents.csproj", "{8D51405D-608F-4546-8C48-586FFF86B434}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{77734CF4-7E1A-4FE6-B5C5-9E3BBF97760B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnisMasterpieces.Common", "AnisMasterpieces.Common\AnisMasterpieces.Common.csproj", "{6A244FD7-B96F-4A24-9474-A3148F1A10C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,10 @@ Global
 		{8D51405D-608F-4546-8C48-586FFF86B434}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D51405D-608F-4546-8C48-586FFF86B434}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D51405D-608F-4546-8C48-586FFF86B434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A244FD7-B96F-4A24-9474-A3148F1A10C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A244FD7-B96F-4A24-9474-A3148F1A10C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A244FD7-B96F-4A24-9474-A3148F1A10C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A244FD7-B96F-4A24-9474-A3148F1A10C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +107,7 @@ Global
 		{16942D01-DCE7-480D-ACDC-944B5E433B3E} = {D0261007-81BA-4907-AD20-9FB45F53195A}
 		{C8BA337B-B3DC-4C12-9868-7F7931F1E338} = {D0261007-81BA-4907-AD20-9FB45F53195A}
 		{8D51405D-608F-4546-8C48-586FFF86B434} = {802FF3F4-23FC-4457-8181-A51F3BE2F97A}
+		{6A244FD7-B96F-4A24-9474-A3148F1A10C3} = {77734CF4-7E1A-4FE6-B5C5-9E3BBF97760B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCBD93FB-B336-41D0-83F6-8A947F6ECE8B}

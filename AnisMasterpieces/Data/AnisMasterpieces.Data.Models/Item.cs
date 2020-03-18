@@ -11,6 +11,8 @@
         public Item()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.OrderItems = new HashSet<OrderItem>();
+            this.CartItems = new HashSet<CartItem>();
         }
 
         public string Id { get; set; }
@@ -34,16 +36,17 @@
         [Required]
         [MaxLength(150)]
         public string Description { get; set; }
-        
+
         public bool IsDeleted { get; set; }
-        
+
         public DateTime? DeletedOn { get; set; }
-        
+
         public DateTime CreatedOn { get; set; }
-        
+
         public DateTime? ModifiedOn { get; set; }
 
+        public ICollection<CartItem> CartItems { get; set; }
+
         public ICollection<OrderItem> OrderItems { get; set; }
-            = new HashSet<OrderItem>();
     }
 }

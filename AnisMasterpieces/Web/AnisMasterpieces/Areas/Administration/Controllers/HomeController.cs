@@ -10,15 +10,12 @@
     using Microsoft.AspNetCore.Mvc;
 
     [Area("Administration")]
-    public class TestController : BaseController
+    public class HomeController : BaseController
     {
-        public TestController()
-        {
-        }
-
         [Authorize(Roles = "Administrator")]
         public IActionResult Index()
         {
+
             return this.View();
         }
     }

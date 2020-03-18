@@ -22,6 +22,7 @@
 
         public DateTime? ModifiedOn { get; set; }
 
+        public Cart Cart { get; set; }
         // Deletable entity
         public bool IsDeleted { get; set; }
 
