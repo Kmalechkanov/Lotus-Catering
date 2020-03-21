@@ -29,10 +29,17 @@
         <label asp-for="ImageUrl">Снимка</label>
         <input asp-for="ImageUrl">
     </div>
-    <div>
-        <label asp-for="TabId">Подкатегория</label>
-        <select asp-for="TabId" asp-items="tabs"></select> 
-    </div>
+    @if (Model.TabId == null)
+    {
+        <div>
+            <label asp-for="TabId">Подкатегория</label>
+            <select asp-for="TabId" asp-items="tabs"></select>
+        </div>
+    }
+    else
+    {
+        <input asp-for="TabId" hidden>
+    }
     <div>
         <button class="form-button" type="submit">Добави</button>
     </div>

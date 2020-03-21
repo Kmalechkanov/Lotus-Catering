@@ -16,4 +16,14 @@
             </div>
         </a>
     }
+    @if (this.User.IsInRole("Administrator"))
+    {
+        <a asp-area="Administration" asp-controller="Items" asp-action="Add" asp-route-id="@Model.Id">
+            <div class="inline-form">   
+                <h2>Добави</h2>
+                <img src="~/images/plus.png">
+                <p>Нов продукт</p>
+            </div>
+        </a>
+    }
 </div>

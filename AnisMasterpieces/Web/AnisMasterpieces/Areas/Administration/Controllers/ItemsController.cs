@@ -31,11 +31,12 @@
         }
 
         [Authorize(Roles = "Administrator")]
-        public IActionResult Add()
+        public IActionResult Add(string id)
         {
             var tabs = this.tabService.GetAll<TabIdNameViewModel>();
             var viewModel = new ItemAddInputModel
             {
+                TabId = id,
                 Tabs = tabs,
             };
 
