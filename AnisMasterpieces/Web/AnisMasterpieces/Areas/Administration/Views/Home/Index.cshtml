@@ -1,10 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Administration";
+    ViewData["Title"] = "Admin Panel";
 }
 
 <h1>Главен Панел</h1>
-<a href="#" class="full-size-box max-width">Добави категория</a>
-<a href="#" class="full-size-box max-width">Добави подкатегория</a>
-<a href="#" class="full-size-box max-width">Добави продукт</a>
-
-
+<a asp-controller="Categories" asp-action="Index" asp-area="Administration" class="full-size-box max-width disabled">Категория панел</a>
+<a asp-controller="Tabs" asp-action="Index" asp-area="Administration" class="full-size-box max-width">Подкатегория панел</a>
+<a asp-controller="Items" asp-action="Index" asp-area="Administration" class="full-size-box max-width">Продукт панел</a>

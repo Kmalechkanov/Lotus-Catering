@@ -1,9 +1,9 @@
-﻿namespace AnisMasterpieces.Web.ViewModels.Categories
+﻿namespace AnisMasterpieces.Web.ViewModels.Tabs
 {
     using AnisMasterpieces.Data.Models;
     using AnisMasterpieces.Services.Mapping;
 
-    public class CategoryIdNameViewModel : IMapFrom<Category>
+    public class TabIdNameViewModel : IMapFrom<Tab>
     {
         public string Id { get; set; }
 

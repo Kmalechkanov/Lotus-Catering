@@ -58,6 +58,12 @@ header nav ul {
     padding: 0 10% 0 10%;
 }
 
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: #ff1800ab;
+}
+
 .center-align {
     text-align: center;
 }
@@ -79,7 +85,7 @@ header nav ul {
 }
 
 .max-width {
-    width: 100%;
+    width: -webkit-fill-available;
 }
 
 .fixed-header {
@@ -159,6 +165,23 @@ header nav ul li:hover {
     object-fit: cover;
 }
 
+.admin-form {
+    padding: 45px;
+    text-align: center;
+}
+
+.admin-form span {
+    display: block;
+    background: #e62929;
+    width: 100%;
+    margin: 10px 0;
+    font: white;
+}
+
+.admin-form label {
+    display: block;
+}
+
 .form {
     background: #FFFFFF;
     max-width: 360px;
@@ -168,15 +191,25 @@ header nav ul li:hover {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-input {
+textarea {
+    resize: none;
+    overflow: hidden;
+    min-height: 80px;
+    max-height: 300px;
+    outline: none;
+}
+
+input, textarea, select {
     font-family: "Roboto", sans-serif;
     outline: 0;
+    border: none;
     background: #f2f2f2;
-    border: 0;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .form input {
@@ -191,7 +224,7 @@ input {
     font-size: 14px;
 }
 
-.form button {
+.form button, .form-button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -205,9 +238,10 @@ input {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+    margin: 20px 0;
 }
 
-.form button:hover, .form button:active, .form button:focus {
+.form button:hover, .form button:active, .form button:focus, .form-button:hover, .form-button:active, .form-button:focus {
     background: #903557;
     color: #FDEAE8;
 }
@@ -247,7 +281,7 @@ input {
 }
 
 .full-size-box {
-    background: #ffffff;
+    background: #fdeae8;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     padding: 10px;

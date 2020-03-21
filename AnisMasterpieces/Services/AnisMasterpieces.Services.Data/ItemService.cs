@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-
+    using System.Threading.Tasks;
     using AnisMasterpieces.Data.Common.Repositories;
     using AnisMasterpieces.Data.Models;
     using AnisMasterpieces.Services.Data.Interfaces;
@@ -13,20 +13,36 @@
 
     public class ItemService : IItemService
     {
-        private readonly IDeletableEntityRepository<Item> deletableEntityRepository;
+        private readonly IDeletableEntityRepository<Item> itemRepository;
 
-        public ItemService(IDeletableEntityRepository<Item> deletableEntityRepository)
+        public ItemService(IDeletableEntityRepository<Item> itemRepository)
         {
-            this.deletableEntityRepository = deletableEntityRepository;
+            this.itemRepository = itemRepository;
         }
 
         public T GetById<T>(string id)
-            => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).То<T>();
+            => this.itemRepository.All().FirstOrDefault(i => i.Id == id).То<T>();
 
         public string GetName(string id)
-            => this.deletableEntityRepository.All().FirstOrDefault(i => i.Id == id).Name;
+            => this.itemRepository.All().FirstOrDefault(i => i.Id == id).Name;
 
         public IEnumerable<T> GetAllByTabId<T>(string tabId)
-            => this.deletableEntityRepository.All().Where(i => i.TabId == tabId).To<T>();
+            => this.itemRepository.All().Where(i => i.TabId == tabId).To<T>();
+
+        public async Task<string> AddAsync(string name, string imageUrl, decimal price, string tabId, string description)
+        {
+            var item = new Item
+            {
+                Name = name,
+                ImageUrl = imageUrl,
+                Price = price,
+                TabId = tabId,
+                Description = description,
+            };
+
+            await this.itemRepository.AddAsync(item);
+            await this.itemRepository.SaveChangesAsync();
+            return item.Id;
+        }
     }
 }
