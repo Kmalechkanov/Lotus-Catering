@@ -1,5 +1,6 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.Tabs.TabInfoWithItemsViewModel
 @using AnisMasterpieces.Services;
+@using AnisMasterpieces.Common;
 @{
     ViewData["Title"] = Model.Name;
 }
@@ -11,7 +12,7 @@
         <a asp-controller="Items" asp-action="Id" asp-route-id=@tab.Id asp-route-title="@ConvertService.CyrillicToLatin(tab.Name, true)">
             <div class="inline-form">
                 <h2>@tab.Name</h2>
-                <img src="@tab.ImageUrl">
+                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, tab.ImageUrl)">
                 <p>Цена: @tab.Price лв.</p>
             </div>
         </a>

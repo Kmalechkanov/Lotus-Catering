@@ -5,10 +5,14 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using AnisMasterpieces.Common;
+    using AnisMasterpieces.Services;
     using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Web.Controllers;
     using AnisMasterpieces.Web.ViewModels.Items;
     using AnisMasterpieces.Web.ViewModels.Tabs;
+    using CloudinaryDotNet;
+    using CloudinaryDotNet.Actions;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
@@ -17,11 +21,13 @@
     {
         private readonly IItemService itemService;
         private readonly ITabService tabService;
+        private readonly Cloudinary cloudinary;
 
-        public ItemsController(IItemService itemService, ITabService tabService)
+        public ItemsController(IItemService itemService, ITabService tabService, Cloudinary cloudinary)
         {
             this.itemService = itemService;
             this.tabService = tabService;
+            this.cloudinary = cloudinary;
         }
 
         [Authorize(Roles = "Administrator")]
@@ -54,7 +60,9 @@
                 return this.View(input);
             }
 
-            var itemId = await this.itemService.AddAsync(input.Name, input.ImageUrl, input.Price, input.TabId, input.Description);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, input.Image, "Items");
+
+            var itemId = await this.itemService.AddAsync(input.Name, imageName, input.Price, input.TabId, input.Description);
             return this.RedirectToAction("Id", "Items", new { area = string.Empty, Id = itemId });
         }
     }

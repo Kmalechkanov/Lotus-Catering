@@ -9,5 +9,9 @@
         public const string SystemName = "AnisMasterpieces";
 
         public const string AdministratorRoleName = "Administrator";
+
+        public const string CloudUrl = "https://res.cloudinary.com/anismasterpieces/image/upload/v1584887787/";
+
+        public const string CloudUrlTemplate = "https://res.cloudinary.com/anismasterpieces/image/upload/v1584887787/{0}";
     }
 }

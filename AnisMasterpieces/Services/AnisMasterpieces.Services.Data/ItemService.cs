@@ -23,6 +23,9 @@
         public T GetById<T>(string id)
             => this.itemRepository.All().FirstOrDefault(i => i.Id == id).То<T>();
 
+        public bool IsValidId(string id)
+            => this.itemRepository.All().Any(i => i.Id == id);
+
         public string GetName(string id)
             => this.itemRepository.All().FirstOrDefault(i => i.Id == id).Name;
 

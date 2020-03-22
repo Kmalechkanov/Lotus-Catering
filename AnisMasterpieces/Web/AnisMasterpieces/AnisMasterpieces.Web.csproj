@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.10.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -31,6 +32,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\AnisMasterpieces.Common\AnisMasterpieces.Common.csproj" />
     <ProjectReference Include="..\..\Data\AnisMasterpieces.Data\AnisMasterpieces.Data.csproj" />
     <ProjectReference Include="..\..\Data\AnisMasterpieces.Data.Common\AnisMasterpieces.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\AnisMasterpieces.Data.Models\AnisMasterpieces.Data.Models.csproj" />

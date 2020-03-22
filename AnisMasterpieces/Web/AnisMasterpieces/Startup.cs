@@ -12,7 +12,7 @@
     using AnisMasterpieces.Services.Mapping;
     using AnisMasterpieces.Services.Messaging;
     using AnisMasterpieces.Web.ViewModels;
-
+    using CloudinaryDotNet;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -55,6 +55,13 @@
 
             services.AddSingleton(this.configuration);
 
+            Account account = new Account(
+                this.configuration["ImageCloud:ApiName"],
+                this.configuration["ImageCloud:ApiKey"],
+                this.configuration["ImageCloud:ApiSecret"]);
+
+            Cloudinary cloudinary = new Cloudinary(account);
+
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
@@ -66,6 +73,8 @@
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ITabService, TabService>();
             services.AddTransient<IItemService, ItemService>();
+
+            services.AddSingleton<Cloudinary>(cloudinary);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

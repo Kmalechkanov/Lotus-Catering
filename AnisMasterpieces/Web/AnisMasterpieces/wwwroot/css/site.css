@@ -289,6 +289,12 @@ input, textarea, select {
     display: inline-block;
 }
 
+.notification {
+    background-color: #ffe6c0;
+    font-weight: bold;
+    color: #914360;
+}
+
 @keyframes show-block-animation {
     0% {
         transform: scaleY(1);
@@ -319,8 +325,8 @@ input, textarea, select {
     }
 
     .inline-form {
-        width: 120px;
-        height: 140px;
+        /*width: 120px;
+        height: 140px;*/
         margin: 5px; 
         padding: 2px;
     }

@@ -11,6 +11,8 @@
     {
         IEnumerable<T> GetAllByTabId<T>(string tabId);
 
+        bool IsValidId(string id);
+
         string GetName(string id);
 
         T GetById<T>(string itemId);

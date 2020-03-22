@@ -1,10 +1,11 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.Items.ItemViewModel
+@using AnisMasterpieces.Common;
 @{
     ViewData["Title"] = Model.Name;
 }
 
 <div class="oneline-flex center-align">
-    <img src="@Model.ImageUrl" class="half-width oval-img">
+    <img src="@string.Format(GlobalConstants.CloudUrlTemplate, Model.ImageUrl)" class="half-width oval-img">
     <div class="half-width some-padding">
         <div class="oneline-flex">
             <h1 class="more-than-half-width some-padding">@Model.Name</h1>
@@ -14,7 +15,7 @@
                 <a href="#">Y</a>
             </div>
         </div>
-        <div class>
+        <div>
             <h3>Добави в количката:</h3>
 
             <h3>Цена на една хапка: @Model.Price лв.</h3>

@@ -20,7 +20,7 @@
 
         public IActionResult Id(string id)
         {
-            if (this.itemService.GetName(id) == null)
+            if (!this.itemService.IsValidId(id))
             {
                 return this.Redirect("/");
             }

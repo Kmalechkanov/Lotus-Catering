@@ -4,15 +4,11 @@
     var tabs = Model.Tabs.Select(x => new SelectListItem(x.Name, x.Id));
 }
 
-<form method="post" class="admin-form" asp-action="Add">
+<form method="post" class="admin-form" asp-action="Add" enctype="multipart/form-data">
     <hr />
     <h1>Добави продукт</h1>
     <hr />
-        <span asp-validation-for="Name"></span>
-        <span asp-validation-for="Price"></span>
-        <span asp-validation-for="Description"></span>
-        <span asp-validation-for="ImageUrl"></span>
-        <span asp-validation-for="TabId"></span>
+    <div asp-validation-summary="All" class="notification"></div>
     <div>
         <label asp-for="Name">Име на продукт</label>
         <input asp-for="Name">
@@ -26,8 +22,8 @@
         <textarea asp-for="Description" oninput="auto_grow(this)"></textarea>
     </div>
     <div>
-        <label asp-for="ImageUrl">Снимка</label>
-        <input asp-for="ImageUrl">
+        <label asp-for="Image">Снимка</label>
+        <input asp-for="Image" accept="image/*" required>
     </div>
     @if (Model.TabId == null)
     {

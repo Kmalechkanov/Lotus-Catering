@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using AnisMasterpieces.Web.ViewModels.Tabs;
+    using Microsoft.AspNetCore.Http;
 
     public class ItemAddInputModel
     {
@@ -11,16 +12,15 @@
         [MaxLength(30, ErrorMessage = "Името трябва да е по-малко от 30 символа!")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Трябва да въведете снимка!")]
-        [MaxLength(150)]
-        public string ImageUrl { get; set; }
+        // [FileExtensions(Extensions = "jpg,png,gif,jpeg,bmp,svg", ErrorMessage = "Невалидна снимка!")] //TODO FIX FILE EXTATNSIONS
+        [DataType(DataType.Upload)]
+        public IFormFile Image { get; set; }
 
         [Required(ErrorMessage = "Трябва да въведете цена!")]
         [Range(0.01, 10000, ErrorMessage = "Цената трябва да е между 0.01 и 10000!")]
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = "Трябва да изберете подкатегория!")]
-        [Display(Name = "Tab")]
         public string TabId { get; set; }
 
         [Required(ErrorMessage = "Трябва да веведете описание!")]
