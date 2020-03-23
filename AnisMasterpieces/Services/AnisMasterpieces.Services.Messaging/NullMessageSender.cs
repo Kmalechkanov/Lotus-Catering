@@ -6,11 +6,11 @@
     public class NullMessageSender : IEmailSender
     {
         public Task SendEmailAsync(
-            string from, 
-            string fromName, 
-            string to, 
+            string from,
+            string fromName,
+            string to,
             string subject,
-            string htmlContent, 
+            string htmlContent,
             IEnumerable<EmailAttachment> attachment = null)
         {
             return Task.CompletedTask;

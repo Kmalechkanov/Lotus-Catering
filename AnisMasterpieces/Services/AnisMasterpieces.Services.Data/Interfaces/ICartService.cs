@@ -2,12 +2,8 @@
 {
     using System.Collections.Generic;
 
-    public interface ICategoryService
+    public interface ICartService
     {
         IEnumerable<T> GetAll<T>();
-
-        string GetNameById(string id);
-
-        bool IsValidId(string id);
     }
 }

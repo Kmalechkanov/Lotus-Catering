@@ -11,7 +11,6 @@
             string to,
             string subject,
             string htmlContent,
-            IEnumerable<EmailAttachment> attachment = null
-            );
+            IEnumerable<EmailAttachment> attachment = null);
     }
 }

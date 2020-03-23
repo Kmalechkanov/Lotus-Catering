@@ -1,4 +1,4 @@
-﻿namespace AnisMasterpieces.Web.Areas.Administration.Controllers
+﻿namespace AnisMasterpieces.Web.Areas.Profile.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -9,17 +9,10 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    [Area("Administration")]
-    public class TabsController : BaseController
+    public class CartController : BaseController
     {
-        [Authorize(Roles = "Administrator")]
+        [Authorize]
         public IActionResult Index()
-        {
-            return this.View();
-        }
-
-        [Authorize(Roles = "Administrator")]
-        public IActionResult Add()
         {
             return this.View();
         }

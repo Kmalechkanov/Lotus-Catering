@@ -1,0 +1,34 @@
+﻿@using AnisMasterpieces.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="right-align secondHeader show-block">
+    @if (!this.SignInManager.IsSignedIn(this.User))
+    {
+        <partial name="_LoginPartial" />
+    }
+    else
+    {
+
+        @if (this.User.IsInRole("Administrator"))
+        {
+            <li>
+                <a asp-controller="Home" asp-action="Index" asp-area="Administration"><i class="fas fa-users-cog"></i>Администрация</a>
+            </li>
+        }
+
+        <li>
+            <a asp-area="Identity" asp-controller="Profile" asp-action="Index"><i class="fas fa-shopping-cart"></i>Количка</a>
+        </li>
+        <li>
+            <a asp-area="Identity" asp-controller="Profile" asp-action="Index"><i class="fas fa-user"></i>Профил</a>
+        </li>
+        <li>
+            <a asp-area="Identity" asp-controller="Account" asp-action="Manage"><i class="fas fa-user"></i>Настройки</a>
+        </li>
+        <li>
+            <a asp-area="Identity" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))"><i class="fas fa-poo"></i>Изход</a>
+        </li>
+    }
+</ul>

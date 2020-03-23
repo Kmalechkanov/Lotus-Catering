@@ -47,7 +47,8 @@
                     options.MinimumSameSitePolicy = SameSiteMode.None;
                 });
 
-            services.AddControllersWithViews(options => {
+            services.AddControllersWithViews(options =>
+            {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
 
@@ -61,8 +62,10 @@
                 this.configuration["ImageCloud:ApiSecret"]);
 
             Cloudinary cloudinary = new Cloudinary(account);
+            services.AddSingleton<Cloudinary>(cloudinary);
 
             // Data repositories
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
@@ -73,8 +76,7 @@
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ITabService, TabService>();
             services.AddTransient<IItemService, ItemService>();
-
-            services.AddSingleton<Cloudinary>(cloudinary);
+            services.AddTransient<ICartService, CartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

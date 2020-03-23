@@ -8,16 +8,16 @@
 
     using AnisMasterpieces.Data.Common.Models;
     using AnisMasterpieces.Data.Models;
-
+    using AnisMasterpieces.Services.Data.Interfaces;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =
-            typeof(ApplicationDbContext).GetMethod(
-                nameof(SetIsDeletedQueryFilter),
-                BindingFlags.NonPublic | BindingFlags.Static);
+           typeof(ApplicationDbContext).GetMethod(
+               nameof(SetIsDeletedQueryFilter),
+               BindingFlags.NonPublic | BindingFlags.Static);
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -73,7 +73,7 @@
             var entityTypes = builder.Model.GetEntityTypes().ToList();
 
             var deletableEntityTypes = entityTypes
-                .Where(et => et.ClrType != null && 
+                .Where(et => et.ClrType != null &&
                     typeof(IDeletableEntity).IsAssignableFrom(et.ClrType));
 
             foreach (var deletableEntityType in deletableEntityTypes)
@@ -92,6 +92,12 @@
             }
         }
 
+        private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)
+           where T : class, IDeletableEntity
+        {
+            builder.Entity<T>().HasQueryFilter(e => !e.IsDeleted);
+        }
+
         private void ConfigureOrderItemRelations(ModelBuilder builder)
         {
             builder.Entity<OrderItem>()
@@ -103,12 +109,6 @@
 
         private void ConfigureUserIdentityRelations(ModelBuilder builder)
              => builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
-
-        private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)
-            where T : class, IDeletableEntity
-        {
-            builder.Entity<T>().HasQueryFilter(e => !e.IsDeleted);
-        }
 
         private void ApplyAuditInfoRoles()
         {
