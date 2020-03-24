@@ -2,9 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
     using System.Text;
 
-    public class Cart
+    using AnisMasterpieces.Data.Common.Models;
+
+    public class Cart : IAuditInfo
     {
         public Cart()
         {
@@ -18,6 +22,10 @@
 
         public ApplicationUser User { get; set; }
 
-        public ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
     }
 }

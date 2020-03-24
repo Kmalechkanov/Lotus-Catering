@@ -16,6 +16,7 @@
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Orders = new HashSet<Order>();
+            this.Cart = new Cart();
         }
 
         public DateTime CreatedOn { get; set; }

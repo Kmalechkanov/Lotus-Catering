@@ -1,0 +1,15 @@
+﻿@model AnisMasterpieces.Web.ViewModels.Cart.CartWithItemsViewModel
+@{
+    ViewData["Title"] = "Количка";
+}
+
+<h1>Количка</h1>
+@foreach (var item in Model.Items)
+{
+<div>
+    <p>@item.Id</p>
+    <p>@item.Name</p>
+    <p>@item.ImageUrl</p>
+    <p>@item.Price</p>
+</div>
+}

@@ -2,8 +2,10 @@
 {
     using System.Collections.Generic;
 
+    using AnisMasterpieces.Web.ViewModels.Items;
+
     public interface ICartService
     {
-        IEnumerable<T> GetAll<T>();
+        IEnumerable<T> GetCartItemsByUserId<T>(string userId);
     }
 }
