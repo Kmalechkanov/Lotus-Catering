@@ -99,7 +99,7 @@ header nav ul li {
     display: inline-block;
     color: white;
     font-size: 35px;
-    padding: 5px 5% 5px 5%;
+    margin: 5px 5% 5px 5%;
     font-family: Akrobat-Black, arial;
 }
 
@@ -128,7 +128,7 @@ header nav ul li:hover {
 .secondHeader li {
     font-size: 20px;
     color: #914360;
-    padding: 0 5px 0 0;
+    margin: 0 5px 0 0;
 }
 
 .secondHeader li:hover {

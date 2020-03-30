@@ -1,11 +1,4 @@
 ﻿let lastScroll = 0;
-//let isMobile = false;
-
-//$(window).load(function (e) {
-//    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-//        isMobile = true;
-//    }
-//});
 
 $(window).scroll(function (e) {
     if ($(window).width() <= 600) {
