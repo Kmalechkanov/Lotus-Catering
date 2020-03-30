@@ -8,6 +8,10 @@
 //});
 
 $(window).scroll(function (e) {
+    if ($(window).width() <= 600) {
+        return;
+    }
+
     if ($(window).scrollTop() >= $(".logo-wrapper").height()) {
         $("header nav").addClass("fixed-header");
         $(".container").css("padding-top", $(".fixed-header").height()+10);
