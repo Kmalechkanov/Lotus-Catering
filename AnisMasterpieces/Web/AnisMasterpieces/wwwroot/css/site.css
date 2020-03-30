@@ -61,7 +61,7 @@ header nav ul {
 a.disabled {
     pointer-events: none;
     cursor: default;
-    background-color: #ff1800ab;
+    background-color: #ff5f5f91;
 }
 
 .center-align {
@@ -148,19 +148,16 @@ header nav ul li:hover {
 }
 
 .inline-form {
-    background: #FFFFFF;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
     width: 250px;
-    height: 260px;
-    padding: 10px;
     margin: 10px;
     display: inline-block;
+    padding-bottom: 20px;
 }
 
 .inline-form img {
-    width: 90%;
-    height: 50%;
+    width: 250px;
+    height: 250px;
     border-radius: 3px;
     object-fit: cover;
 }
@@ -281,12 +278,13 @@ input, textarea, select {
 }
 
 .full-size-box {
-    background: #fdeae8;
+    background: #ffe6c0;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     padding: 10px;
     margin: 10px;
     display: inline-block;
+    color: #914360;
 }
 
 .notification {
