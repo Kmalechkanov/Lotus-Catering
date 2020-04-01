@@ -24,6 +24,8 @@
 
         DbSet<Category> Categories { get; set; }
 
+        int SaveChanges();
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

@@ -6,9 +6,9 @@
 
 <div class="oneline-flex center-align">
     <img src="@string.Format(GlobalConstants.CloudUrlTemplate, Model.ImageUrl)" class="half-width oval-img">
-    <div class="half-width some-padding">
+    <div class="half-width some-padding left-align">
         <div class="oneline-flex">
-            <h1 class="more-than-half-width some-padding">@Model.Name</h1>
+            <h1 class="more-than-half-width some-padding center-align">@Model.Name</h1>
             <div class="less-than-half-width some-padding">
                 <p>Сподели:</p>
                 <a href="#">F</a>
@@ -17,17 +17,17 @@
         </div>
         <div>
             <h3>Добави в количката:</h3>
-
             <h3>Цена на една хапка: @Model.Price лв.</h3>
-            <h3>Общо цена: --,-- лв.</h3>
             <div>
-                <form asp-controller="Cart" asp-action="Id" asp-route-id=@User.Identity.Name>
+                <form asp-area="Profile" asp-controller="Cart" asp-action="AddItem">
+                    <input type="text" name="itemId" value="@Model.Id" hidden/>
                     <label for="count">Брой хапки:<br /></label>
-                    <input type="number" id="count" name="count" min="10" max="300" step="10" value="10">
-                    <input type="submit" value="Добави" />
+                    <input type="number" id="count" name="Quantity" min="10" max="300" step="10" value="10">
+                    <input type="submit" value="Добави"/>
                 </form>
             </div>
+            <h3>Описание:</h3>
+            <p>@Model.Description</p>
         </div>
     </div>
 </div>
-<h3>@Model.Description</h3>

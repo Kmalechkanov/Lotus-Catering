@@ -39,9 +39,13 @@
 
             foreach (var property in properties)
             {
+                var valueNames = value.GetType().GetProperties().Select(p => p.Name).ToArray();
                 try
                 {
-                    property.SetValue(instance, value.GetType().GetProperty(property.Name).GetValue(value, null), null);
+                    if (valueNames.Contains(property.Name))
+                    {
+                        property.SetValue(instance, value.GetType().GetProperty(property.Name).GetValue(value, null), null);
+                    }
                 }
                 catch
                 {

@@ -1,8 +1,7 @@
 ﻿namespace AnisMasterpieces.Data.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using System.ComponentModel.DataAnnotations;
 
     public class CartItem
     {
@@ -13,5 +12,8 @@
         public string ItemId { get; set; }
 
         public Item Item { get; set; }
+
+        [Range(10, 200)]
+        public int Quantity { get; set; }
     }
 }

@@ -1,9 +1,5 @@
 ﻿namespace AnisMasterpieces.Web.ViewModels.Items
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     using AnisMasterpieces.Data.Models;
     using AnisMasterpieces.Services.Mapping;
 
@@ -16,5 +12,7 @@
         public string ImageUrl { get; set; }
 
         public string Price { get; set; }
+
+        public int Quantity { get; set; }
     }
 }

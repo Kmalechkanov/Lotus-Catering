@@ -12,7 +12,6 @@
         [MaxLength(30, ErrorMessage = "Името трябва да е по-малко от 30 символа!")]
         public string Name { get; set; }
 
-        // [FileExtensions(Extensions = "jpg,png,gif,jpeg,bmp,svg", ErrorMessage = "Невалидна снимка!")] //TODO FIX FILE EXTATNSIONS
         [DataType(DataType.Upload)]
         public IFormFile Image { get; set; }
 

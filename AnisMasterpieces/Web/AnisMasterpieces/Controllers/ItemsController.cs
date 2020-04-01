@@ -1,9 +1,6 @@
 ﻿namespace AnisMasterpieces.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+    using System.Security.Claims;
 
     using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Web.ViewModels.Items;
@@ -12,10 +9,12 @@
     public class ItemsController : BaseController
     {
         private readonly IItemService itemService;
+        private readonly ICartService cartService;
 
-        public ItemsController(IItemService itemService)
+        public ItemsController(IItemService itemService, ICartService cartService)
         {
             this.itemService = itemService;
+            this.cartService = cartService;
         }
 
         public IActionResult Id(string id)
@@ -26,6 +25,9 @@
             }
 
             var item = this.itemService.GetById<ItemViewModel>(id);
+
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            item.UserCartId = this.cartService.GetId(userId);
 
             return this.View(item);
         }
