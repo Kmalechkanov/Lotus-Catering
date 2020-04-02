@@ -19,6 +19,6 @@
 
         public string Description { get; set; }
 
-        public string UserCartId { get; set; }
+        // public string UserCartId { get; set; }
     }
 }

@@ -26,8 +26,12 @@
 
             var item = this.itemService.GetById<ItemViewModel>(id);
 
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            item.UserCartId = this.cartService.GetId(userId);
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            //if (userId != null)
+            //{
+            //    item.UserCartId = this.cartService.GetId(userId);
+            //}
 
             return this.View(item);
         }
