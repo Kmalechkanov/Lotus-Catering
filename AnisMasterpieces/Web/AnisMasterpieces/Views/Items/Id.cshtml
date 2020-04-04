@@ -1,5 +1,8 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.Items.ItemViewModel
 @using AnisMasterpieces.Common;
+@using AnisMasterpieces.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = Model.Name;
 }
@@ -24,8 +27,10 @@
                     <input type="text" name="itemId" value="@Model.Id" hidden />
                     <label for="count">Брой хапки:<br /></label>
                     <input type="number" id="count" name="Quantity" min="10" max="300" step="10" value="10">
-                    <input type="submit" value="Добави" class="AddToCart" />
-                    <button class="AddToCart">Submit</button>
+                    @if (this.SignInManager.IsSignedIn(this.User))
+                    {
+                        <input type="submit" value="Добави" class="AddToCart" />
+                    }
                 </form>
             </div>
             <h3>Описание:</h3>
