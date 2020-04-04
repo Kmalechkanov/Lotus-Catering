@@ -27,3 +27,18 @@ function auto_grow(element) {
     element.style.height = "5px";
     element.style.height = (element.scrollHeight) + "px";
 }
+
+function AddAlert(status, message, alertType) {
+    let template = document.querySelector("#alerts > div").cloneNode(true);
+    template.style.display = "block"; 
+    template.classList.add(alertType);
+    template.children[1].textContent = status;
+    template.children[2].textContent = message;
+    document.getElementById("alerts").appendChild(template);
+}
+
+function RemoveAlert(elem) {
+    var div = elem.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function () { div.style.display = "none"; }, 600);
+}

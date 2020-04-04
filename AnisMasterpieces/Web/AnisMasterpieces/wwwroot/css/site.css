@@ -297,6 +297,52 @@ input, textarea, select {
     color: #914360;
 }
 
+#alerts {
+    position: absolute;
+    width: 80%;
+    padding: 0 10%;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #914360;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+}
+
+.alert.error {
+    background-color: #f44336;
+}
+
+.alert.success {
+    background-color: #4CAF50;
+}
+
+.alert.info {
+    background-color: #2196F3;
+}
+
+.alert.warning {
+    background-color: #ff9800;
+}
+
+.closeAlertBtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closeAlertBtn:hover {
+    color: black;
+}
+
 @keyframes show-block-animation {
     0% {
         transform: scaleY(1);

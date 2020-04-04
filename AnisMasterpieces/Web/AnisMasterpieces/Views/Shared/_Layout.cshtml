@@ -22,6 +22,14 @@
         </nav>
     </header>
 
+    <container id="alerts">
+        <div style="display: none" class="alert">
+            <span class="closeAlertBtn" onclick="RemoveAlert(this)">&times;</span>
+            <strong>Example Status!</strong>
+            <span> Example Message</span>
+        </div>
+    </container>
+
     <div class="container">
         <main role="main">
             @RenderBody()
@@ -35,6 +43,7 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
