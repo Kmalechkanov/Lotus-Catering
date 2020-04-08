@@ -64,5 +64,39 @@
 
             return this.Json(new { succeed, inputModel });
         }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Update(CartUpdateInputModel inputModel)
+        {
+            for (int i = 0; i < inputModel.ItemId.Count; i++)
+            {
+
+            }
+
+            foreach (var item in inputModel.ItemId)
+            {
+
+            }
+
+            return this.RedirectToAction("Cart", "Index", new { area = "Profile" });
+        }
+
+        //[HttpPost]
+        //[Authorize(Roles = "Administrator")]
+        //public async Task<IActionResult> Add(ItemAddInputModel input)
+        //{
+        //    if (!this.ModelState.IsValid)
+        //    {
+        //        var tabs = this.tabService.GetAll<TabIdNameViewModel>();
+        //        input.Tabs = tabs;
+        //        return this.View(input);
+        //    }
+
+        //    var imageName = await CloudinaryService.UploadAsync(this.cloudinary, input.Image, "Items");
+
+        //    var itemId = await this.itemService.AddAsync(input.Name, imageName, input.Price, input.TabId, input.Description);
+        //    return this.RedirectToAction("Id", "Items", new { area = string.Empty, Id = itemId });
+        //}
     }
 }

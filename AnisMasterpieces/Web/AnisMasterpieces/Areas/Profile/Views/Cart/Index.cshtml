@@ -1,16 +1,58 @@
 ﻿@model AnisMasterpieces.Web.ViewModels.Cart.CartWithItemsViewModel
+@using AnisMasterpieces.Common;
+@using AnisMasterpieces.Services;
 @{
     ViewData["Title"] = "Количка";
 }
 
 <h1>Количка</h1>
-@foreach (var item in Model.Items)
-{
-<div>
-    <p>@item.Id</p>
-    <p>@item.Name</p>
-    <p>@item.ImageUrl</p>
-    <p>@item.Price</p>
-    <p>@item.Quantity</p>
-</div>
+<form method="post" class="admin-form" asp-action="Update" enctype="multipart/form-data">
+    <table class="table-items">
+        <tr>
+            <th>Снимка</th>
+            <th>Име</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Общо цена</th>
+            <th>Линкове</th>
+        </tr>
+        @foreach (var item in Model.Items)
+        {
+            <tr data-href="/Home/Items/Id/I">
+                <td><img src="@string.Format(GlobalConstants.CloudUrlTemplate, item.ImageUrl)" class="img-icon"></td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>
+                    <div class="input-group">
+                        <input type="text" name="IsRemoved" value="@item.Id" hidden />
+                        <input type="button" value="-" class="button-minus" data-field="Quantity" />
+                        <input type="number" id="Quantity" name="Quantity" min="10" max="300" step="10" value="@item.Quantity" class="quantity-field">
+                        <input type="button" value="+" class="button-plus" data-field="Quantity">
+                    </div>
+                </td>
+                <td>@(double.Parse(item.Price) * item.Quantity)</td>
+                <td>
+                    <input type="text" name="ItemId" value="@item.Id" hidden />
+                    <input type="text" name="IsRemoved" value="false" hidden/>
+                    <a asp-area="Home" asp-controller="Items" asp-action="Id" asp-route-id=@item.Id asp-route-title="@ConvertService.CyrillicToLatin(item.Name, true)" alt="Прегледай"><i class="fas fa-search"></i> Преглед</a>
+                    <button class="check-id"><i class="fas fa-trash-alt"></i> Премахни</button>
+                </td>
+            </tr>
+        }
+    </table>
+    <button class="form-button" type="submit">Запази</button>
+</form>
+
+@section Scripts {
+    <script src="~/js/numberInput.js"></script>
+    <script>
+        $('.check-id').on('click', function (e) {
+            e.preventDefault();
+            let parent = $(this).parent();
+            let child = parent.children()[1];
+            child.setAttribute('value','true');
+            console.log(parent.parent()[0]);
+            parent.parent()[0].setAttribute('hidden','');
+        });
+    </script>
 }
