@@ -41,7 +41,21 @@
                     </td>
                 </tr>
         }
-            </tbody>
+        <tr>
+            <th colspan="3">
+                Общо Количество ---&gt;
+            </th>
+            <th>
+                @Model.Items.Sum(x => x.Quantity) хапки.
+            </th>
+            <th>
+                @Model.Items.Sum(x => x.Quantity * double.Parse(x.Price)) лв.
+            </th>
+            <th>
+                &lt;--- Общо Цена
+            </th>
+        </tr>
+        </tbody>
     </table>
     <button class="form-button" type="submit">Запази</button>
 </form>

@@ -26,7 +26,11 @@
                 <form method="post" data-ajax="true" data-ajax-url="/Profile/Cart/AddItem" data-ajax-method="post" data-ajax-complete="AddtoCart">
                     <input type="text" name="itemId" value="@Model.Id" hidden />
                     <label for="count">Брой хапки:<br /></label>
-                    <input type="number" id="count" name="Quantity" min="10" max="300" step="10" value="10">
+                    <div class="input-group">
+                        <input type="button" value="-" class="button-minus" data-field="Quantity" />
+                        <input type="number" id="Quantity" name="Quantity" min="10" max="300" step="10" value="10" class="quantity-field">
+                        <input type="button" value="+" class="button-plus" data-field="Quantity">
+                    </div>
                     @if (this.SignInManager.IsSignedIn(this.User))
                     {
                         <input type="submit" value="Добави" class="AddToCart" />
@@ -54,4 +58,5 @@
             }
         };
     </script>
+    <script src="~/js/numberInput.js"></script>
 }
