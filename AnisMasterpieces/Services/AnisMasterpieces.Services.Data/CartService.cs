@@ -35,7 +35,7 @@
             return success == 1;
         }
 
-        public async Task<bool> EditItemAsync(string cartId, string itemId, int quantity)
+        public async Task<bool> AddItemQuantityAsync(string cartId, string itemId, int quantity)
         {
             var cartItem = this.context.CartItems.FirstOrDefault(ci => ci.CartId == cartId && ci.ItemId == itemId);
             var sum = cartItem.Quantity + quantity;
@@ -46,6 +46,21 @@
             }
 
             cartItem.Quantity = sum;
+            var success = await this.context.SaveChangesAsync(default);
+
+            return success == 1;
+        }
+
+        public async Task<bool> EditItemAsync(string cartId, string itemId, int quantity)
+        {
+            var cartItem = this.context.CartItems.FirstOrDefault(ci => ci.CartId == cartId && ci.ItemId == itemId);
+
+            if (quantity < 10 || quantity > 300)
+            {
+                return false;
+            }
+
+            cartItem.Quantity = quantity;
             var success = await this.context.SaveChangesAsync(default);
 
             return success == 1;
@@ -69,5 +84,19 @@
 
         public bool IsItemInCart(string cartId, string itemId)
             => this.context.CartItems.Any(ci => ci.CartId == cartId && ci.ItemId == itemId);
+
+        public async Task<bool> RemoveItemAsync(string cartId, string itemId)
+        {
+            var cartItem = new CartItem
+            {
+                CartId = cartId,
+                ItemId = itemId,
+            };
+
+            this.context.CartItems.Remove(cartItem);
+            var success = await this.context.SaveChangesAsync(default);
+
+            return success == 1;
+        }
     }
 }

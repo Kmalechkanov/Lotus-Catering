@@ -13,7 +13,7 @@ $(window).scroll(function (e) {
         $(".container").css("padding-top", 10);
     }
 
-    if ($(window).scrollTop() <= lastScroll || $(window).scrollTop() <= $(".logo-wrapper").height()) {
+    if ($(window).scrollTop() <= lastScroll-1 || $(window).scrollTop() <= $(".logo-wrapper").height()) {
         $(".secondHeader").addClass("show-block");
         $(".secondHeader").removeClass("hide-block");
     } else {

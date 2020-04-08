@@ -28,6 +28,7 @@ a {
 
 header {
     background-color: #FDEAE8;
+    position: relative;
     z-index: 10;
 }
 
@@ -140,7 +141,7 @@ header nav ul li:hover {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .show-block {
@@ -275,8 +276,8 @@ input, textarea, select {
     object-fit: cover;
 }
 
-.auto-width {
-    width: auto;
+.fit-width {
+    width: fit-content;
 }
 
 input[type="button"] {
@@ -289,6 +290,9 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.input-grop {
+    display: block;
+}
 
 .input-group input[type='button'] {
     background-color: #eeeeee;
@@ -328,6 +332,7 @@ input[type="number"] {
 }
 
 .table-items {
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -337,7 +342,6 @@ input[type="number"] {
 
 .table-items td {
     text-align: center;
-    width: 20%;
 }
 
 .table-items td:first-child {
@@ -455,13 +459,52 @@ input[type="number"] {
 }
 
 @media only screen and (max-width: 600px) {
+    .table-items table,
+    .table-items thead,
+    .table-items tbody,
+    .table-items th,
+    .table-items td,
+    .table-items tr {
+        display: block;
+    }
+ 
+    .table-items thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .table-items tr {
+        border: 1px solid #ccc;
+    }
+
+    .table-items td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+    }
+
+    .table-items td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+ 
+	.table-items td:before { content: attr(data-title); }
+
     .container {
         margin: 0;
     }
 
     .inline-form {
-        /*width: 120px;
-        height: 140px;*/
         margin: 5px; 
         padding: 2px;
     }

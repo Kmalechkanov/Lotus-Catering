@@ -6,39 +6,42 @@
 }
 
 <h1>Количка</h1>
-<form method="post" class="admin-form" asp-action="Update" enctype="multipart/form-data">
+<form method="post" asp-action="Update" enctype="multipart/form-data">
     <table class="table-items">
-        <tr>
-            <th>Снимка</th>
-            <th>Име</th>
-            <th>Цена</th>
-            <th>Количество</th>
-            <th>Общо цена</th>
-            <th>Линкове</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Снимка</th>
+                <th>Име</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Общо цена</th>
+                <th>Линкове</th>
+            </tr>
+        </thead>
+            <tbody>
         @foreach (var item in Model.Items)
         {
-            <tr data-href="/Home/Items/Id/I">
-                <td><img src="@string.Format(GlobalConstants.CloudUrlTemplate, item.ImageUrl)" class="img-icon"></td>
-                <td>@item.Name</td>
-                <td>@item.Price</td>
-                <td>
-                    <div class="input-group">
-                        <input type="text" name="IsRemoved" value="@item.Id" hidden />
-                        <input type="button" value="-" class="button-minus" data-field="Quantity" />
-                        <input type="number" id="Quantity" name="Quantity" min="10" max="300" step="10" value="@item.Quantity" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="Quantity">
-                    </div>
-                </td>
-                <td>@(double.Parse(item.Price) * item.Quantity)</td>
-                <td>
-                    <input type="text" name="ItemId" value="@item.Id" hidden />
-                    <input type="text" name="IsRemoved" value="false" hidden/>
-                    <a asp-area="Home" asp-controller="Items" asp-action="Id" asp-route-id=@item.Id asp-route-title="@ConvertService.CyrillicToLatin(item.Name, true)" alt="Прегледай"><i class="fas fa-search"></i> Преглед</a>
-                    <button class="check-id"><i class="fas fa-trash-alt"></i> Премахни</button>
-                </td>
-            </tr>
+                <tr>
+                    <td data-title="Снимка"><img src="@string.Format(GlobalConstants.CloudUrlTemplate, item.ImageUrl)" class="img-icon"></td>
+                    <td data-title="Име">@item.Name</td>
+                    <td data-title="Цена">@item.Price лв.</td>
+                    <td data-title="Количество" style="min-width:150px;">
+                        <div class="input-group">
+                            <input type="button" value="-" class="button-minus" data-field="Quantity" />
+                            <input type="number" id="Quantity" name="Quantity" min="10" max="300" step="10" value="@item.Quantity" class="quantity-field">
+                            <input type="button" value="+" class="button-plus" data-field="Quantity">
+                        </div>
+                    </td>
+                    <td data-title="Общо цена">@(double.Parse(item.Price) * item.Quantity) лв.</td>
+                    <td data-title="Линкове">
+                        <input type="text" name="ItemId" value="@item.Id" hidden />
+                        <input type="text" name="IsRemoved" value="false" hidden />
+                        <a class="form-button fit-width" asp-area="Home" asp-controller="Items" asp-action="Id" asp-route-id=@item.Id asp-route-title="@ConvertService.CyrillicToLatin(item.Name, true)" alt="Прегледай"><i class="fas fa-search"></i> Преглед</a>
+                        <button class="check-id form-button fit-width"><i class="fas fa-trash-alt"></i> Премахни</button>
+                    </td>
+                </tr>
         }
+            </tbody>
     </table>
     <button class="form-button" type="submit">Запази</button>
 </form>
@@ -50,9 +53,11 @@
             e.preventDefault();
             let parent = $(this).parent();
             let child = parent.children()[1];
-            child.setAttribute('value','true');
-            console.log(parent.parent()[0]);
-            parent.parent()[0].setAttribute('hidden','');
+            child.setAttribute('value', 'true');
+
+            let parentParent = parent.parent()[0];
+            parentParent.classList.add('hidden');
+            parentParent.setAttribute('hidden', '');
         });
     </script>
 }

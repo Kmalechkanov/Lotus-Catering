@@ -1,7 +1,9 @@
 ﻿namespace AnisMasterpieces.Web.Areas.Profile.Controllers
 {
+    using System;
+    using System.Linq;
     using System.Threading.Tasks;
-
+    using System.Web.Helpers;
     using AnisMasterpieces.Data.Models;
     using AnisMasterpieces.Services.Data.Interfaces;
     using AnisMasterpieces.Web.Controllers;
@@ -11,6 +13,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
 
     [Area("Profile")]
     public class CartController : BaseController
@@ -55,7 +58,7 @@
 
             if (this.cartService.IsItemInCart(cartId, inputModel.ItemId))
             {
-                succeed = await this.cartService.EditItemAsync(cartId, inputModel.ItemId, inputModel.Quantity);
+                succeed = await this.cartService.AddItemQuantityAsync(cartId, inputModel.ItemId, inputModel.Quantity);
             }
             else
             {
@@ -69,34 +72,40 @@
         [HttpPost]
         public async Task<IActionResult> Update(CartUpdateInputModel inputModel)
         {
-            for (int i = 0; i < inputModel.ItemId.Count; i++)
+            if (inputModel.ItemId == null)
             {
-
+                return this.RedirectToAction("Index", "Cart", new { area = "Profile" });
             }
 
-            foreach (var item in inputModel.ItemId)
-            {
+            var itemsId = inputModel.ItemId.ToArray();
+            var quantities = inputModel.Quantity.ToArray();
+            var areRemoved = inputModel.IsRemoved.ToArray();
 
+            var user = await this.userManager.GetUserAsync(this.User);
+            var cartId = this.cartService.GetId(user.Id);
+
+            var itemId = string.Empty;
+            var quantity = 0;
+            var isRemoved = false;
+
+            for (int i = 0; i < itemsId.Length; i++)
+            {
+                itemId = itemsId[i];
+                quantity = quantities[i];
+                isRemoved = areRemoved[i] == "true" ? true : false;
+
+                if (isRemoved)
+                {
+                    var response = await this.cartService.RemoveItemAsync(cartId, itemId);
+                    Console.WriteLine(response);
+                }
+                else
+                {
+                    await this.cartService.EditItemAsync(cartId, itemId, quantity);
+                }
             }
 
-            return this.RedirectToAction("Cart", "Index", new { area = "Profile" });
+            return this.RedirectToAction("Index", "Cart", new { area = "Profile" });
         }
-
-        //[HttpPost]
-        //[Authorize(Roles = "Administrator")]
-        //public async Task<IActionResult> Add(ItemAddInputModel input)
-        //{
-        //    if (!this.ModelState.IsValid)
-        //    {
-        //        var tabs = this.tabService.GetAll<TabIdNameViewModel>();
-        //        input.Tabs = tabs;
-        //        return this.View(input);
-        //    }
-
-        //    var imageName = await CloudinaryService.UploadAsync(this.cloudinary, input.Image, "Items");
-
-        //    var itemId = await this.itemService.AddAsync(input.Name, imageName, input.Price, input.TabId, input.Description);
-        //    return this.RedirectToAction("Id", "Items", new { area = string.Empty, Id = itemId });
-        //}
     }
 }

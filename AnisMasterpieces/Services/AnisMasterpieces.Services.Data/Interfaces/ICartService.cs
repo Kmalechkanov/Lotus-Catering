@@ -17,6 +17,10 @@
 
         Task<bool> AddItemAsync(string cartId, string itemId, int quantity);
 
+        Task<bool> AddItemQuantityAsync(string cartId, string itemId, int quantity);
+
         Task<bool> EditItemAsync(string cartId, string itemId, int quantity);
+
+        Task<bool> RemoveItemAsync(string cartId, string itemId);
     }
 }
