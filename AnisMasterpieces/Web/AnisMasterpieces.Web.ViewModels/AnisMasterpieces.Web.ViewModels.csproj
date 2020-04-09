@@ -25,6 +25,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\AnisMasterpieces.Common\AnisMasterpieces.Common.csproj" />
     <ProjectReference Include="..\..\Data\AnisMasterpieces.Data.Models\AnisMasterpieces.Data.Models.csproj" />
     <ProjectReference Include="..\..\Services\AnisMasterpieces.Services.Mapping\AnisMasterpieces.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\AnisMasterpieces.Services\AnisMasterpieces.Services.csproj" />

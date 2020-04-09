@@ -1,0 +1,40 @@
+﻿@model AnisMasterpieces.Web.ViewModels.Items.ItemEditInputModel
+@using AnisMasterpieces.Common;
+@{
+    ViewData["Title"] = "Admin Panel";
+    var tabs = Model.Tabs.Select(x => new SelectListItem(x.Name, x.Id));
+}
+
+<form method="post" class="admin-form" asp-action="Edit" enctype="multipart/form-data">
+    <hr />
+    <h1>Редактирай продукт</h1>
+    <hr />
+    <div asp-validation-summary="All" class="notification"></div>
+    <div>
+        <input asp-for="Id" hidden>
+    </div>
+    <div>
+        <label asp-for="Name">Име на продукт</label>
+        <input asp-for="Name">
+    </div>
+    <div>
+        <label asp-for="Price">Цена</label>
+        <input asp-for="Price" type="number" step="0.1" placeholder="0.00" value="0">
+    </div>
+    <div>
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" oninput="auto_grow(this)"></textarea>
+    </div>
+    <div>
+        <label asp-for="ImageUrl">Снимка</label>
+        <input asp-for="ImageUrl" hidden/>
+        <img src="@string.Format(GlobalConstants.CloudUrlTemplate, Model.ImageUrl)" class="half-width oval-img">
+    </div>
+    <div>
+        <label asp-for="TabId">Подкатегория</label>
+        <select asp-for="TabId" asp-items="tabs"></select>
+    </div>
+    <div>
+        <button class="form-button" type="submit">Редактирай</button>
+    </div>
+</form>

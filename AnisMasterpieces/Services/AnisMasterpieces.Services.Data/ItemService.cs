@@ -45,5 +45,25 @@
             await this.itemRepository.SaveChangesAsync();
             return item.Id;
         }
+
+        public async Task<bool> UpdateAsync(string id, string name, decimal price, string tabId, string description)
+        {
+            var item = this.itemRepository.All().FirstOrDefault(i => i.Id == id);
+            if (item == null)
+            {
+                return false;
+            }
+
+            item.Name = name;
+            item.Price = price;
+            item.TabId = tabId;
+            item.Description = description;
+
+            var response = await this.itemRepository.SaveChangesAsync();
+            return response == 1;
+        }
+
+        public IEnumerable<T> GetAll<T>()
+            => this.itemRepository.All().To<T>();
     }
 }

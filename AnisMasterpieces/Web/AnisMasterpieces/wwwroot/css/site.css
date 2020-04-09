@@ -28,7 +28,7 @@ a {
 }
 
 header {
-	background-color: #FDEAE8;
+	background-color: #fbf9f9;
 	position: relative;
 	z-index: 10;
 }
@@ -113,8 +113,6 @@ header nav ul li {
 	font-family: Akrobat-Black, arial;
 }
 
-nav a {}
-
 header nav ul li:hover {
 	color: #d7d2d2;
 	cursor: pointer;
@@ -122,6 +120,7 @@ header nav ul li:hover {
 
 .logo-wrapper {
 	text-align: center;
+	background-color: #FDEAE8;
 }
 
 .logo-wrapper img {
