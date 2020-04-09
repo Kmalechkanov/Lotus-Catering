@@ -1,0 +1,18 @@
+﻿@model LotusCatering.Web.ViewModels.NavBar.NavBarViewModel
+@using LotusCatering.Services;
+
+@foreach (var category in Model.Categories)
+{
+    <li>
+        <a asp-area=@null asp-controller="Categories" asp-action="Id" asp-route-id=@category.Id asp-route-title="@ConvertService.CyrillicToLatin(category.Name, true)">
+            <i class="fas fa-utensils"></i>
+            @category.Name
+        </a>
+    </li>
+}
+<li>
+    <i class="fas fa-images"></i> Галерия
+</li>
+<li>
+    <i class="far fa-address-card"></i> Контакти
+</li>

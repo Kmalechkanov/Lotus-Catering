@@ -1,0 +1,20 @@
+﻿@model LotusCatering.Web.ViewModels.Categories.CategoryNameAndTabNameViewModel
+@using LotusCatering.Services;
+@using LotusCatering.Common;
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="center-align">
+    <h1>@Model.Name</h1>
+    @foreach (var tab in Model.Tabs)
+    {
+        <div class="inline-form">
+            <a asp-controller="Tabs" asp-action="Id" asp-route-id=@tab.Id asp-route-title="@ConvertService.CyrillicToLatin(tab.Name, true)">
+                <h2>@tab.Name</h2>
+                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, tab.ImageUrl)">
+                <span>@tab.Description</span>
+            </a>
+        </div>
+    }
+</div>

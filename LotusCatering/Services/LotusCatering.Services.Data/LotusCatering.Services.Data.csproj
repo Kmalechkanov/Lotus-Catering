@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\stylecop.json" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);NU1701</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="all">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\LotusCatering.Data.Common\LotusCatering.Data.Common.csproj" />
+    <ProjectReference Include="..\..\Data\LotusCatering.Data.Models\LotusCatering.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\LotusCatering.Web.ViewModels\LotusCatering.Web.ViewModels.csproj" />
+    <ProjectReference Include="..\LotusCatering.Services.Mapping\LotusCatering.Services.Mapping.csproj" />
+    <ProjectReference Include="..\LotusCatering.Services\LotusCatering.Services.csproj" />
+  </ItemGroup>
+
+</Project>

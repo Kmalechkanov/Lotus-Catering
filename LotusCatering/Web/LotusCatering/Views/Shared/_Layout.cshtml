@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LotusCatering</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <a href="/home">
+                <img src="~/images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav id="page-nav">
+            <label for="hamburger">&#9776;</label>
+            <input type="checkbox" id="hamburger" />
+            <ul class="center-align menu">
+                <vc:nav-bar></vc:nav-bar>
+            </ul>
+            <partial name="_SecondHeader" />
+        </nav>
+    </header>
+
+    <container id="alerts">
+        <div style="display: none" class="alert">
+            <span class="closeAlertBtn" onclick="RemoveAlert(this)">&times;</span>
+            <strong>Example Status!</strong>
+            <span> Example Message</span>
+        </div>
+    </container>
+
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2020 - LotusCatering - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
