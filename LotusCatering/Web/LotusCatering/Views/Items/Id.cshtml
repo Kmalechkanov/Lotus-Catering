@@ -33,7 +33,11 @@
                     </div>
                     @if (this.SignInManager.IsSignedIn(this.User))
                     {
-                        <input type="submit" value="Добави" class="AddToCart" />
+                    <input type="submit" value="Добави" class="AddToCart" />
+                    }
+                    @if (this.User.IsInRole("Administrator"))
+                    {
+                        <a asp-controller="Items" asp-action="Edit" asp-area="Administration" asp-route-id="@Model.Id" class="white-button header-color">Редактирай</a>
                     }
                 </form>
             </div>
@@ -47,7 +51,6 @@
     <script>
         AddtoCart = (data) => {
             if (data.status == 200) {
-                console.log(data);
                 if (data.responseJSON.succeed == true) {
                     AddAlert("Прочетете!", "Успешно добавихте продукт във вашата количка!", "message");
                 } else {

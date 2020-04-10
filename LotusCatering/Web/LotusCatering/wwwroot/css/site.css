@@ -207,6 +207,7 @@ textarea {
 	outline: none;
 }
 
+.white-button,
 input,
 textarea,
 select {
@@ -408,6 +409,11 @@ input[type="number"] {
 	padding: 0 10%;
 }
 
+
+.header-color {
+	background-color: #914360;
+}
+
 .alert {
 	padding: 20px;
 	background-color: #914360;
@@ -417,19 +423,19 @@ input[type="number"] {
 	margin-bottom: 15px;
 }
 
-.alert.error {
+.error, .danger-color {
 	background-color: #f44336;
 }
 
-.alert.success {
+.success, .money-color {
 	background-color: #4CAF50;
 }
 
-.alert.info {
+.info, .sky-color {
 	background-color: #2196F3;
 }
 
-.alert.warning {
+.warning, .orange-color {
 	background-color: #ff9800;
 }
 
