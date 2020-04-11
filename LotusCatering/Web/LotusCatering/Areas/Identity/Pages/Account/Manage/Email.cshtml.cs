@@ -8,10 +8,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using LotusCatering.Data.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using LotusCatering.Services.Messaging;
 
 namespace LotusCatering.Web.Areas.Identity.Pages.Account.Manage
 {
@@ -47,7 +47,7 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Нова Поща")]
             public string NewEmail { get; set; }
         }
 
@@ -101,15 +101,17 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account.Manage
                     values: new { userId = userId, email = Input.NewEmail, code = code },
                     protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(
+                    "admin@LotusCatering.eu",
+                    "LotusCatering",
                     Input.NewEmail,
-                    "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "Потвърди своята поща",
+                    $"Моля, <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>цъкнете тук</a> за да потвърдите смяната на пощата.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = "Беше изпратен линк за потвърждение. Моля проверете пощата си.";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "Вашата поща не се смени.";
             return RedirectToPage();
         }
 
@@ -137,11 +139,13 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account.Manage
                 values: new { area = "Identity", userId = userId, code = code },
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
+                "admin@LotusCatering.eu", 
+                "LotusCatering",
                 email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Потвърди своята поща",
+                $"Моля, <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>цъкнете тук</a> за да потвърдите своята поща.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Беше изпратен линк за потвърждение. Моля проверете пощата си.";
             return RedirectToPage();
         }
     }

@@ -1,7 +1,7 @@
 ﻿@page
 @model EnableAuthenticatorModel
 @{
-    ViewData["Title"] = "Configure authenticator app";
+    ViewData["Title"] = "Настрой 2fa";
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
 
@@ -23,7 +23,7 @@
         </li>
         <li>
             <p>Scan the QR Code or enter this key <kbd>@Model.SharedKey</kbd> into your two factor authenticator app. Spaces and casing do not matter.</p>
-            <div class="alert alert-info">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</div>
+            <div class="alert info">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</div>
             <div id="qrCode"></div>
             <div id="qrCodeData" data-url="@Html.Raw(@Model.AuthenticatorUri)"></div>
         </li>
@@ -32,16 +32,16 @@
                 Once you have scanned the QR code or input the key above, your two factor authentication app will provide you
                 with a unique code. Enter the code in the confirmation box below.
             </p>
-            <div class="row">
-                <div class="col-md-6">
+            <div>
+                <div>
                     <form id="send-code" method="post">
-                        <div class="form-group">
-                            <label asp-for="Input.Code" class="control-label">Verification Code</label>
-                            <input asp-for="Input.Code" class="form-control" autocomplete="off" />
-                            <span asp-validation-for="Input.Code" class="text-danger"></span>
+                        <div>
+                            <label asp-for="Input.Code">Verification Code</label>
+                            <input asp-for="Input.Code" autocomplete="off" />
+                            <span asp-validation-for="Input.Code"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary">Verify</button>
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <button type="submit" class="form-button">Verify</button>
+                        <div asp-validation-summary="ModelOnly"></div>
                     </form>
                 </div>
             </div>

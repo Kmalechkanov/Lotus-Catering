@@ -8,15 +8,15 @@
 <section class="form">
     <form class="login-form" method="post">
         <hr />
-        <h2>Log into your account!</h2>
+        <h2>Влез си в акаунта!</h2>
         <hr />
         <div asp-validation-summary="All"></div>
         <div>
-            <input asp-for="Input.Email" placeholder="Email" />
+            <input asp-for="Input.Email" placeholder="Поща" />
             <span asp-validation-for="Input.Email"></span>
         </div>
         <div>
-            <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+            <input asp-for="Input.Password" class="form-control" placeholder="Парола" />
             <span asp-validation-for="Input.Password"></span>
         </div>
         <div class="inline">
@@ -28,14 +28,14 @@
             </div>
         </div>
         <div>
-            <button type="submit">Log in</button>
+            <button type="submit">Вход</button>
         </div>
         <div>
             <p>
-                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                <a id="forgot-password" asp-page="./ForgotPassword">Забравена парола?</a>
             </p>
             <p>
-                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Регистрирай се.</a>
             </p>
         </div>
     </form>

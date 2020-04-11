@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using LotusCatering.Data.Models;
+using LotusCatering.Services.Data.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,15 +15,18 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IUserService userService;
         private readonly ILogger<DeletePersonalDataModel> _logger;
 
         public DeletePersonalDataModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            IUserService userService,
             ILogger<DeletePersonalDataModel> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            this.userService = userService;
             _logger = logger;
         }
 
@@ -68,9 +72,10 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account.Manage
                 }
             }
 
-            var result = await _userManager.DeleteAsync(user);
-            var userId = await _userManager.GetUserIdAsync(user);
-            if (!result.Succeeded)
+            var userId = user.Id;
+            var isDeletedUser = await userService.DeleteAsync(userId);
+
+            if (!isDeletedUser)
             {
                 throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
             }

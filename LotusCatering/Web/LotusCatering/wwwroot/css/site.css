@@ -8,11 +8,16 @@ body {
 	margin: 0;
 	background-color: white;
 	word-wrap: break-word;
+	font-family: cursive;
 }
 
 h1,
 h2 {
 	color: #914360;
+}
+
+li {
+	list-style: none;
 }
 
 a {
@@ -25,6 +30,11 @@ a {
 	padding: 10px;
 	background-color: #fbf9f9;
 	box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.justify-items {
+	justify-content: space-evenly;
+	display: flex;
 }
 
 header {
@@ -109,7 +119,6 @@ header nav ul li {
 	display: inline-block;
 	color: white;
 	font-size: 35px;
-	margin: 5px 5% 5px 5%;
 	font-family: Akrobat-Black, arial;
 }
 
@@ -171,6 +180,17 @@ header nav ul li:hover {
 
 .img-fit {
 	object-fit: cover;
+}
+
+.settings-div {
+	background: #fdeae8;
+	font-size: 30px;
+	margin-right: 20px;
+	padding-right: 40px;
+}
+
+.settings-div li {
+	border-bottom: solid black 1px;
 }
 
 .admin-form {

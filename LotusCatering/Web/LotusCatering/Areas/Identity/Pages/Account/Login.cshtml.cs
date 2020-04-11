@@ -52,7 +52,7 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Запомни ме?")]
             public bool RememberMe { get; set; }
         }
 
@@ -98,12 +98,11 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Невалиден опит за вход.");
                     return Page();
                 }
             }
 
-            // If we got this far, something failed, redisplay form
             return Page();
         }
     }

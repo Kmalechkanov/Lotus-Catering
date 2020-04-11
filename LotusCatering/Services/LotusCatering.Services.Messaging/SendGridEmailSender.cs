@@ -38,6 +38,7 @@
             try
             {
                 var response = await this.client.SendEmailAsync(message);
+
                 Console.WriteLine(response.StatusCode);
                 Console.WriteLine(await response.Body.ReadAsStringAsync());
             }

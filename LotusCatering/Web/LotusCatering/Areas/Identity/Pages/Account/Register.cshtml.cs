@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using LotusCatering.Data.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using LotusCatering.Services.Messaging;
 
 namespace LotusCatering.Web.Areas.Identity.Pages.Account
 {
@@ -90,8 +90,8 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync("manager@LotusCatering.eu", "LotusCatering", Input.Email, "Потвърди си пощата.",
+                        $"За да потвърдите пощата си трябва да цъкнете <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>ТУК</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -109,7 +109,6 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account
                 }
             }
 
-            // If we got this far, something failed, redisplay form
             return Page();
         }
     }
