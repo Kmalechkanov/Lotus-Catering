@@ -11,14 +11,13 @@
 
     public class UsersSeeder : ISeeder
     {
-        //private readonly IConfiguration configuration;
+        private readonly IConfiguration configuration;
 
         public UsersSeeder()
         {
-            //this.configuration = new ConfigurationBuilder()
-            //.SetBasePath(@"../../../")
-            //.AddJsonFile("appsettings.Production.json")
-            //.Build();
+            this.configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.Production.json")
+            .Build();
         }
 
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
@@ -26,8 +25,8 @@
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
-            await SeedUserAsync(userManager, roleManager, GlobalConstants.DataSeeding.AdministratorName, GlobalConstants.DataSeeding.AdministratorEmail, "tes123@Tt", GlobalConstants.AdministratorRoleName);
-            await SeedUserAsync(userManager, roleManager, GlobalConstants.DataSeeding.ModeratorName, GlobalConstants.DataSeeding.ModeratorEmail, "tes123@Tt", GlobalConstants.ModeratorRoleName);
+            await SeedUserAsync(userManager, roleManager, GlobalConstants.DataSeeding.AdministratorName, GlobalConstants.DataSeeding.AdministratorEmail, this.configuration["Seeding:AdministratorPassword"], GlobalConstants.AdministratorRoleName);
+            await SeedUserAsync(userManager, roleManager, GlobalConstants.DataSeeding.ModeratorName, GlobalConstants.DataSeeding.ModeratorEmail, this.configuration["Seeding:ModeratorPassword"], GlobalConstants.ModeratorRoleName);
         }
 
         private static async Task SeedUserAsync(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, string name, string email, string password, string roleName)
