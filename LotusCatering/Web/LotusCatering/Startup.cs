@@ -8,6 +8,7 @@
     using LotusCatering.Data.Common.Repositories;
     using LotusCatering.Data.Models;
     using LotusCatering.Data.Repositories;
+    using LotusCatering.Data.Seeding;
     using LotusCatering.Services.Data;
     using LotusCatering.Services.Data.Interfaces;
     using LotusCatering.Services.Mapping;
@@ -83,7 +84,16 @@
         {
             AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
 
-            // Todo// Seed data on application startup
+            // Seed data on application startup
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+                dbContext.Database.Migrate();
+
+                new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
