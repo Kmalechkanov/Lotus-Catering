@@ -48,7 +48,7 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            [EmailAddress(ErrorMessage = "Невалидна поща.")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -76,6 +76,12 @@ namespace LotusCatering.Web.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                if (await _userManager.FindByEmailAsync(Input.Email) != null)
+                {
+                    ModelState.AddModelError(string.Empty, "Избраната от вас поща е заета!");
+                    _logger.LogInformation("User tried to create account with already used email.");
+                    return Page();
+                }
                 var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

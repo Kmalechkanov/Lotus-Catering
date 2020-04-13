@@ -27,6 +27,7 @@
 
             await SeedUserAsync(userManager, roleManager, GlobalConstants.DataSeeding.AdministratorName, GlobalConstants.DataSeeding.AdministratorEmail, this.configuration["Seeding:AdministratorPassword"], GlobalConstants.AdministratorRoleName);
             await SeedUserAsync(userManager, roleManager, GlobalConstants.DataSeeding.ModeratorName, GlobalConstants.DataSeeding.ModeratorEmail, this.configuration["Seeding:ModeratorPassword"], GlobalConstants.ModeratorRoleName);
+            await SeedUserAsync(userManager, roleManager, GlobalConstants.DataSeeding.UserName, GlobalConstants.DataSeeding.UserEmail, this.configuration["Seeding:UserPassword"], string.Empty);
         }
 
         private static async Task SeedUserAsync(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, string name, string email, string password, string roleName)
@@ -45,10 +46,14 @@
 
                 var role = await roleManager.FindByNameAsync(roleName);
 
-                if (!userManager.Users.Any(x => x.Roles.Any(x => x.RoleId == role.Id)))
+                if (role != null)
                 {
-                    await userManager.AddToRoleAsync(newUser, roleName);
+                    if (!userManager.Users.Any(x => x.Roles.Any(x => x.RoleId == role.Id)))
+                    {
+                        await userManager.AddToRoleAsync(newUser, roleName);
+                    }
                 }
+
             }
         }
     }

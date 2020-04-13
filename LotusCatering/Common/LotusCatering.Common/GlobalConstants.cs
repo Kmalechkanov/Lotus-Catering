@@ -27,6 +27,10 @@
             public const string ModeratorName = "Moderator";
 
             public const string ModeratorEmail = "Moderator@LotusCatering.eu";
+
+            public const string UserName = "User";
+
+            public const string UserEmail = "User@LotusCatering.eu";
         }
     }
 }
