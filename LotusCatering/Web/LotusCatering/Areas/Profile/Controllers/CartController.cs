@@ -94,7 +94,6 @@
                 if (isRemoved)
                 {
                     var response = await this.cartService.RemoveItemAsync(cartId, itemId);
-                    Console.WriteLine(response);
                 }
                 else
                 {

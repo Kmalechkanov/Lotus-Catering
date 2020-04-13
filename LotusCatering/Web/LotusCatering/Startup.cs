@@ -84,12 +84,17 @@
         {
             AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
 
-            // Seed data on application startup
-            using (var serviceScope = app.ApplicationServices.CreateScope())
+            if (this.configuration["Seeding:InitialBase"] == "True")
             {
-                dbContext.Database.Migrate();
+                dbContext.Database.EnsureDeletedAsync().GetAwaiter().GetResult();
+                dbContext.Database.EnsureCreatedAsync().GetAwaiter().GetResult();
+            }
 
-                new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
+            if (this.configuration["Seeding:EnabledSeeder"] == "True")
+            {
+                using var serviceScope = app.ApplicationServices.CreateScope();
+
+                new ApplicationDbContextSeeder(this.configuration).SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
             }
 
             if (env.IsDevelopment())

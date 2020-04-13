@@ -4,11 +4,19 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
 
     public class ApplicationDbContextSeeder
     {
+        private readonly IConfiguration configuration;
+
+        public ApplicationDbContextSeeder(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
+
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
             if (dbContext == null)
@@ -30,10 +38,20 @@
                 new CategoriesSeeder(),
                 new TabsSeeder(),
                 new ItemsSeeder(),
+                new CartsSeeder(),
             };
+
+            string configrationString;
 
             foreach (var seeder in seeders)
             {
+                configrationString = "Seeding:" + seeder.GetType().Name;
+                var result = this.configuration[configrationString];
+                if (this.configuration[configrationString] == "False")
+                {
+                    continue;
+                }
+
                 await seeder.SeedAsync(dbContext, serviceProvider);
                 logger.LogInformation($"Seeder {seeder.GetType().Name} done.");
 
