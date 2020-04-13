@@ -93,7 +93,7 @@
 
                 if (isRemoved)
                 {
-                    var response = await this.cartService.RemoveItemAsync(cartId, itemId);
+                    await this.cartService.RemoveItemAsync(cartId, itemId);
                 }
                 else
                 {

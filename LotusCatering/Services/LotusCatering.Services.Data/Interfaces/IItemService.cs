@@ -18,5 +18,7 @@
         Task<string> AddAsync(string name, string imageUrl, double price, string tabId, string description);
 
         Task<bool> UpdateAsync(string id, string name, double price, string tabId, string description);
+
+        Task<bool> DeleteAsync(string id);
     }
 }

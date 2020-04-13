@@ -38,6 +38,7 @@
                     @if (this.User.IsInRole("Administrator"))
                     {
                         <a asp-controller="Items" asp-action="Edit" asp-area="Administration" asp-route-id="@Model.Id" class="white-button header-color">Редактирай</a>
+                        <a asp-controller="Items" asp-action="Delete" asp-area="Administration" asp-route-id="@Model.Id" class="white-button danger-color">Изтрий</a>
                     }
                 </form>
             </div>

@@ -1,9 +1,7 @@
 ﻿namespace LotusCatering.Web.ViewModels.Items
 {
-    public class ItemSelectInputModel
+    public class ItemDeleteInputModel
     {
         public string Id { get; set; }
-
-        public string ReturnUrl { get; set; }
     }
 }

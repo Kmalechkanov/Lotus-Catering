@@ -1,0 +1,38 @@
+﻿@model LotusCatering.Web.ViewModels.Items.ItemDeleteViewModel
+@using LotusCatering.Common;
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+    <form method="post" class="admin-form" asp-action="Delete" enctype="multipart/form-data">
+        <hr />
+        <h1>Изтрий продукт</h1>
+        <hr />
+        <div asp-validation-summary="All" class="notification"></div>
+        <div>
+            <input asp-for="Id" hidden>
+        </div>
+        <div>
+            <label asp-for="Name">Име на продукт</label>
+            <input asp-for="Name" disabled>
+        </div>
+        <div>
+            <label asp-for="Price">Цена</label>
+            <input asp-for="Price" disabled>
+        </div>
+        <div>
+            <label asp-for="Description">Описание</label>
+            <textarea asp-for="Description" oninput="auto_grow(this)" disabled></textarea>
+        </div>
+        <div>
+            <label asp-for="ImageUrl">Снимка</label>
+            <img src="@string.Format(GlobalConstants.CloudUrlTemplate, Model.ImageUrl)" class="half-width oval-img">
+        </div>
+        <div>
+            <label asp-for="Tab">Подкатегория</label>
+            <input asp-for="Tab" disabled/>
+        </div>
+        <div>
+            <button class="form-button" type="submit">Изтрий</button>
+        </div>
+    </form>

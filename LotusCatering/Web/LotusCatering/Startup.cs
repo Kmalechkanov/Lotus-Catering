@@ -87,7 +87,7 @@
             if (this.configuration["Seeding:InitialBase"] == "True")
             {
                 dbContext.Database.EnsureDeletedAsync().GetAwaiter().GetResult();
-                dbContext.Database.EnsureCreatedAsync().GetAwaiter().GetResult();
+                dbContext.Database.MigrateAsync().GetAwaiter().GetResult();
             }
 
             if (this.configuration["Seeding:EnabledSeeder"] == "True")

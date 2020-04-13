@@ -6,14 +6,15 @@
 
 <form method="post" class="admin-form" asp-action="Select" enctype="multipart/form-data">
     <hr />
-    <h1>Редактирай продукт</h1>
+    <h1>Избери продукт</h1>
     <hr />
     <div asp-validation-summary="All" class="notification"></div>
     <div>
         <label asp-for="Id">Продукт</label>
         <select asp-for="Id" asp-items="items"></select>
+        <input asp-for="ReturnUrl" hidden/>
     </div>
     <div>
-        <button class="form-button" type="submit">Редактирай</button>
+        <button class="form-button" type="submit">Избери</button>
     </div>
 </form>

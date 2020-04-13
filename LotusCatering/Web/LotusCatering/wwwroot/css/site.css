@@ -227,6 +227,10 @@ textarea {
 	outline: none;
 }
 
+textarea:disabled {
+	overflow: auto;
+}
+
 .white-button,
 input,
 textarea,

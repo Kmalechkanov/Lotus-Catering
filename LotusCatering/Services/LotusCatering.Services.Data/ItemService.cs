@@ -65,5 +65,14 @@
 
         public IEnumerable<T> GetAll<T>()
             => this.itemRepository.All().To<T>();
+
+        public async Task<bool> DeleteAsync(string id)
+        {
+            var item = this.itemRepository.All().FirstOrDefault(i => i.Id == id);
+
+            this.itemRepository.Delete(item);
+            var response = await this.itemRepository.SaveChangesAsync();
+            return response == 1;
+        }
     }
 }

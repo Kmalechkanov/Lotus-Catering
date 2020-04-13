@@ -64,7 +64,7 @@
         {
             if (id == null)
             {
-                return this.RedirectToAction("Select", "Items", new { id });
+                return this.RedirectToAction("Select", "Items", new { id, returnUrl = "Edit" });
             }
 
             var tabs = this.tabService.GetAll<TabIdNameViewModel>();
@@ -90,26 +90,58 @@
             return this.RedirectToAction("Id", "Items", new { area = string.Empty, input.Id });
         }
 
-        public IActionResult Select(string id)
+        public IActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return this.RedirectToAction("Select", "Items", new { id, returnUrl = "Delete" });
+            }
+
+            var viewModel = this.itemService.GetById<ItemDeleteViewModel>(id);
+            viewModel.Tab = this.tabService.GetNameById(viewModel.TabId);
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(ItemDeleteInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.NotFound();
+            }
+
+            var succeed = await this.itemService.DeleteAsync(input.Id);
+
+            if (!succeed)
+            {
+                return this.NotFound();
+            }
+
+            return this.RedirectToAction("Index", "Home", new { area = string.Empty });
+        }
+
+        public IActionResult Select(string id, string returnUrl)
         {
             if (id != null)
             {
-                return this.RedirectToAction("Edit", "Items", new { id });
+                return this.RedirectToAction(returnUrl, new { id });
             }
 
             var items = this.itemService.GetAll<ItemIdNameViewModel>().ToArray();
             var viewModel = new ItemSelectViewModel()
             {
                 Items = items,
+                ReturnUrl = returnUrl,
             };
 
             return this.View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult Select(ItemSelectViewModel input)
+        public IActionResult Select(ItemSelectInputModel input)
         {
-            return this.RedirectToAction("Edit", "Items", new { input.Id });
+            return this.RedirectToAction(input.ReturnUrl, new { input.Id });
         }
     }
 }

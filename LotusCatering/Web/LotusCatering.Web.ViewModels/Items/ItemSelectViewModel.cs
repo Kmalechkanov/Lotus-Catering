@@ -7,5 +7,7 @@
         public string Id { get; set; }
 
         public ICollection<ItemIdNameViewModel> Items { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }
