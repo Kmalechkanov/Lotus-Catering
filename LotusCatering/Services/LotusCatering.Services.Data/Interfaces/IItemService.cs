@@ -15,8 +15,8 @@
 
         T GetById<T>(string itemId);
 
-        Task<string> AddAsync(string name, string imageUrl, decimal price, string tabId, string description);
+        Task<string> AddAsync(string name, string imageUrl, double price, string tabId, string description);
 
-        Task<bool> UpdateAsync(string id, string name, decimal price, string tabId, string description);
+        Task<bool> UpdateAsync(string id, string name, double price, string tabId, string description);
     }
 }

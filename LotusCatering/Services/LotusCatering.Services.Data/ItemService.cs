@@ -30,7 +30,7 @@
         public IEnumerable<T> GetAllByTabId<T>(string tabId)
             => this.itemRepository.All().Where(i => i.TabId == tabId).To<T>();
 
-        public async Task<string> AddAsync(string name, string imageUrl, decimal price, string tabId, string description)
+        public async Task<string> AddAsync(string name, string imageUrl, double price, string tabId, string description)
         {
             var item = new Item
             {
@@ -46,7 +46,7 @@
             return item.Id;
         }
 
-        public async Task<bool> UpdateAsync(string id, string name, decimal price, string tabId, string description)
+        public async Task<bool> UpdateAsync(string id, string name, double price, string tabId, string description)
         {
             var item = this.itemRepository.All().FirstOrDefault(i => i.Id == id);
             if (item == null)

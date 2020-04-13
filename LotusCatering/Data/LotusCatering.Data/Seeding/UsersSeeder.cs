@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+
     using LotusCatering.Common;
     using LotusCatering.Data.Models;
     using Microsoft.AspNetCore.Identity;
@@ -53,7 +54,6 @@
                         await userManager.AddToRoleAsync(newUser, roleName);
                     }
                 }
-
             }
         }
     }

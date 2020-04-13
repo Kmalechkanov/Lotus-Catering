@@ -22,17 +22,16 @@
                 destinationImage = memoryStream.ToArray();
             }
 
-            using (var destinationStream = new MemoryStream(destinationImage))
-            {
-                var uploadParams = new ImageUploadParams()
-                {
-                    File = new FileDescription("nz", destinationStream),
-                    Folder = folder,
-                };
+            using var destinationStream = new MemoryStream(destinationImage);
 
-                var result = await cloudinary.UploadAsync(uploadParams);
-                return result.PublicId;
-            }
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription("nz", destinationStream),
+                Folder = folder,
+            };
+
+            var result = await cloudinary.UploadAsync(uploadParams);
+            return result.PublicId;
         }
     }
 }

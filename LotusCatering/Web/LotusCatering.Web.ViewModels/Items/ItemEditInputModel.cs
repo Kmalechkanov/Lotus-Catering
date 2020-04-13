@@ -19,7 +19,7 @@
 
         [Required(ErrorMessage = "Трябва да въведете цена!")]
         [Range(0.01, 10000, ErrorMessage = "Цената трябва да е между 0.01 и 10000!")]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         [Required(ErrorMessage = "Трябва да изберете подкатегория!")]
         public string TabId { get; set; }

@@ -26,7 +26,7 @@
         public string ImageUrl { get; set; }
 
         [Range(0, 10000)]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         [Required]
         public string TabId { get; set; }
