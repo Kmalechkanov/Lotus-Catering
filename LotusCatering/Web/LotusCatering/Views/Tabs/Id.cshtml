@@ -26,5 +26,19 @@
                 <span>Нов продукт</span>
             </a>
         </div>
+        <div class="inline-form">
+            <a asp-area="Administration" asp-controller="Tabs" asp-action="Edit" asp-route-id="@Model.Id">
+                <img src="~/images/edit.png">
+                <h2>Редактирай</h2>
+                <span>Подкатегорията</span>
+            </a>
+        </div>
+        <div class="inline-form">
+            <a asp-area="Administration" asp-controller="Tabs" asp-action="Delete" asp-route-id="@Model.Id">
+                <img src="~/images/delete.png">
+                <h2>Изтрий</h2>
+                <span>Подкатегорията</span>
+            </a>
+        </div>
     }
 </div>

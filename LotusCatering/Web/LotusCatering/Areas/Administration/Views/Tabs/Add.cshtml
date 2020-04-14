@@ -1,7 +1,38 @@
-﻿
+﻿@model LotusCatering.Web.ViewModels.Tabs.TabAddInputModel
 @{
     ViewData["Title"] = "Admin Panel";
+    var categories = Model.Categories.Select(x => new SelectListItem(x.Name, x.Id));
 }
 
-<h1>Add</h1>
-
+<form method="post" class="admin-form" asp-action="Add" enctype="multipart/form-data">
+    <hr />
+    <h1>Добави подкатегория</h1>
+    <hr />
+    <div asp-validation-summary="All" class="notification"></div>
+    <div>
+        <label asp-for="Name">Име на подкатегория</label>
+        <input asp-for="Name">
+    </div>
+    <div>
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" oninput="auto_grow(this)"></textarea>
+    </div>
+    <div>
+        <label asp-for="Image">Снимка</label>
+        <input asp-for="Image" accept="image/*" required>
+    </div>
+    @if (Model.CategoryId == null)
+    {
+        <div>
+            <label asp-for="CategoryId">Подкатегория</label>
+            <select asp-for="CategoryId" asp-items="categories"></select>
+        </div>
+    }
+    else
+    {
+        <input asp-for="CategoryId" hidden>
+    }
+    <div>
+        <button class="form-button" type="submit">Добави</button>
+    </div>
+</form>

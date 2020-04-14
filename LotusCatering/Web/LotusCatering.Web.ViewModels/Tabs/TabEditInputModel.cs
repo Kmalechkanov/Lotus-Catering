@@ -1,11 +1,11 @@
-﻿namespace LotusCatering.Web.ViewModels.Items
+﻿namespace LotusCatering.Web.ViewModels.Tabs
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using LotusCatering.Web.ViewModels.Tabs;
+    using LotusCatering.Web.ViewModels.Categories;
 
-    public class ItemEditInputModel
+    public class TabEditInputModel
     {
         [Required]
         public string Id { get; set; }
@@ -16,16 +16,12 @@
 
         public string ImageUrl { get; set; }
 
-        [Required(ErrorMessage = "Трябва да въведете цена!")]
-        [Range(0.01, 10000, ErrorMessage = "Цената трябва да е между 0.01 и 10000!")]
-        public double Price { get; set; }
-
-        [Required(ErrorMessage = "Трябва да изберете подкатегория!")]
-        public string TabId { get; set; }
+        [Required(ErrorMessage = "Трябва да изберете категория!")]
+        public string CategoryId { get; set; }
 
         [Required(ErrorMessage = "Трябва да веведете описание!")]
         public string Description { get; set; }
 
-        public IEnumerable<TabIdNameViewModel> Tabs { get; set; }
+        public IEnumerable<CategoryIdNameViewModel> Categories { get; set; }
     }
 }
