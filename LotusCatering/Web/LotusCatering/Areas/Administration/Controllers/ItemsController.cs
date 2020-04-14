@@ -10,6 +10,7 @@
     using LotusCatering.Web.ViewModels.Items;
     using LotusCatering.Web.ViewModels.Tabs;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
 
     [Authorize(Roles = "Administrator")]
@@ -19,12 +20,14 @@
         private readonly IItemService itemService;
         private readonly ITabService tabService;
         private readonly Cloudinary cloudinary;
+        private readonly IWebHostEnvironment hostEnvironment;
 
-        public ItemsController(IItemService itemService, ITabService tabService, Cloudinary cloudinary)
+        public ItemsController(IItemService itemService, ITabService tabService, Cloudinary cloudinary, IWebHostEnvironment hostEnvironment)
         {
             this.itemService = itemService;
             this.tabService = tabService;
             this.cloudinary = cloudinary;
+            this.hostEnvironment = hostEnvironment;
         }
 
         public IActionResult Index()
@@ -54,7 +57,9 @@
                 return this.View(input);
             }
 
-            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, input.Image, "Items");
+            string rootPath = this.hostEnvironment.WebRootPath;
+            var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Items", rootPath, true);
 
             var itemId = await this.itemService.AddAsync(input.Name, imageName, input.Price, input.TabId, input.Description);
             return this.RedirectToAction("Id", "Items", new { area = string.Empty, Id = itemId });

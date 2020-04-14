@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.IO;
     using System.Text;
     using System.Threading.Tasks;
@@ -12,17 +13,9 @@
 
     public class CloudinaryService
     {
-        public static async Task<string> UploadAsync(Cloudinary cloudinary, IFormFile file, string folder)
+        public static async Task<string> UploadAsync(Cloudinary cloudinary, byte[] image, string folder, string rootPath, bool watermark = false)
         {
-            byte[] destinationImage;
-
-            using (var memoryStream = new MemoryStream())
-            {
-                await file.CopyToAsync(memoryStream);
-                destinationImage = memoryStream.ToArray();
-            }
-
-            using var destinationStream = new MemoryStream(destinationImage);
+            using var destinationStream = new MemoryStream(image);
 
             var uploadParams = new ImageUploadParams()
             {
@@ -31,7 +24,15 @@
             };
 
             var result = await cloudinary.UploadAsync(uploadParams);
-            return result.PublicId;
+            var resultId = result.PublicId;
+
+            if (watermark)
+            {
+                var imageWithWatherMark = ImageService.AddWaterMark(image, rootPath);
+                resultId = await UploadAsync(cloudinary, imageWithWatherMark, folder, rootPath);
+            }
+
+            return resultId;
         }
     }
 }

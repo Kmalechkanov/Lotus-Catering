@@ -11,6 +11,7 @@
     using LotusCatering.Web.ViewModels.Categories;
     using LotusCatering.Web.ViewModels.Tabs;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
 
     [Authorize(Roles = "Administrator")]
@@ -20,12 +21,14 @@
         private readonly ITabService tabService;
         private readonly ICategoryService categoryService;
         private readonly Cloudinary cloudinary;
+        private readonly IWebHostEnvironment hostEnvironment;
 
-        public TabsController(ITabService tabService, ICategoryService categoryService, Cloudinary cloudinary)
+        public TabsController(ITabService tabService, ICategoryService categoryService, Cloudinary cloudinary, IWebHostEnvironment hostEnvironment)
         {
             this.tabService = tabService;
             this.categoryService = categoryService;
             this.cloudinary = cloudinary;
+            this.hostEnvironment = hostEnvironment;
         }
 
         public IActionResult Index()
@@ -55,7 +58,9 @@
                 return this.View(input);
             }
 
-            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, input.Image, "Tabs");
+            string rootPath = this.hostEnvironment.WebRootPath;
+            var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Tabs", rootPath, true);
 
             var tabId = await this.tabService.AddAsync(input.Name, imageName, input.CategoryId, input.Description);
             return this.RedirectToAction("Id", "Tabs", new { area = string.Empty, Id = tabId });

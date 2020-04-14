@@ -10,15 +10,15 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            await SeedTab(dbContext, "Солени хапки", "Постни", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Солени хапки", "Местни", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Солени хапки", "Свежи", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Солени хапки", "Веган", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Солени хапки", "Фюжън", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Сладки хапки", "Петифури", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Сладки хапки", "Къп кейк", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Сладки хапки", "Тарталетки", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
-            await SeedTab(dbContext, "Сладки хапки", "Профитероли", "Примерно описание", "categories/1edbc4abcb626f73b0dd762b8");
+            await SeedTab(dbContext, "Солени хапки", "Постни", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Солени хапки", "Местни", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Солени хапки", "Свежи", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Солени хапки", "Веган", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Солени хапки", "Фюжън", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Сладки хапки", "Петифури", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Сладки хапки", "Къп кейк", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Сладки хапки", "Тарталетки", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
+            await SeedTab(dbContext, "Сладки хапки", "Профитероли", "Примерно описание", "tabs/ckqudfmcsm5zwp8jb2wt");
         }
 
         private static async Task SeedTab(ApplicationDbContext dbContext, string categoryName, string name, string description, string imageUrl)
