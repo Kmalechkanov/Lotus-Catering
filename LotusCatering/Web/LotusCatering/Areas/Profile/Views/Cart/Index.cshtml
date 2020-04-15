@@ -18,18 +18,18 @@
                 <th>Линкове</th>
             </tr>
         </thead>
-            <tbody>
-        @foreach (var item in Model.Items)
-        {
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
                 <tr>
                     <td data-title="Снимка"><img src="@string.Format(GlobalConstants.CloudUrlTemplate, item.ImageUrl)" class="img-icon"></td>
                     <td data-title="Име">@item.Name</td>
                     <td data-title="Цена">@item.Price лв.</td>
                     <td data-title="Количество" style="min-width:150px;">
                         <div class="input-group">
-                            <input type="button" value="-" class="button-minus" data-field="Quantity" />
-                            <input type="number" id="Quantity" name="Quantity" min="10" max="300" step="10" value="@item.Quantity" class="quantity-field">
-                            <input type="button" value="+" class="button-plus" data-field="Quantity">
+                            <input type="button" value="-" class="input-change button-minus" data-field="Quantity" />
+                            <input type="number" name="Quantity" min="10" max="300" step="10" value="@item.Quantity" class="input-change quantity-field">
+                            <input type="button" value="+" class="input-change button-plus" data-field="Quantity">
                         </div>
                     </td>
                     <td data-title="Общо цена">@(double.Parse(item.Price) * item.Quantity) лв.</td>
@@ -37,32 +37,38 @@
                         <input type="text" name="ItemId" value="@item.Id" hidden />
                         <input type="text" name="IsRemoved" value="false" hidden />
                         <a class="form-button fit-width" asp-area="Home" asp-controller="Items" asp-action="Id" asp-route-id=@item.Id asp-route-title="@ConvertService.CyrillicToLatin(item.Name, true)" alt="Прегледай"><i class="fas fa-search"></i> Преглед</a>
-                        <button class="check-id form-button fit-width"><i class="fas fa-trash-alt"></i> Премахни</button>
+                        <button class="input-change check-id form-button fit-width"><i class="fas fa-trash-alt"></i> Премахни</button>
                     </td>
                 </tr>
-        }
-        <tr>
-            <th colspan="3">
-                Общо Количество ---&gt;
-            </th>
-            <th>
-                @Model.Items.Sum(x => x.Quantity) хапки.
-            </th>
-            <th>
-                @Model.Items.Sum(x => x.Quantity * double.Parse(x.Price)) лв.
-            </th>
-            <th>
-                &lt;--- Общо Цена
-            </th>
-        </tr>
+            }
+            <tr>
+                <th colspan="3">
+                    Общо Количество ---&gt;
+                </th>
+                <th>
+                    @Model.Items.Sum(x => x.Quantity) хапки.
+                </th>
+                <th>
+                    @Model.Items.Sum(x => x.Quantity * double.Parse(x.Price)) лв.
+                </th>
+                <th>
+                    &lt;--- Общо Цена
+                </th>
+            </tr>
         </tbody>
     </table>
-    <button class="form-button" type="submit">Запази</button>
+    <button id="save-btn" class="form-button hidden" type="submit">Запази</button>
 </form>
 
+<a id="proceed-btn" class="form-button a-button" asp-controller="Purchase" asp-action="Proceed">Изпълни попупка</a>
+
 @section Scripts {
-    <script src="~/js/numberInput.js"></script>
     <script>
+        $('.input-change').on('click', function (e) {
+            $('#save-btn').removeClass('hidden');
+            $('#proceed-btn').addClass('hidden');
+        });
+
         $('.check-id').on('click', function (e) {
             e.preventDefault();
             let parent = $(this).parent();
@@ -70,8 +76,9 @@
             child.setAttribute('value', 'true');
 
             let parentParent = parent.parent()[0];
-            parentParent.classList.add('hidden');
+            parentParent.addClass('hidden');
             parentParent.setAttribute('hidden', '');
         });
     </script>
+    <script src="~/js/numberInput.js"></script>
 }

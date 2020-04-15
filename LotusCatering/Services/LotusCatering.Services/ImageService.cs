@@ -1,13 +1,10 @@
 ﻿namespace LotusCatering.Services
 {
     using System;
-    using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Drawing.Imaging;
     using System.IO;
-    using System.Reflection;
-    using System.Text;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Http;
@@ -69,10 +66,8 @@
 
             watermark_bm.MakeTransparent(watermark_bm.GetPixel(0, 0));
 
-            using (Graphics gr = Graphics.FromImage(result_bm))
-            {
-                gr.DrawImage(watermark_bm, x, y);
-            }
+            using Graphics gr = Graphics.FromImage(result_bm);
+            gr.DrawImage(watermark_bm, x, y);
         }
 
         private static Image ResizeImage(Image image, int new_height, int new_width)

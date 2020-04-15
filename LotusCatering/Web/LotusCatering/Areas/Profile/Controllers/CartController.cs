@@ -13,6 +13,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
+    [Authorize]
     [Area("Profile")]
     public class CartController : BaseController
     {
@@ -25,7 +26,6 @@
             this.userManager = userManager;
         }
 
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var user = await this.userManager.GetUserAsync(this.User);
@@ -39,7 +39,6 @@
             return this.View(viewModel);
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<JsonResult> AddItem(CartItemInputModel inputModel)
         {
@@ -65,7 +64,6 @@
             return this.Json(new { succeed, inputModel });
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Update(CartUpdateInputModel inputModel)
         {

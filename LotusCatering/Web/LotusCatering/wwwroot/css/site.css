@@ -206,7 +206,7 @@ header nav ul li:hover {
 	font: white;
 }
 
-.admin-form label {
+.admin-form label, .display-block {
 	display: block;
 }
 
@@ -275,6 +275,12 @@ select {
 	transition: all 0.3 ease;
 	cursor: pointer;
 	margin: 20px 0;
+}
+
+.a-button {
+	display: block;
+	text-align: center;
+	padding: 15px 0;
 }
 
 .form button:hover,

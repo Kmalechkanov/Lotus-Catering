@@ -1,0 +1,27 @@
+﻿@model LotusCatering.Web.ViewModels.Purchase.PurchaseProceedViewModel
+@{
+    ViewData["Title"] = "Изпълни попупка";
+}
+
+<h1>Изпълни попупка</h1>
+<form method="post" asp-action="Proceed" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="notification"></div>
+    <div>
+        <label asp-for="TotalPrice">Цена</label>
+        <input asp-for="TotalPrice" type="text" disabled>
+    </div>
+    <div>
+        <label asp-for="TotalItems">Хапки</label>
+        <input asp-for="TotalItems" type="text" disabled>
+    </div>
+    <div>
+        <label asp-for="AdditionalInformation">Допълнителна информация</label>
+        <textarea asp-for="AdditionalInformation" oninput="auto_grow(this)"></textarea>
+    </div>
+    <div>
+        <label asp-for="DeliveryDate">Дата на взимане</label>
+        <input asp-for="DeliveryDate" type="date">
+    </div>
+
+    <button class="form-button" type="submit">Изпълни попупка</button>
+</form>

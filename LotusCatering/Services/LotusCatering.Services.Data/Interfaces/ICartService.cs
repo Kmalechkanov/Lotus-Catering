@@ -15,6 +15,10 @@
 
         int GetQuantity(string cartId, string itemId);
 
+        int GetTotalQuantity(string cartId);
+
+        double GetTotalPrice(string cartId);
+
         Task<bool> AddItemAsync(string cartId, string itemId, int quantity);
 
         Task<bool> AddItemQuantityAsync(string cartId, string itemId, int quantity);

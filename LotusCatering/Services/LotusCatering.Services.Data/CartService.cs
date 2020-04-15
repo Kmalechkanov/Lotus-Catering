@@ -82,6 +82,12 @@
         public int GetQuantity(string cartId, string itemId)
             => this.context.CartItems.FirstOrDefault(ci => ci.CartId == cartId && ci.ItemId == itemId).Quantity;
 
+        public double GetTotalPrice(string cartId)
+            => this.context.CartItems.Where(ci => ci.CartId == cartId && ci.Item.IsDeleted == false).Sum(ci => (ci.Item.Price * ci.Quantity));
+
+        public int GetTotalQuantity(string cartId)
+            => this.context.CartItems.Where(ci => ci.CartId == cartId && ci.Item.IsDeleted == false).Sum(ci => ci.Quantity);
+
         public bool IsItemInCart(string cartId, string itemId)
             => this.context.CartItems.Any(ci => ci.CartId == cartId && ci.ItemId == itemId);
 

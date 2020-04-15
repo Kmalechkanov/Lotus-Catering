@@ -3,7 +3,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="right-align secondHeader show-block">
+<ul class="right-align secondHeader">
     @if (!this.SignInManager.IsSignedIn(this.User))
     {
         <partial name="_LoginPartial" />
