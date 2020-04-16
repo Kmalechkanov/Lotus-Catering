@@ -1,4 +1,4 @@
-﻿namespace LotusCatering.Web.ViewModels.Cart
+﻿namespace LotusCatering.Web.ViewModels.CartItems
 {
     public class CartItemUpdateInputModel
     {

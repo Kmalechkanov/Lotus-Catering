@@ -1,0 +1,17 @@
+﻿@model LotusCatering.Web.ViewModels.Purchase.PurchaseIdViewModel
+@{
+    ViewData["Title"] = "Извършена покупки";
+}
+
+<h1>Извършена покупка</h1>
+    <div class="settings-div">
+        <h2>
+                <span><strong>@Model.Order.Id</strong></span>
+                <span>@Model.Order.PaymentDate</span>
+                <span>@Model.Order.DeliveryDate</span>
+                <span>@Model.Order.TotalPrice</span>
+                <span>@Model.Order.AdditionalInformation</span>
+        </h2>
+    </div>
+
+

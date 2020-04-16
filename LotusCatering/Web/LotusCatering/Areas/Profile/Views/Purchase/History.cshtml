@@ -1,0 +1,20 @@
+﻿@model LotusCatering.Web.ViewModels.Purchase.PurchaseHistoryViewModel
+@{
+    ViewData["Title"] = "Извършени покупки";
+}
+
+<h1>Извършени покупки</h1>
+@foreach (var order in Model.Orders)
+{
+    <div class="settings-div">
+        <h2>
+            <a asp-action="Id" asp-route-id="@order.Id">
+                <span><strong>@order.Id</strong></span>
+                <span>@order.PaymentDate</span>
+                <span>@order.TotalPrice</span>
+            </a>
+        </h2>
+    </div>
+}
+
+

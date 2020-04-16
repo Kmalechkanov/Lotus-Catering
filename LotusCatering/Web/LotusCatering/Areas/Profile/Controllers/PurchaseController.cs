@@ -8,6 +8,7 @@
     using LotusCatering.Data.Models;
     using LotusCatering.Services.Data.Interfaces;
     using LotusCatering.Web.Controllers;
+    using LotusCatering.Web.ViewModels.Orders;
     using LotusCatering.Web.ViewModels.Purchase;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
@@ -90,9 +91,34 @@
             }
 
             var orderId = await this.orderService.AddAsync(currentDate, inputModel.DeliveryDate, cartId, user.Id, inputModel.AdditionalInformation);
-            await this.cartService.RemoveAllItemsAsync(cartId);
+            // await this.cartService.RemoveAllItemsAsync(cartId);
 
-            return this.View();
+            return this.RedirectToAction("History");
+        }
+
+        public async Task<IActionResult> History()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            var viewMoodel = new PurchaseHistoryViewModel
+            {
+                Orders = this.orderService.GetAll<OrderBasicViewModel>(user.Id).ToArray(),
+            };
+
+            return this.View(viewMoodel);
+        }
+
+
+        public async Task<IActionResult> Id(string id)
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            var viewMoodel = new PurchaseIdViewModel
+            {
+                Order = this.orderService.GetById<OrderInspectViewModel>(id),
+            };
+
+            return this.View(viewMoodel);
         }
     }
 }

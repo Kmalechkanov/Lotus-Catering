@@ -1,11 +1,13 @@
 ﻿namespace LotusCatering.Services.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     using LotusCatering.Data.Models;
     using LotusCatering.Services.Data.Interfaces;
+    using LotusCatering.Services.Mapping;
 
     public class OrderService : IOrderService
     {
@@ -49,5 +51,11 @@
 
             return order.Id;
         }
+
+        public IEnumerable<T> GetAll<T>(string userId)
+            => this.dbContext.Orders.Where(o => o.UserId == userId).To<T>();
+
+        public T GetById<T>(string id)
+            => this.dbContext.Orders.Where(o => o.Id == id).To<T>().FirstOrDefault();
     }
 }

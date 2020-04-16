@@ -1,9 +1,9 @@
 ﻿let lastScroll = 0;
 
 $(window).scroll(function (e) {
-    if ($(window).width() <= 600) {
-        return;
-    }
+    //if ($(window).width() <= 600) {
+    //    return;
+    //}
 
     if ($(window).scrollTop() >= $(".logo-wrapper").height()) {
         $("header nav").addClass("fixed-header");

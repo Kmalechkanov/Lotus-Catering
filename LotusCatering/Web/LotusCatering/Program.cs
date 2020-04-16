@@ -15,7 +15,7 @@
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    //webBuilder.UseUrls("http://192.168.5.108:5000", "https://192.168.5.108:5001");
+                    webBuilder.UseUrls("http://192.168.5.108:5000", "https://192.168.5.108:5001");
                 });
     }
 }
