@@ -78,6 +78,7 @@
             services.AddTransient<ITabService, TabService>();
             services.AddTransient<IItemService, ItemService>();
             services.AddTransient<ICartService, CartService>();
+            services.AddTransient<IOrderService, OrderService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext dbContext)

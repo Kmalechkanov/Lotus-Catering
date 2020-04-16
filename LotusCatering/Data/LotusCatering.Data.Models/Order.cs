@@ -21,6 +21,10 @@
 
         public DateTime DeliveryDate { get; set; }
 
+        public double TotalPrice { get; set; }
+
+        public string AdditionalInformation { get; set; }
+
         public ICollection<OrderItem> OrderItems { get; set; }
             = new HashSet<OrderItem>();
     }

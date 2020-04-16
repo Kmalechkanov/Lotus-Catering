@@ -91,6 +91,13 @@
         public bool IsItemInCart(string cartId, string itemId)
             => this.context.CartItems.Any(ci => ci.CartId == cartId && ci.ItemId == itemId);
 
+        public async Task<bool> RemoveAllItemsAsync(string cartId)
+        {
+            this.context.CartItems.RemoveRange(this.context.CartItems.Where(ci => ci.CartId == cartId));
+            var success = await this.context.SaveChangesAsync();
+            return success != 0;
+        }
+
         public async Task<bool> RemoveItemAsync(string cartId, string itemId)
         {
             var cartItem = new CartItem

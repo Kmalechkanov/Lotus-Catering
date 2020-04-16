@@ -26,5 +26,7 @@
         Task<bool> EditItemAsync(string cartId, string itemId, int quantity);
 
         Task<bool> RemoveItemAsync(string cartId, string itemId);
+
+        Task<bool> RemoveAllItemsAsync(string cartId);
     }
 }

@@ -13,7 +13,6 @@
 
         public Item Item { get; set; }
 
-        [Range(10, 200)]
         public int Quantity { get; set; }
     }
 }

@@ -19,11 +19,13 @@
     {
         private readonly ICartService cartService;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IOrderService orderService;
 
-        public PurchaseController(ICartService cartService, UserManager<ApplicationUser> userManager)
+        public PurchaseController(ICartService cartService, UserManager<ApplicationUser> userManager, IOrderService orderService)
         {
             this.cartService = cartService;
             this.userManager = userManager;
+            this.orderService = orderService;
         }
 
         public IActionResult Index()
@@ -62,7 +64,7 @@
             if (DateTime.Compare(inputModel.DeliveryDate, currentDate.AddDays(3)) == -1
                 || DateTime.Compare(inputModel.DeliveryDate, currentDate.AddDays(30)) == 1)
             {
-                this.ModelState.AddModelError(string.Empty, $"Датата трябва да бъде между {currentDate.AddDays(3).ToString("mm/dd/yyyy")} и {currentDate.AddDays(30).ToString("mm/dd/yyyy")}.");
+                this.ModelState.AddModelError(string.Empty, $"Датата трябва да бъде между {currentDate.AddDays(3).ToString("MM/dd/yyyy")} и {currentDate.AddDays(30).ToString("MM/dd/yyyy")}.");
             }
 
             if (totalQuantity < 50)
@@ -81,13 +83,14 @@
                 {
                     AdditionalInformation = inputModel.AdditionalInformation,
                     DeliveryDate = inputModel.DeliveryDate,
-                    TotalItems = inputModel.TotalItems,
-                    TotalPrice = inputModel.TotalPrice,
+                    TotalItems = totalQuantity,
+                    TotalPrice = totalPrice,
                 };
                 return this.View(viewModel);
             }
 
-            // todo make order
+            var orderId = await this.orderService.AddAsync(currentDate, inputModel.DeliveryDate, cartId, user.Id, inputModel.AdditionalInformation);
+            await this.cartService.RemoveAllItemsAsync(cartId);
 
             return this.View();
         }

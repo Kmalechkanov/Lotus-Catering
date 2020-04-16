@@ -9,5 +9,7 @@
         public string ItemId { get; set; }
 
         public virtual Item Item { get; set; }
+
+        public int Quantity { get; set; }
     }
 }
