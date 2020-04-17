@@ -108,7 +108,6 @@
             return this.View(viewMoodel);
         }
 
-
         public async Task<IActionResult> Id(string id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
