@@ -1,0 +1,20 @@
+﻿@model LotusCatering.Web.ViewModels.Categories.CategorySelectViewModel
+@{
+    ViewData["Title"] = "Admin Panel";
+    var items = Model.Categories.Select(x => new SelectListItem(x.Name, x.Id));
+}
+
+<form method="post" class="admin-form" asp-action="Select" enctype="multipart/form-data">
+    <hr />
+    <h1>Избери категория</h1>
+    <hr />
+    <div asp-validation-summary="All" class="notification"></div>
+    <div>
+        <label asp-for="Id">Категория</label>
+        <select asp-for="Id" asp-items="items"></select>
+        <input asp-for="ReturnUrl" hidden />
+    </div>
+    <div>
+        <button class="form-button" type="submit">Избери</button>
+    </div>
+</form>

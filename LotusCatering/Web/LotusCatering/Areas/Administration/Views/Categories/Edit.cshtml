@@ -1,0 +1,32 @@
+﻿@model LotusCatering.Web.ViewModels.Categories.CategoryEditInputModel
+@using LotusCatering.Common;
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<form method="post" class="admin-form" asp-action="Edit" enctype="multipart/form-data">
+    <hr />
+    <h1>Редактирай категория</h1>
+    <hr />
+    <div asp-validation-summary="All" class="notification"></div>
+    <div>
+        <input asp-for="Id" hidden>
+    </div>
+    <div>
+        <label asp-for="Name">Име на категория</label>
+        <input asp-for="Name">
+    </div>
+    <div>
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" oninput="auto_grow(this)"></textarea>
+    </div>
+    <div>
+        <label asp-for="ImageUrl">Снимка</label>
+        <input asp-for="ImageUrl" hidden />
+        <img src="@string.Format(GlobalConstants.CloudUrlTemplate, Model.ImageUrl)" class="half-width oval-img">
+    </div>
+    
+    <div>
+        <button class="form-button" type="submit">Редактирай</button>
+    </div>
+</form>
