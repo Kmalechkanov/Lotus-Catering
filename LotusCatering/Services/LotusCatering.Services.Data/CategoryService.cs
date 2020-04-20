@@ -2,14 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using LotusCatering.Data.Common.Repositories;
     using LotusCatering.Data.Models;
-    using LotusCatering.Services;
     using LotusCatering.Services.Data.Interfaces;
     using LotusCatering.Services.Mapping;
-    using LotusCatering.Web.ViewModels.Categories;
-    using LotusCatering.Web.ViewModels.Tabs;
 
     public class CategoryService : ICategoryService
     {
@@ -28,5 +26,46 @@
 
         public string GetNameById(string id)
             => this.categoriesRepository.All().FirstOrDefault(c => c.Id == id).Name;
+
+        public async Task<string> AddAsync(string name, string description, string imageUrl)
+        {
+            var category = new Category
+            {
+                Name = name,
+                ImageUrl = imageUrl,
+                Description = description,
+            };
+
+            await this.categoriesRepository.AddAsync(category);
+            await this.categoriesRepository.SaveChangesAsync();
+            return category.Id;
+        }
+
+        public async Task<bool> UpdateAsync(string id, string name, string description)
+        {
+            var category = this.categoriesRepository.All().FirstOrDefault(i => i.Id == id);
+            if (category == null)
+            {
+                return false;
+            }
+
+            category.Name = name;
+            category.Description = description;
+
+            var response = await this.categoriesRepository.SaveChangesAsync();
+            return response == 1;
+        }
+
+        public async Task<bool> DeleteAsync(string id)
+        {
+            var category = this.categoriesRepository.All().FirstOrDefault(i => i.Id == id);
+
+            this.categoriesRepository.Delete(category);
+            var response = await this.categoriesRepository.SaveChangesAsync();
+            return response == 1;
+        }
+
+        public T GetById<T>(string id)
+            => this.categoriesRepository.All().FirstOrDefault(i => i.Id == id).То<T>();
     }
 }
