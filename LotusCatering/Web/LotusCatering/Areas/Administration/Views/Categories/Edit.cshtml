@@ -25,7 +25,9 @@
         <input asp-for="ImageUrl" hidden />
         <img src="@string.Format(GlobalConstants.CloudUrlTemplate, Model.ImageUrl)" class="half-width oval-img">
     </div>
-    
+    <div>
+        <a asp-action="EditImage">Промени снимка</a>
+    </div>
     <div>
         <button class="form-button" type="submit">Редактирай</button>
     </div>

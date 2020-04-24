@@ -1,14 +1,9 @@
 ﻿namespace LotusCatering.Web.ViewComponents
 {
-    using System;
-    using System.Linq;
-
     using LotusCatering.Services.Data.Interfaces;
     using LotusCatering.Web.ViewModels.Categories;
     using LotusCatering.Web.ViewModels.NavBar;
-    using LotusCatering.Web.ViewModels.Tabs;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     [ViewComponent(Name = "NavBar")]
     public class NavBarViewComponent : ViewComponent

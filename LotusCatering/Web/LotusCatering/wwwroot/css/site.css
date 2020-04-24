@@ -484,6 +484,19 @@ input[type="number"] {
 	color: black;
 }
 
+#cookieConsent {
+	padding: 0 10%;
+	position: fixed;
+	bottom: 0px;
+	margin: 0;
+	text-align: center;
+	width: -webkit-fill-available;
+}
+	
+#cookieConsent a {
+	text-decoration-line: underline;
+}
+
 @keyframes show-block-animation {
 	0% {
 		transform: scaleY(1);

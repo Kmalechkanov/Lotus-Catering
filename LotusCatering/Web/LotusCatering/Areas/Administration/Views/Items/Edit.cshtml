@@ -31,6 +31,9 @@
         <img src="@string.Format(GlobalConstants.CloudUrlTemplate, Model.ImageUrl)" class="half-width oval-img">
     </div>
     <div>
+        <a asp-action="EditImage" asp-route-id="@Model.Id">Промени снимка</a>
+    </div>
+    <div>
         <label asp-for="TabId">Подкатегория</label>
         <select asp-for="TabId" asp-items="tabs"></select>
     </div>

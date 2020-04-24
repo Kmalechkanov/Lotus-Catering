@@ -1,0 +1,18 @@
+﻿@model LotusCatering.Web.ViewModels.Items.ItemEditImageViewModel
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<form method="post" class="admin-form" asp-action="EditImage" enctype="multipart/form-data">
+    <hr />
+    <h1>Редактирай снимка</h1>
+    <hr />
+    <div asp-validation-summary="All" class="notification"></div>
+    <div>
+        <label asp-for="Image">Снимка</label>
+        <input asp-for="Image" accept="image/*" required>
+    </div>
+    <div>
+        <button class="form-button" type="submit">Редактирай снимка</button>
+    </div>
+</form>

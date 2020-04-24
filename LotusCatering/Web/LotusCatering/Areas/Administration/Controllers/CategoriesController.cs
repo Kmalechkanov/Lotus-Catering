@@ -81,6 +81,37 @@
             return this.RedirectToAction("Id", "Categories", new { area = string.Empty, input.Id });
         }
 
+        public IActionResult EditImage(string id)
+        {
+            if (id == null)
+            {
+                return this.RedirectToAction("Select", "Categories", new { id, returnUrl = "EditImage" });
+            }
+
+            var viewModel = new CategoryEditImageViewModel
+            {
+                Id = id,
+            };
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditImage(CategoryEditImageViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            string rootPath = this.hostEnvironment.WebRootPath;
+            var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Categories", rootPath, true);
+
+            await this.categoryService.UpdateImageAsync(input.Id, imageName);
+            return this.RedirectToAction("Id", "Categories", new { area = string.Empty, input.Id });
+        }
+
         public IActionResult Delete(string id)
         {
             if (id == null)

@@ -38,6 +38,7 @@
         public IActionResult Add(string id)
         {
             var tabs = this.tabService.GetAll<TabIdNameViewModel>();
+
             var viewModel = new ItemAddInputModel
             {
                 TabId = id,
@@ -92,6 +93,37 @@
             }
 
             await this.itemService.UpdateAsync(input.Id, input.Name, input.Price, input.TabId, input.Description);
+            return this.RedirectToAction("Id", "Items", new { area = string.Empty, input.Id });
+        }
+
+        public IActionResult EditImage(string id)
+        {
+            if (id == null)
+            {
+                return this.RedirectToAction("Select", "Items", new { id, returnUrl = "EditImage" });
+            }
+
+            var viewModel = new ItemEditImageViewModel
+            {
+                Id = id,
+            };
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditImage(ItemEditImageViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            string rootPath = this.hostEnvironment.WebRootPath;
+            var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Items", rootPath, true);
+
+            await this.itemService.UpdateImageAsync(input.Id, imageName);
             return this.RedirectToAction("Id", "Items", new { area = string.Empty, input.Id });
         }
 

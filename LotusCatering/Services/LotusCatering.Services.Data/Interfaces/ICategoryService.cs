@@ -17,6 +17,8 @@
 
         Task<bool> UpdateAsync(string id, string name, string description);
 
+        Task<bool> UpdateImageAsync(string id, string imageUrl);
+
         Task<bool> DeleteAsync(string id);
     }
 }

@@ -67,5 +67,19 @@
 
         public T GetById<T>(string id)
             => this.categoriesRepository.All().FirstOrDefault(i => i.Id == id).То<T>();
+
+        public async Task<bool> UpdateImageAsync(string id, string imageUrl)
+        {
+            var item = this.categoriesRepository.All().FirstOrDefault(i => i.Id == id);
+            if (item == null)
+            {
+                return false;
+            }
+
+            item.ImageUrl = imageUrl;
+
+            var response = await this.categoriesRepository.SaveChangesAsync();
+            return response == 1;
+        }
     }
 }

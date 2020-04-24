@@ -74,5 +74,19 @@
             var response = await this.itemRepository.SaveChangesAsync();
             return response == 1;
         }
+
+        public async Task<bool> UpdateImageAsync(string id, string imageUrl)
+        {
+            var item = this.itemRepository.All().FirstOrDefault(i => i.Id == id);
+            if (item == null)
+            {
+                return false;
+            }
+
+            item.ImageUrl = imageUrl;
+
+            var response = await this.itemRepository.SaveChangesAsync();
+            return response == 1;
+        }
     }
 }

@@ -33,12 +33,13 @@
                     </div>
                     @if (this.SignInManager.IsSignedIn(this.User))
                     {
-                    <input type="submit" value="Добави" class="AddToCart" />
+                        <input type="submit" value="Добави" class="AddToCart" />
                     }
                     @if (this.User.IsInRole("Administrator"))
                     {
                         <a asp-controller="Items" asp-action="Edit" asp-area="Administration" asp-route-id="@Model.Id" class="white-button header-color">Редактирай</a>
                         <a asp-controller="Items" asp-action="Delete" asp-area="Administration" asp-route-id="@Model.Id" class="white-button danger-color">Изтрий</a>
+                        <a asp-controller="Items" asp-action="EditImage" asp-area="Administration" asp-route-id="@Model.Id" class="white-button header-color">Редактирай снимка</a>
                     }
                 </form>
             </div>

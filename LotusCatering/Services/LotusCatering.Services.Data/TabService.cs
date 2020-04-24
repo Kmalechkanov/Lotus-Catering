@@ -69,5 +69,19 @@
             var response = await this.tabRepository.SaveChangesAsync();
             return response == 1;
         }
+
+        public async Task<bool> UpdateImageAsync(string id, string imageUrl)
+        {
+            var item = this.tabRepository.All().FirstOrDefault(i => i.Id == id);
+            if (item == null)
+            {
+                return false;
+            }
+
+            item.ImageUrl = imageUrl;
+
+            var response = await this.tabRepository.SaveChangesAsync();
+            return response == 1;
+        }
     }
 }
