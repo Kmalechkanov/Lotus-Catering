@@ -31,9 +31,9 @@
         {
             var category = new Category
             {
-                Name = name,
+                Name = name.Trim(),
                 ImageUrl = imageUrl,
-                Description = description,
+                Description = description.Trim(),
             };
 
             await this.categoriesRepository.AddAsync(category);
@@ -49,8 +49,8 @@
                 return false;
             }
 
-            category.Name = name;
-            category.Description = description;
+            category.Name = name.Trim();
+            category.Description = description.Trim();
 
             var response = await this.categoriesRepository.SaveChangesAsync();
             return response == 1;

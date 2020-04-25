@@ -22,10 +22,10 @@
         {
             var tab = new Tab
             {
-                Name = name,
+                Name = name.Trim(),
                 ImageUrl = imageUrl,
                 CategoryId = categoryId,
-                Description = description,
+                Description = description.Trim(),
             };
 
             await this.tabRepository.AddAsync(tab);
@@ -62,9 +62,9 @@
                 return false;
             }
 
-            tab.Name = name;
+            tab.Name = name.Trim();
             tab.CategoryId = categoryId;
-            tab.Description = description;
+            tab.Description = description.Trim();
 
             var response = await this.tabRepository.SaveChangesAsync();
             return response == 1;

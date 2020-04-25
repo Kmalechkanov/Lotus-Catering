@@ -35,7 +35,7 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public ICollection<Tab> Tabs { get; set; }
+        public virtual ICollection<Tab> Tabs { get; set; }
             = new HashSet<Tab>();
     }
 }

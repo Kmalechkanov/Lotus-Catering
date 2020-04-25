@@ -59,7 +59,7 @@
 
             string rootPath = this.hostEnvironment.WebRootPath;
             var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
-            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Tabs", rootPath, true);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Tabs", rootPath, false);
 
             var tabId = await this.tabService.AddAsync(input.Name, imageName, input.CategoryId, input.Description);
             return this.RedirectToAction("Id", "Tabs", new { area = string.Empty, Id = tabId });
@@ -120,7 +120,7 @@
 
             string rootPath = this.hostEnvironment.WebRootPath;
             var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
-            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Tabs", rootPath, true);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Tabs", rootPath, false);
 
             await this.tabService.UpdateImageAsync(input.Id, imageName);
             return this.RedirectToAction("Id", "Tabs", new { area = string.Empty, input.Id });

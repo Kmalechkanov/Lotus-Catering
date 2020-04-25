@@ -38,6 +38,12 @@
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Image> Images { get; set; }
+
+        public DbSet<Gallery> Galleries { get; set; }
+
+        public DbSet<GalleryImage> GalleryImages { get; set; }
+
         public override int SaveChanges()
             => this.SaveChanges(true);
 
@@ -63,6 +69,8 @@
             base.OnModelCreating(builder);
 
             this.ConfigureOrderItemRelations(builder);
+            this.ConfigureGalleryImageRelations(builder);
+            this.ConfigureCartItemRelations(builder);
 
             this.ConfigureUserIdentityRelations(builder);
 
@@ -100,9 +108,18 @@
         {
             builder.Entity<OrderItem>()
                 .HasKey(oi => new { oi.ItemId, oi.OrderId });
+        }
 
+        private void ConfigureCartItemRelations(ModelBuilder builder)
+        {
             builder.Entity<CartItem>()
                 .HasKey(ci => new { ci.ItemId, ci.CartId });
+        }
+
+        private void ConfigureGalleryImageRelations(ModelBuilder builder)
+        {
+            builder.Entity<GalleryImage>()
+                .HasKey(gi => new { gi.ImageId, gi.GalleryId });
         }
 
         private void ConfigureUserIdentityRelations(ModelBuilder builder)

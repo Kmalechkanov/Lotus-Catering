@@ -25,7 +25,7 @@
 
         public string AdditionalInformation { get; set; }
 
-        public ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
             = new HashSet<OrderItem>();
     }
 }

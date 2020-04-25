@@ -10,9 +10,17 @@
         </a>
     </li>
 }
-<li>
-    <i class="fas fa-images"></i> Галерия
-</li>
+
+@foreach (var gallery in Model.Galleries)
+{
+    <li>
+        <a asp-area=@null asp-controller="Galleries" asp-action="Id" asp-route-id=@gallery.Id asp-route-title="@ConvertService.CyrillicToLatin(gallery.Name, true)">
+            <i class="fas fa-images"></i>
+            @gallery.Name
+        </a>
+    </li>
+}
+
 <li>
     <i class="far fa-address-card"></i> Контакти
 </li>

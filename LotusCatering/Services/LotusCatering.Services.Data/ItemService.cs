@@ -34,11 +34,11 @@
         {
             var item = new Item
             {
-                Name = name,
+                Name = name.Trim(),
                 ImageUrl = imageUrl,
                 Price = price,
                 TabId = tabId,
-                Description = description,
+                Description = description.Trim(),
             };
 
             await this.itemRepository.AddAsync(item);
@@ -54,10 +54,10 @@
                 return false;
             }
 
-            item.Name = name;
+            item.Name = name.Trim();
             item.Price = price;
             item.TabId = tabId;
-            item.Description = description;
+            item.Description = description.Trim();
 
             var response = await this.itemRepository.SaveChangesAsync();
             return response == 1;

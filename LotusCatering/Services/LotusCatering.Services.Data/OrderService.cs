@@ -25,7 +25,7 @@
                 PaymentDate = paymentDate,
                 DeliveryDate = deliveryDate,
                 UserId = userId,
-                AdditionalInformation = additionalInformation,
+                AdditionalInformation = additionalInformation.Trim(),
             };
 
             var orderItems = this.dbContext

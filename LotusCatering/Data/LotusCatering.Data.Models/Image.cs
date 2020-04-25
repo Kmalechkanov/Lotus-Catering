@@ -6,9 +6,9 @@
 
     using LotusCatering.Data.Common.Models;
 
-    public class Tab : IAuditInfo, IDeletableEntity
+    public class Image : IAuditInfo, IDeletableEntity
     {
-        public Tab()
+        public Image()
         {
             this.Id = Guid.NewGuid().ToString();
         }
@@ -19,18 +19,11 @@
         [MaxLength(30)]
         public string Name { get; set; }
 
-        [Required]
         [MaxLength(150)]
         public string Description { get; set; }
 
         [Required]
-        [MaxLength(150)]
         public string ImageUrl { get; set; }
-
-        [Required]
-        public string CategoryId { get; set; }
-
-        public virtual Category Category { get; set; }
 
         public bool IsDeleted { get; set; }
 
@@ -40,7 +33,7 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public virtual ICollection<Item> Items { get; set; }
-            = new HashSet<Item>();
+        public virtual ICollection<GalleryImage> GalleryImages { get; set; }
+            = new HashSet<GalleryImage>();
     }
 }

@@ -1,10 +1,8 @@
 ﻿namespace LotusCatering.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
-    using System.Threading.Tasks;
+
     using LotusCatering.Services.Data.Interfaces;
     using LotusCatering.Web.Models;
     using LotusCatering.Web.ViewModels.Categories;
@@ -31,7 +29,6 @@
             {
                 Categories = categories,
             };
-
 
             return this.View(viewModel);
         }

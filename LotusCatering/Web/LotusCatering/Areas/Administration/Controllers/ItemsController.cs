@@ -60,7 +60,7 @@
 
             string rootPath = this.hostEnvironment.WebRootPath;
             var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
-            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Items", rootPath, true);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Items", rootPath, false);
 
             var itemId = await this.itemService.AddAsync(input.Name, imageName, input.Price, input.TabId, input.Description);
             return this.RedirectToAction("Id", "Items", new { area = string.Empty, Id = itemId });
@@ -121,7 +121,7 @@
 
             string rootPath = this.hostEnvironment.WebRootPath;
             var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
-            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Items", rootPath, true);
+            var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Items", rootPath, false);
 
             await this.itemService.UpdateImageAsync(input.Id, imageName);
             return this.RedirectToAction("Id", "Items", new { area = string.Empty, input.Id });
