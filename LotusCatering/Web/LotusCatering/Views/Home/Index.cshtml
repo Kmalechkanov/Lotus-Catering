@@ -30,4 +30,28 @@
             }
         </div>
     }
+
+    @foreach (var gallery in Model.Galleries)
+    {
+        <div class="oneline-flex">
+            @if (counter % 2 == 0)
+            {
+                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, "NONE")" alt="@gallery.Name" class="half-width" />
+                <div class="half-width some-padding">
+                    <p>@gallery.Name</p>
+                </div>
+            }
+            else
+            {
+                <div class="half-width some-padding">
+                    <p>@gallery.Name</p>
+                </div>
+                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, "NONE")" alt="@gallery.Name" class="half-width" />
+            }
+            @{
+                counter += 1;
+            }
+        </div>
+    }
 </div>
+

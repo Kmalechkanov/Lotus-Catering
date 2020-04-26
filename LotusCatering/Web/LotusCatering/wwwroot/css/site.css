@@ -497,6 +497,37 @@ input[type="number"] {
 	text-decoration-line: underline;
 }
 
+#main-images {
+	width: 100%;
+	text-align: center;
+}
+
+#main-images img {
+	cursor: pointer;
+	height: 300px;
+	max-width: -webkit-fill-available;
+}
+
+#full-screen {
+	height: 100%;
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 30;
+	left: 0;
+}
+
+#full-screen img {
+	max-width: 80%;
+	max-height: 80%;
+	display: block;
+	margin: auto;
+	min-width: 60%;
+	padding: 10px;
+}
+
 @keyframes show-block-animation {
 	0% {
 		transform: scaleY(1);
@@ -620,5 +651,31 @@ input[type="number"] {
 
 	#page-nav input:checked ~ ul {
 		display: block;
+	}
+
+	#main-images img {
+		cursor: pointer;
+		height: 100px;
+		max-width: -webkit-fill-available;
+	}
+
+	#full-screen {
+		height: 100%;
+		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 30;
+		left: 0;
+	}
+
+	#full-screen img {
+		max-width: 100%;
+		max-height: 80%;
+		display: block;
+		margin: auto;
+		min-width: 60%;
+		padding: 3px;
 	}
 }

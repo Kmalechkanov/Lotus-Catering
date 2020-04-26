@@ -27,7 +27,7 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public virtual ICollection<GalleryImage> GalleryImages { get; set; }
-            = new HashSet<GalleryImage>();
+        public virtual ICollection<Image> Images { get; set; }
+            = new HashSet<Image>();
     }
 }

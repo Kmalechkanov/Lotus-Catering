@@ -1,7 +1,6 @@
 ﻿namespace LotusCatering.Data.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using LotusCatering.Data.Common.Models;
@@ -33,7 +32,9 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public virtual ICollection<GalleryImage> GalleryImages { get; set; }
-            = new HashSet<GalleryImage>();
+        [Required]
+        public string GalleryId { get; set; }
+
+        public virtual Gallery Gallery { get; set; }
     }
 }

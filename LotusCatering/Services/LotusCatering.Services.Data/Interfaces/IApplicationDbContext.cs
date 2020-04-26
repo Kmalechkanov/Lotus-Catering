@@ -26,8 +26,6 @@
 
         DbSet<Gallery> Galleries { get; set; }
 
-        DbSet<GalleryImage> GalleryImages { get; set; }
-
         int SaveChanges();
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

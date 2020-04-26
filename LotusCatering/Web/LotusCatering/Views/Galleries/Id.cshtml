@@ -1,20 +1,33 @@
-﻿@model LotusCatering.Web.ViewModels.Categories.CategoryNameAndTabNameViewModel
-@using LotusCatering.Services;
-@using LotusCatering.Common;
+﻿@model LotusCatering.Web.ViewModels.Galleries.GalleryIdViewModel
+@using LotusCatering.Common
 @{
-    ViewData["Title"] = Model.Name;
+    ViewData["Title"] = "Галерия";
 }
 
-<div class="center-align">
-    <h1>@Model.Name</h1>
-    @foreach (var tab in Model.Tabs)
+<h1>Галерия</h1>
+<hr />
+<div id="main-images">
+    @foreach (var image in Model.Images)
     {
-    <div class="inline-form">
-        <a asp-controller="Tabs" asp-action="Id" asp-route-id=@tab.Id asp-route-title="@ConvertService.CyrillicToLatin(tab.Name, true)">
-            <h2>@tab.Name</h2>
-            <img src="@string.Format(GlobalConstants.CloudUrlTemplate, tab.ImageUrl)">
-            <span>@tab.Description</span>
-        </a>
-    </div>
+        <img src="@string.Format(GlobalConstants.CloudUrlTemplate, image.ImageUrl)" alt="@image.Name" class="myImg" />
     }
 </div>
+
+<div id="full-screen">
+    <img src="" alt="" />
+</div>
+
+@section scripts {
+    <script>
+        $('#full-screen').css('height', $(document).outerWidth() + 'px');
+
+        $('.myImg').click(function () {
+            var src = $(this).attr('src');
+            $('#full-screen img').attr('src', src);
+            $('#full-screen').fadeIn();
+        });
+        $('#full-screen').click(function () {
+            $(this).fadeOut();
+        });
+    </script>
+}
