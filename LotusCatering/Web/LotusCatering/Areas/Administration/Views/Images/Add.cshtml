@@ -1,0 +1,38 @@
+﻿@model LotusCatering.Web.ViewModels.Images.ImageAddInputModel
+@{
+    ViewData["Title"] = "Admin Panel";
+    var galleries = Model.Galleries.Select(x => new SelectListItem(x.Name, x.Id));
+}
+
+<form method="post" class="admin-form" asp-action="Add" enctype="multipart/form-data">
+    <hr />
+    <h1>Добави снимка</h1>
+    <hr />
+    <div asp-validation-summary="All" class="notification"></div>
+    <div>
+        <label asp-for="Name">Име на снимка</label>
+        <input asp-for="Name">
+    </div>
+    <div>
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" oninput="auto_grow(this)"></textarea>
+    </div>
+    <div>
+        <label asp-for="Image">Снимка</label>
+        <input asp-for="Image" accept="image/*" required>
+    </div>
+    @if (Model.GalleryId == null)
+    {
+        <div>
+            <label asp-for="GalleryId">Галерия</label>
+            <select asp-for="GalleryId" asp-items="galleries"></select>
+        </div>
+    }
+    else
+    {
+        <input asp-for="GalleryId" hidden>
+    }
+    <div>
+        <button class="form-button" type="submit">Добави</button>
+    </div>
+</form>

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using LotusCatering.Data.Common.Repositories;
     using LotusCatering.Data.Models;
@@ -17,6 +18,21 @@
         {
             this.imageRepository = imageRepository;
             this.dbRepository = dbRepository;
+        }
+
+        public async Task<string> AddAsync(string name, string imageUrl, string galleryId, string description)
+        {
+            var image = new Image
+            {
+                Name = name.Trim(),
+                ImageUrl = imageUrl,
+                GalleryId = galleryId,
+                Description = description.Trim(),
+            };
+
+            await this.imageRepository.AddAsync(image);
+            await this.imageRepository.SaveChangesAsync();
+            return image.Id;
         }
 
         public IEnumerable<T> GetAll<T>(string galleryId)

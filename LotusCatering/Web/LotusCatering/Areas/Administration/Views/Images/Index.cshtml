@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<hr />
+<h1>Панел за снимки</h1>
+<hr />
+<a asp-controller="Images" asp-action="Add" asp-area="Administration" class="full-size-box max-width">Добави снимка</a>
+<a asp-controller="Images" asp-action="Edit" asp-area="Administration" class="full-size-box max-width disabled">Редактирай снимка</a>
+<a asp-controller="Images" asp-action="Delete" asp-area="Administration" class="full-size-box max-width disabled">Премахни снимка</a>
