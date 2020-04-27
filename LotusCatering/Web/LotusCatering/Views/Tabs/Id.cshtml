@@ -13,7 +13,7 @@
             <a asp-controller="Items" asp-action="Id" asp-route-id=@tab.Id asp-route-title="@ConvertService.CyrillicToLatin(tab.Name, true)">
                 <img src="@string.Format(GlobalConstants.CloudUrlTemplate, tab.ImageUrl)">
                 <h2>@tab.Name</h2>
-                <span>Цена: @tab.Price лв.</span>
+                <span>Цена: @tab.Price.ToString("0.00") лв.</span>
             </a>
         </div>
     }

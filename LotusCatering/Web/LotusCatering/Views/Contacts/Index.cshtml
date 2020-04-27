@@ -1,0 +1,42 @@
+﻿@model LotusCatering.Web.ViewModels.Contacts.ContactsViewModel
+
+@{
+    ViewData["Title"] = "Контакти";
+}
+
+<div class="oneline-flex">
+    <div class="half-width">
+        <img src="~/images/logoIcon.png" style="width: 100%;"/>
+    </div>
+    <div class="half-width">
+        <form method="post" class="admin-form" enctype="multipart/form-data">
+            <hr />
+            <h1>Свържете се с нас!</h1>
+            <hr />
+            <div asp-validation-summary="All" class="notification"></div>
+            <div>
+                <label asp-for="Title">Тема</label>
+                <input asp-for="Title">
+            </div>
+            <div>
+                <label asp-for="Name">Име</label>
+                <input asp-for="Name">
+            </div>
+            <div>
+                <label asp-for="Email">Поща</label>
+                <input asp-for="Email">
+            </div>
+            <div>
+                <label asp-for="PhoneNumber">Телефон</label>
+                <input asp-for="PhoneNumber">
+            </div>
+            <div>
+                <label asp-for="Text">Вашето запитване</label>
+                <textarea asp-for="Text" oninput="auto_grow(this)"></textarea>
+            </div>
+            <div>
+                <button class="form-button" type="submit">Изпрати</button>
+            </div>
+        </form>
+    </div>
+</div>

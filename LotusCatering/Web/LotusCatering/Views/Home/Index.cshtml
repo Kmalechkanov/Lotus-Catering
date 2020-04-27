@@ -4,53 +4,41 @@
     ViewData["Title"] = "Начална страница";
     int counter = 0;
 }
-<div>
 
+<div style="font-size: 30px;">
     @foreach (var category in Model.Categories)
     {
         <div class="oneline-flex">
-            @if (counter % 2 == 0)
-            {
-                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, category.ImageUrl)" alt="@category.Name" class="half-width" />
-                <div class="half-width some-padding">
-                    <p>@category.Name</p>
-                    <p>@category.Description</p>
-                </div>
-            }
-            else
-            {
-                <div class="half-width some-padding">
-                    <p>@category.Name</p>
-                    <p>@category.Description</p>
-                </div>
-                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, category.ImageUrl)" alt="@category.Name" class="half-width" />
-            }
-            @{
-                counter += 1;
-            }
+            <a asp-controller="Categories" asp-action="Id" asp-route-id="@category.Id" style="display: contents;">
+                @if (counter % 2 == 0)
+                {
+                    <img src="@string.Format(GlobalConstants.CloudUrlTemplate, category.ImageUrl)" alt="@category.Name" class="half-width" />
+                    <div class="half-width some-padding">
+                        <p>@category.Name</p>
+                        @*<p>@category.Description</p>*@
+                    </div>
+                }
+                else
+                {
+                    <div class="half-width some-padding" style="text-align: right;">
+                        <p>@category.Name</p>
+                        <p>@*@category.Description*@</p>
+                    </div>
+                    <img src="@string.Format(GlobalConstants.CloudUrlTemplate, category.ImageUrl)" alt="@category.Name" class="half-width" />
+                }
+                @{
+                    counter += 1;
+                }
+            </a>
         </div>
     }
 
     @foreach (var gallery in Model.Galleries)
     {
         <div class="oneline-flex">
-            @if (counter % 2 == 0)
-            {
-                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, "NONE")" alt="@gallery.Name" class="half-width" />
-                <div class="half-width some-padding">
-                    <p>@gallery.Name</p>
-                </div>
-            }
-            else
-            {
-                <div class="half-width some-padding">
-                    <p>@gallery.Name</p>
-                </div>
-                <img src="@string.Format(GlobalConstants.CloudUrlTemplate, "NONE")" alt="@gallery.Name" class="half-width" />
-            }
-            @{
-                counter += 1;
-            }
+            <div class="half-width some-padding">
+                <p>@gallery.Name</p>
+            </div>
         </div>
     }
 </div>

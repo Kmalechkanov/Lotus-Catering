@@ -4,17 +4,25 @@
     ViewData["Title"] = "Галерия";
 }
 
-<h1>Галерия</h1>
-<hr />
-<div id="main-images">
-    @foreach (var image in Model.Images)
-    {
-        <img src="@string.Format(GlobalConstants.CloudUrlTemplate, image.ImageUrl)" alt="@image.Name" class="myImg" />
-    }
-</div>
+<div class="center-align">
+    <h1>Галерия</h1>
+    <hr />
+    <div id="main-images">
+        @foreach (var image in Model.Images)
+        {
+            <img src="@string.Format(GlobalConstants.CloudUrlTemplate, image.ImageUrl)" alt="@image.Name" class="myImg" />
+        }
+        @if (this.User.IsInRole("Administrator"))
+        {
+            <a asp-area="Administration" asp-controller="Images" asp-action="Add" asp-route-id="@Model.Id">
+                <img src="~/images/plus.png">
+            </a>
+        }
+    </div>
 
-<div id="full-screen">
-    <img src="" alt="" />
+    <div id="full-screen">
+        <img src="" alt="" />
+    </div>
 </div>
 
 @section scripts {

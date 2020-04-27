@@ -169,6 +169,8 @@ header nav ul li:hover {
 	margin: 10px;
 	display: inline-block;
 	padding-bottom: 20px;
+	vertical-align: top;
+	min-height: 390px;
 }
 
 .inline-form img {

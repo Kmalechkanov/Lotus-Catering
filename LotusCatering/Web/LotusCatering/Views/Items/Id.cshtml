@@ -20,7 +20,7 @@
         </div>
         <div>
             <h3>Добави в количката:</h3>
-            <h3>Цена на една хапка: @Model.Price лв.</h3>
+            <h3>Цена на една хапка: @Model.Price.ToString("0.00") лв.</h3>
 
             <div>
                 <form method="post" data-ajax="true" data-ajax-url="/Profile/Cart/AddItem" data-ajax-method="post" data-ajax-complete="AddtoCart">

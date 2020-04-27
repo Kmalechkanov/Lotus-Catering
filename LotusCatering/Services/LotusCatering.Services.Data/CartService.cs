@@ -72,7 +72,7 @@
                 Id = ci.Item.Id,
                 Name = ci.Item.Name,
                 ImageUrl = ci.Item.ImageUrl,
-                Price = ci.Item.Price.ToString(),
+                Price = ci.Item.Price,
                 Quantity = ci.Quantity,
             }).ToArray();
 

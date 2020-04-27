@@ -13,7 +13,7 @@
             <a asp-controller="Tabs" asp-action="Id" asp-route-id=@tab.Id asp-route-title="@ConvertService.CyrillicToLatin(tab.Name, true)">
                 <h2>@tab.Name</h2>
                 <img src="@string.Format(GlobalConstants.CloudUrlTemplate, tab.ImageUrl)">
-                <span>@tab.Description</span>
+                @*<span>@tab.Description</span>*@
             </a>
         </div>
     }
