@@ -1,8 +1,5 @@
 ﻿namespace LotusCatering.Data.Models
 {
-    using System;
-    using System.ComponentModel.DataAnnotations;
-
     public class CartItem
     {
         public string CartId { get; set; }

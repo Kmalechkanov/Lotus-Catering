@@ -1,9 +1,6 @@
 ﻿namespace LotusCatering.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     using LotusCatering.Services.Data.Interfaces;
     using LotusCatering.Web.ViewModels.Categories;

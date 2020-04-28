@@ -1,10 +1,6 @@
-﻿namespace LotusCatering.Web.Areas.Administration.Controllers
+﻿
+namespace LotusCatering.Web.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
     using LotusCatering.Web.Controllers;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;

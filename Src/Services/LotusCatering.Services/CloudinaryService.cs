@@ -1,15 +1,10 @@
 ﻿namespace LotusCatering.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
     using System.IO;
-    using System.Text;
     using System.Threading.Tasks;
 
     using CloudinaryDotNet;
     using CloudinaryDotNet.Actions;
-    using Microsoft.AspNetCore.Http;
 
     public class CloudinaryService
     {

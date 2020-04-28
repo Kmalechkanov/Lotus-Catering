@@ -7,7 +7,6 @@
     using LotusCatering.Common;
     using LotusCatering.Data.Models;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
     public class CartsSeeder : ISeeder

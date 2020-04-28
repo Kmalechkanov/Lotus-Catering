@@ -59,6 +59,10 @@
         public async Task<bool> DeleteAsync(string id)
         {
             var category = this.categoriesRepository.All().FirstOrDefault(i => i.Id == id);
+            if (category == null)
+            {
+                return false;
+            }
 
             this.categoriesRepository.Delete(category);
             var response = await this.categoriesRepository.SaveChangesAsync();

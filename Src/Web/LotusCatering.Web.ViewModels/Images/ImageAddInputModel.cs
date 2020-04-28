@@ -1,9 +1,7 @@
 ﻿namespace LotusCatering.Web.ViewModels.Images
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Text;
 
     using LotusCatering.Web.ViewModels.Galleries;
     using Microsoft.AspNetCore.Http;

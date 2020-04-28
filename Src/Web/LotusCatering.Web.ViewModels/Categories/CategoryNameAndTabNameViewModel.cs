@@ -1,8 +1,6 @@
 ﻿namespace LotusCatering.Web.ViewModels.Categories
 {
-    using System;
     using System.Collections.Generic;
-    using System.Text;
 
     using LotusCatering.Data.Models;
     using LotusCatering.Services.Mapping;

@@ -1,6 +1,5 @@
 ﻿namespace LotusCatering.Web.Areas.Profile.Controllers
 {
-    using System.Threading.Tasks;
     using System.Web.Mvc;
 
     using LotusCatering.Web.Controllers;

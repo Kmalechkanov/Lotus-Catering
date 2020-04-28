@@ -1,9 +1,7 @@
 ﻿namespace LotusCatering.Web.ViewModels.CartItems
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Text;
 
     public class CartItemInputModel
     {

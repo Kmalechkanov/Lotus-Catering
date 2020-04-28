@@ -1,7 +1,6 @@
 ﻿namespace LotusCatering.Web.ViewModels.Contacts
 {
     using System.ComponentModel.DataAnnotations;
-    using System.Text;
 
     public class ContactsViewModel
     {

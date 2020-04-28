@@ -69,6 +69,10 @@
         public async Task<bool> DeleteAsync(string id)
         {
             var item = this.itemRepository.All().FirstOrDefault(i => i.Id == id);
+            if (item == null)
+            {
+                return false;
+            }
 
             this.itemRepository.Delete(item);
             var response = await this.itemRepository.SaveChangesAsync();

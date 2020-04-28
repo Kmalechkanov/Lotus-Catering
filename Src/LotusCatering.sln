@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{77734C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LotusCatering.Common", "Common\LotusCatering.Common\LotusCatering.Common.csproj", "{6A244FD7-B96F-4A24-9474-A3148F1A10C3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LotusCatering.Services.Data.Tests", "Tests\LotusCatering.Services.Data.Tests\LotusCatering.Services.Data.Tests.csproj", "{6394C394-C32D-4C85-ADC5-4CB2E91EBBD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{6A244FD7-B96F-4A24-9474-A3148F1A10C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A244FD7-B96F-4A24-9474-A3148F1A10C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A244FD7-B96F-4A24-9474-A3148F1A10C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6394C394-C32D-4C85-ADC5-4CB2E91EBBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6394C394-C32D-4C85-ADC5-4CB2E91EBBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6394C394-C32D-4C85-ADC5-4CB2E91EBBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6394C394-C32D-4C85-ADC5-4CB2E91EBBD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{C8BA337B-B3DC-4C12-9868-7F7931F1E338} = {D0261007-81BA-4907-AD20-9FB45F53195A}
 		{8D51405D-608F-4546-8C48-586FFF86B434} = {802FF3F4-23FC-4457-8181-A51F3BE2F97A}
 		{6A244FD7-B96F-4A24-9474-A3148F1A10C3} = {77734CF4-7E1A-4FE6-B5C5-9E3BBF97760B}
+		{6394C394-C32D-4C85-ADC5-4CB2E91EBBD0} = {15344B8B-46C6-4A0F-9FC8-2A86B4CACF0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCBD93FB-B336-41D0-83F6-8A947F6ECE8B}

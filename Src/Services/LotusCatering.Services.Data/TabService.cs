@@ -12,10 +12,12 @@
     public class TabService : ITabService
     {
         private readonly IDeletableEntityRepository<Tab> tabRepository;
+        private readonly IDeletableEntityRepository<Category> categoryRepository;
 
-        public TabService(IDeletableEntityRepository<Tab> tabRepository)
+        public TabService(IDeletableEntityRepository<Tab> tabRepository, IDeletableEntityRepository<Category> categoryRepository)
         {
             this.tabRepository = tabRepository;
+            this.categoryRepository = categoryRepository;
         }
 
         public async Task<string> AddAsync(string name, string imageUrl, string categoryId, string description)
@@ -36,6 +38,10 @@
         public async Task<bool> DeleteAsync(string id)
         {
             var tab = this.tabRepository.All().FirstOrDefault(i => i.Id == id);
+            if (tab == null)
+            {
+                return false;
+            }
 
             this.tabRepository.Delete(tab);
             var response = await this.tabRepository.SaveChangesAsync();
@@ -58,6 +64,11 @@
         {
             var tab = this.tabRepository.All().FirstOrDefault(i => i.Id == id);
             if (tab == null)
+            {
+                return false;
+            }
+
+            if (this.categoryRepository.All().FirstOrDefault(c => c.Id == categoryId) == null)
             {
                 return false;
             }
