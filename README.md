@@ -1,14 +1,15 @@
-Project – LotusCatering
+<h1>Project – LotusCatering</h1>
 
-Type – Online store
+<h2>Type – Online store</h2>
 
-Site - LotusCatering.eu
+<h2>Site - <a href="https://lotuscatering.eu">LotusCatering.eu</a></h2>
 
-Description 
-Bulgarian online store build on ASP.NET Core 3.1 for SoftUni Web course.
+<h2>Description</h2> 
+<p>Bulgarian online store build on ASP.NET Core 3.1 for SoftUni Web course.</p>
 
-Used Template 
-https://github.com/NikolayIT/ASP.NET-MVC-Template
+<h2>Used Template</h2>
+<p>https://github.com/NikolayIT/ASP.NET-MVC-Template</p>
 
-Project requrements and more information can be seen on Docs/
+<h2>Additional information</h2>
+<p>Project requrements and more information can be seen on <a href="https://github.com/Kmalechkanov/Lotus-Catering/tree/master/Docs">Docs</a></p>
 
