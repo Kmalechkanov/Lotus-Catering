@@ -1,0 +1,7 @@
+ApplicationUser one-to-one Cart
+ApplicationUser one-to-many Orders
+Carts many-to-many Items
+Items many-to-one Tabs
+Items many-to-many Orders
+Tabs many-to-one Categories
+Images many-to-one Galleries

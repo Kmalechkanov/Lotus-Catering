@@ -1,0 +1,40 @@
+controllers : 15
+views : 35
+entities : 11
+(excluding asp identity)
+
+[General Requirments](12/13)
+
+Use VS 2019 : Yes
+Use Razor template engine : Yes
+Use MS SQL Server : Yes
+Use EF Core : Yes
+Style Design : Yes
+Use Identity : Yes
+Use Ajax : Yes
+Write Unit Tests : No
+Error Handling + Data Validation : Yes
+Handle Correctly special HTML characters: Yes
+Use Dependency Injection : Yes
+AutoMapping : Yes
+Prevent Security Vulnerabilities : Yes
+
+[Additional Requirements] (4/5)
+
+SOLID / OOP : Yes
+Friendly UI : Yes
+Support all Web browsers : Yes
+Scalable Window : Yes
+Use Caching where appropriate : No
+
+[Source Control] (3/3)
+Link Submitted : Yes
+Distinct Commit Days = 40+ : Yes
+Commits = 80 + (excluding documentation) : Yes
+
+[Bonuses]
+Host the application in a cloud environment = Azure : Yes
+Use a file storage cloud API = Cloudinary : Yes
+Use of features of HTML5 : Yes
+
+Last updated : 4/28/2020
