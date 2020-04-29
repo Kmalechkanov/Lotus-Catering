@@ -12,12 +12,12 @@
     public class ImageService : IImageService
     {
         private readonly IDeletableEntityRepository<Image> imageRepository;
-        private readonly IApplicationDbContext dbRepository;
+        private readonly IDeletableEntityRepository<Gallery> galleryRepository;
 
-        public ImageService(IDeletableEntityRepository<Image> imageRepository, IApplicationDbContext dbRepository)
+        public ImageService(IDeletableEntityRepository<Image> imageRepository, IDeletableEntityRepository<Gallery> galleryRepository)
         {
             this.imageRepository = imageRepository;
-            this.dbRepository = dbRepository;
+            this.galleryRepository = galleryRepository;
         }
 
         public async Task<string> AddAsync(string name, string imageUrl, string galleryId, string description)
@@ -37,5 +37,18 @@
 
         public IEnumerable<T> GetAll<T>(string galleryId)
             => this.imageRepository.All().Where(i => i.GalleryId == galleryId).To<T>();
+
+        public async Task<bool> DeleteAsync(string id)
+        {
+            var image = this.imageRepository.All().FirstOrDefault(i => i.Id == id);
+            if (image == null)
+            {
+                return false;
+            }
+
+            this.imageRepository.Delete(image);
+            var response = await this.imageRepository.SaveChangesAsync();
+            return response == 1;
+        }
     }
 }

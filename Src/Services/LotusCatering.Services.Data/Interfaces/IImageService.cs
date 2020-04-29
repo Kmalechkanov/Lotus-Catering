@@ -8,5 +8,7 @@
         IEnumerable<T> GetAll<T>(string galleryId);
 
         Task<string> AddAsync(string name, string imageUrl, string galleryId, string description);
+
+        Task<bool> DeleteAsync(string id);
     }
 }
