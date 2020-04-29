@@ -34,6 +34,11 @@
         {
             var gallery = this.galleryRepository.All().FirstOrDefault(g => g.Id == id);
 
+            if (gallery == null)
+            {
+                return false;
+            }
+
             this.galleryRepository.Delete(gallery);
             var response = await this.galleryRepository.SaveChangesAsync();
             return response == 1;
