@@ -1,13 +1,11 @@
-﻿using LotusCatering.Data.Common.Models;
-using LotusCatering.Data.Common.Repositories;
-
-namespace LotusCatering.Services.Data.Tests
+﻿namespace LotusCatering.Services.Data.Tests
 {
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
 
     using LotusCatering.Data;
+    using LotusCatering.Data.Common.Repositories;
     using LotusCatering.Data.Models;
     using LotusCatering.Data.Repositories;
     using LotusCatering.Services.Mapping;

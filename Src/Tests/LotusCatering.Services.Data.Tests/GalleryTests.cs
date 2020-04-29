@@ -15,7 +15,7 @@
 
     public class GalleryTests
     {
-        private GalleryService galleryService;
+        private readonly GalleryService galleryService;
 
         private EfDeletableEntityRepository<Gallery> galleryRepository;
 

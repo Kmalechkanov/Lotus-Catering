@@ -62,8 +62,9 @@
             var imageArr = await ImageService.ConvertIFormFileToByteArray(input.Image);
             var imageName = await CloudinaryService.UploadAsync(this.cloudinary, imageArr, "Images", rootPath, false);
 
-            var imageId = await this.imageService.AddAsync(input.Name, imageName, input.GalleryId, input.Description);
-            return this.RedirectToAction("Id", "Gallery", new { area = string.Empty, Id = input.GalleryId });
+            await this.imageService.AddAsync(input.Name, imageName, input.GalleryId, input.Description);
+
+            return this.RedirectToAction("Id", "Galleries", new { area = string.Empty, Id = input.GalleryId });
         }
     }
 }

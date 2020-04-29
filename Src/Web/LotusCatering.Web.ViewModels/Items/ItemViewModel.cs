@@ -1,5 +1,4 @@
-﻿
-namespace LotusCatering.Web.ViewModels.Items
+﻿namespace LotusCatering.Web.ViewModels.Items
 {
     using LotusCatering.Data.Models;
     using LotusCatering.Services.Mapping;

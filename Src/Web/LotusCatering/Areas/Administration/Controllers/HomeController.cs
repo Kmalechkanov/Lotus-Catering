@@ -1,5 +1,4 @@
-﻿
-namespace LotusCatering.Web.Areas.Administration.Controllers
+﻿namespace LotusCatering.Web.Areas.Administration.Controllers
 {
     using LotusCatering.Web.Controllers;
     using Microsoft.AspNetCore.Authorization;

@@ -15,7 +15,7 @@
 
     public class ItemTests
     {
-        private ItemService itemService;
+        private readonly ItemService itemService;
 
         private EfDeletableEntityRepository<Item> itemRepository;
         private EfDeletableEntityRepository<Tab> tabRepository;
