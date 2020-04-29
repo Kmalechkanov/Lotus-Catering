@@ -12,10 +12,12 @@
     public class ItemService : IItemService
     {
         private readonly IDeletableEntityRepository<Item> itemRepository;
+        private readonly IDeletableEntityRepository<Tab> tabRepository;
 
-        public ItemService(IDeletableEntityRepository<Item> itemRepository)
+        public ItemService(IDeletableEntityRepository<Item> itemRepository, IDeletableEntityRepository<Tab> tabRepository)
         {
             this.itemRepository = itemRepository;
+            this.tabRepository = tabRepository;
         }
 
         public T GetById<T>(string id)
@@ -50,6 +52,11 @@
         {
             var item = this.itemRepository.All().FirstOrDefault(i => i.Id == id);
             if (item == null)
+            {
+                return false;
+            }
+
+            if (this.tabRepository.All().FirstOrDefault(t => t.Id == tabId) == null)
             {
                 return false;
             }
