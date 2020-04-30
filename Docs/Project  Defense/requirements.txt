@@ -19,13 +19,13 @@ Use Dependency Injection : Yes
 AutoMapping : Yes
 Prevent Security Vulnerabilities : Yes
 
-[Additional Requirements] (4/5)
+[Additional Requirements] (5/5)
 
 SOLID / OOP : Yes
 Friendly UI : Yes
 Support all Web browsers : Yes
 Scalable Window : Yes
-Use Caching where appropriate : No
+Use Caching where appropriate : Yes
 
 [Source Control] (3/3)
 Link Submitted : Yes
@@ -35,6 +35,8 @@ Commits = 80 + (excluding documentation) : Yes
 [Bonuses]
 Host the application in a cloud environment = Azure : Yes
 Use a file storage cloud API = Cloudinary : Yes
+Use a email sender API = SendGrid : Yes
 Use of features of HTML5 : Yes
+
 
 Last updated : 4/30/2020
