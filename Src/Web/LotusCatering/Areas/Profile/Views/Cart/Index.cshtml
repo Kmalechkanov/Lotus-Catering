@@ -22,7 +22,7 @@
             @foreach (var item in Model.Items)
             {
                 <tr>
-                    <td data-title="Снимка"><img src="@string.Format(GlobalConstants.CloudUrlTemplate, item.ImageUrl)" class="img-icon"></td>
+                    <td data-title="Снимка"><img src="@string.Format(GlobalConstants.CloudUrlTemplateWithFixedHeight, item.ImageUrl, 500)" class="img-icon"></td>
                     <td data-title="Име">@item.Name</td>
                     <td data-title="Цена">@item.Price лв.</td>
                     <td data-title="Количество" style="min-width:150px;">

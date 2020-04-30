@@ -10,7 +10,7 @@
     <div id="main-images">
         @foreach (var image in Model.Images)
         {
-            <img src="@string.Format(GlobalConstants.CloudUrlTemplate, image.ImageUrl)" alt="@image.Name" class="myImg" />
+            <img src="@string.Format(GlobalConstants.CloudUrlTemplateWithFixedHeight, image.ImageUrl, 1000)" alt="@image.Name" class="myImg" zoom-url="@string.Format(GlobalConstants.CloudUrlTemplate, image.ImageUrl)" />
         }
         @if (this.User.IsInRole("Administrator"))
         {
@@ -30,7 +30,7 @@
         $('#full-screen').css('height', $(document).outerWidth() + 'px');
 
         $('.myImg').click(function () {
-            var src = $(this).attr('src');
+            var src = $(this).attr('zoom-url');
             $('#full-screen img').attr('src', src);
             $('#full-screen').fadeIn();
         });

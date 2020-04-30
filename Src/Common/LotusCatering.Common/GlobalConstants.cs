@@ -18,7 +18,8 @@
 
         public const string CloudUrlTemplate = "https://res.cloudinary.com/lotuscatering/image/upload/v1584887787/{0}";
 
-        // Models
+        public const string CloudUrlTemplateWithFixedHeight = "https://res.cloudinary.com/lotuscatering/image/upload/c_scale,h_{1}/v1584887787/{0}";
+
         public const string DisplayName = "Име";
 
         public const string DisplayQuantity = "Количество";
