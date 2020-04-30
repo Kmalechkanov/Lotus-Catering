@@ -57,5 +57,8 @@
 
         public T GetById<T>(string id)
             => this.dbContext.Orders.Where(o => o.Id == id).To<T>().FirstOrDefault();
+
+        public IEnumerable<T> GetAllItems<T>(string id)
+            => this.dbContext.OrderItems.Where(o => o.OrderId == id).To<T>();
     }
 }

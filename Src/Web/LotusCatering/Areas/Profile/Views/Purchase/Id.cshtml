@@ -1,17 +1,30 @@
 ﻿@model LotusCatering.Web.ViewModels.Purchase.PurchaseIdViewModel
 @{
-    ViewData["Title"] = "Извършена покупки";
+    ViewData["Title"] = "Извършена покупка";
 }
 
-<h1>Извършена покупка</h1>
-    <div class="settings-div">
-        <h2>
-                <span><strong>@Model.Order.Id</strong></span>
-                <span>@Model.Order.PaymentDate</span>
-                <span>@Model.Order.DeliveryDate</span>
-                <span>@Model.Order.TotalPrice</span>
-                <span>@Model.Order.AdditionalInformation</span>
-        </h2>
+<div class="center-align">
+    <h1>Извършена покупка</h1>
+    <div class="full-size-box max-width">
+        <h2><strong>Ид на покупката: </strong>@Model.Order.Id</h2>
+        <hr />
+        <h3><strong>Дата на плащане: </strong>@Model.Order.PaymentDate.ToString("dd/MM/yyyy")</h3>
+        <h3><strong>Дата на взимане: </strong>@Model.Order.DeliveryDate.ToString("dd/MM/yyyy")</h3>
+        <h3><strong>Цена: </strong>@Model.Order.TotalPrice.ToString("0.00 лв.")</h3>
+        <h3><strong>Допълнителна информация: </strong>@Model.Order.AdditionalInformation</h3>
+        <hr />
+        <h2>Продукти: </h2>
+        @foreach (var item in Model.Items)
+        {
+            <h3>
+                <span><strong>Ид: </strong>@item.ItemId</span>
+                <span><strong>Количество: </strong>@item.Quantity</span>
+                <a asp-action="Id" asp-controller="Items" asp-area=@null asp-route-id="@item.ItemId" 
+                   class="a-button" 
+                   style="border: 2px solid; display: inline; padding: 10px;">
+                    Преглед
+                </a>
+            </h3>
+        }
     </div>
-
-
+</div>

@@ -3,18 +3,19 @@
     ViewData["Title"] = "Извършени покупки";
 }
 
-<h1>Извършени покупки</h1>
-@foreach (var order in Model.Orders)
-{
-    <div class="settings-div">
-        <h2>
-            <a asp-action="Id" asp-route-id="@order.Id">
-                <span><strong>@order.Id</strong></span>
-                <span>@order.PaymentDate</span>
-                <span>@order.TotalPrice</span>
-            </a>
-        </h2>
-    </div>
-}
-
+<div class="center-align">
+    <h1>Извършени покупки</h1>
+    @foreach (var order in Model.Orders)
+    {
+        <div class="full-size-box max-width">
+            <h2>
+                <a asp-action="Id" asp-route-id="@order.Id">
+                    <span><strong>@order.Id</strong></span>
+                    <span>@order.PaymentDate.ToString("dd/MM/yyyy")</span>
+                    <span>@order.TotalPrice.ToString("0.00 лв.")</span>
+                </a>
+            </h2>
+        </div>
+    }
+</div>
 

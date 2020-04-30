@@ -1,4 +1,4 @@
-﻿
+﻿@model LotusCatering.Web.ViewModels.Profile.ProfileViewModel
 @{
     ViewData["Title"] = "Профил";
 }
@@ -15,7 +15,8 @@
             </ul>
         </div>
         <div>
-            <h1>TestBrat</h1>
+            <h1><strong>Потребителско име: </strong>@Model.Username</h1>
+            <h2><strong>Брой поръчки: </strong>@Model.TotalPurchases</h2>
         </div>
     </div>
 </div>

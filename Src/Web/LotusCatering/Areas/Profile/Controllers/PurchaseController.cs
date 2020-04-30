@@ -7,6 +7,7 @@
     using LotusCatering.Data.Models;
     using LotusCatering.Services.Data.Interfaces;
     using LotusCatering.Web.Controllers;
+    using LotusCatering.Web.ViewModels.OrderItems;
     using LotusCatering.Web.ViewModels.Orders;
     using LotusCatering.Web.ViewModels.Purchase;
     using Microsoft.AspNetCore.Authorization;
@@ -114,6 +115,7 @@
             var viewMoodel = new PurchaseIdViewModel
             {
                 Order = this.orderService.GetById<OrderInspectViewModel>(id),
+                Items = this.orderService.GetAllItems<OrderItemViewModel>(id),
             };
 
             return this.View(viewMoodel);
