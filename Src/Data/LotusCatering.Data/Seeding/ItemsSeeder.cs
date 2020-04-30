@@ -10,15 +10,15 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-                await RepeatSeed(dbContext, "Постни", "Хапка", "Примерно описание", "items/otfdxmmxymkduqgj6bml", 8);
-                await RepeatSeed(dbContext, "Местни", "Хапка", "Примерно описание", "items/otfdxmmxymkduqgj6bml", 10);
-                await RepeatSeed(dbContext, "Свежи", "Хапка", "Примерно описание", "items/exncezarnpeqebdgiywm", 24);
-                await RepeatSeed(dbContext, "Веган", "Хапка", "Примерно описание", "items/tz9dmxxnaxpt9w2jwhny", 2);
-                await RepeatSeed(dbContext, "Фюжън", "Хапка", "Примерно описание", "items/tz9dmxxnaxpt9w2jwhny", 6);
-                await RepeatSeed(dbContext, "Петифури", "Хапка", "Примерно описание", "items/tz9dmxxnaxpt9w2jwhny", 4);
-                await RepeatSeed(dbContext, "Къп кейк", "Хапка", "Примерно описание", "items/t3ys5uncvvwmdxhpkk1o", 3);
-                await RepeatSeed(dbContext, "Тарталетки", "Хапкa", "Примерно описание", "items/t3ys5uncvvwmdxhpkk1o", 10);
-                await RepeatSeed(dbContext, "Профитероли", "Хапка", "Примерно описание", "items/otfdxmmxymkduqgj6bml", 8);
+            await RepeatSeed(dbContext, "Постни", "Хапка", "Примерно описание", "items/otfdxmmxymkduqgj6bml", 8);
+            await RepeatSeed(dbContext, "Местни", "Хапка", "Примерно описание", "items/otfdxmmxymkduqgj6bml", 10);
+            await RepeatSeed(dbContext, "Свежи", "Хапка", "Примерно описание", "items/exncezarnpeqebdgiywm", 24);
+            await RepeatSeed(dbContext, "Веган", "Хапка", "Примерно описание", "items/tz9dmxxnaxpt9w2jwhny", 2);
+            await RepeatSeed(dbContext, "Фюжън", "Хапка", "Примерно описание", "items/tz9dmxxnaxpt9w2jwhny", 6);
+            await RepeatSeed(dbContext, "Петифури", "Хапка", "Примерно описание", "items/tz9dmxxnaxpt9w2jwhny", 4);
+            await RepeatSeed(dbContext, "Къп кейк", "Хапка", "Примерно описание", "items/t3ys5uncvvwmdxhpkk1o", 3);
+            await RepeatSeed(dbContext, "Тарталетки", "Хапкa", "Примерно описание", "items/t3ys5uncvvwmdxhpkk1o", 10);
+            await RepeatSeed(dbContext, "Профитероли", "Хапка", "Примерно описание", "items/otfdxmmxymkduqgj6bml", 8);
         }
 
         private static async Task SeedItem(ApplicationDbContext dbContext, string tabName, string name, string description, string imageUrl, double price)

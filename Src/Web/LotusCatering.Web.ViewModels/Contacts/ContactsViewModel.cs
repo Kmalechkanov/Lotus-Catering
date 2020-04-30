@@ -1,30 +1,36 @@
 ﻿namespace LotusCatering.Web.ViewModels.Contacts
 {
+    using LotusCatering.Common;
     using System.ComponentModel.DataAnnotations;
 
     public class ContactsViewModel
     {
-        [Required(ErrorMessage = "Трябва да въведете тема!")]
-        [MinLength(2, ErrorMessage = "Темата трябва да бъде минимум 2 символа!")]
-        [MaxLength(50, ErrorMessage = "Темата трябва да бъде максимум 50 символа!")]
+        [Display(Name = GlobalConstants.DisplayTitle)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredTitle)]
+        [MinLength(GlobalConstants.MinLengthTitle, ErrorMessage = GlobalConstants.ErrorMessageMinLengthTitle)]
+        [MaxLength(GlobalConstants.MaxLengthTitle, ErrorMessage = GlobalConstants.ErrorMessageMaxLengthTitle)]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Трябва да въведете име!")]
-        [MinLength(2, ErrorMessage = "Името трябва да бъде минимум 2 символа!")]
-        [MaxLength(50, ErrorMessage = "Името трябва да бъде максимум 50 символа!")]
+        [Display(Name = GlobalConstants.DisplayName)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredName)]
+        [MinLength(GlobalConstants.MinLengthName, ErrorMessage = GlobalConstants.ErrorMessageMinLengthName)]
+        [MaxLength(GlobalConstants.MaxLengthName, ErrorMessage = GlobalConstants.ErrorMessageMinLengthName)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Трябва да въведете поща!")]
-        [EmailAddress(ErrorMessage = "Невалидна поща!")]
+        [Display(Name = GlobalConstants.DisplayEmail)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredEmail)]
+        [EmailAddress(ErrorMessage = GlobalConstants.ErrorMessageInvalidEmail)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Трябва да въведете телефонен номер!")]
-        [Phone(ErrorMessage = "Невалиден номер!")]
+        [Display(Name = GlobalConstants.DisplayPhone)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredPhone)]
+        [Phone(ErrorMessage = GlobalConstants.ErrorMessageInvalidPhone)]
         public string PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Трябва да въведете текст!")]
-        [MinLength(10, ErrorMessage = "Текста трябва да бъде минимум 10 символа!")]
-        [MaxLength(500, ErrorMessage = "Текста трябва да бъде максимум 500 символа!")]
+        [Display(Name = GlobalConstants.DisplayText)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredText)]
+        [MinLength(GlobalConstants.MinLengthText, ErrorMessage = GlobalConstants.ErrorMessageMinLengthTitle)]
+        [MaxLength(GlobalConstants.MaxLengthText, ErrorMessage = GlobalConstants.ErrorMessageMaxLengthTitle)]
         public string Text { get; set; }
     }
 }

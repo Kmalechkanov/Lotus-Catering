@@ -180,7 +180,7 @@
             await this.SeedDatabase();
             await this.SeedDatabaseCartItems();
 
-            var result = this.cartService.IsItemInCart(this.testCart1.Id,this.testItem1.Id);
+            var result = this.cartService.IsItemInCart(this.testCart1.Id, this.testItem1.Id);
 
             Assert.True(result);
         }

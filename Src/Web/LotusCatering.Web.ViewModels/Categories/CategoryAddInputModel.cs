@@ -1,17 +1,19 @@
 ﻿namespace LotusCatering.Web.ViewModels.Categories
 {
     using System.ComponentModel.DataAnnotations;
-
+    using LotusCatering.Common;
     using Microsoft.AspNetCore.Http;
 
     public class CategoryAddInputModel
     {
-        [Required(ErrorMessage = "Трябва да въведете име!")]
-        [MaxLength(30)]
+        [Display(Name = GlobalConstants.DisplayName)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredName)]
+        [MaxLength(GlobalConstants.MaxLengthName)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Трябва да веведете описание!")]
-        [MaxLength(150)]
+        [Display(Name = GlobalConstants.DisplayDescription)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredDescription)]
+        [MaxLength(GlobalConstants.MaxLengthDescription)]
         public string Description { get; set; }
 
         [DataType(DataType.Upload)]

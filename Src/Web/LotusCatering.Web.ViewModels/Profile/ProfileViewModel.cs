@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace LotusCatering.Web.ViewModels.Profile
+﻿namespace LotusCatering.Web.ViewModels.Profile
 {
     public class ProfileViewModel
     {

@@ -17,14 +17,12 @@
     public class CategoriesController : BaseController
     {
         private readonly ICategoryService categoryService;
-        private readonly ITabService tabService;
         private readonly Cloudinary cloudinary;
         private readonly IWebHostEnvironment hostEnvironment;
 
-        public CategoriesController(ICategoryService categoryService, ITabService tabService, Cloudinary cloudinary, IWebHostEnvironment hostEnvironment)
+        public CategoriesController(ICategoryService categoryService, Cloudinary cloudinary, IWebHostEnvironment hostEnvironment)
         {
             this.categoryService = categoryService;
-            this.tabService = tabService;
             this.cloudinary = cloudinary;
             this.hostEnvironment = hostEnvironment;
         }

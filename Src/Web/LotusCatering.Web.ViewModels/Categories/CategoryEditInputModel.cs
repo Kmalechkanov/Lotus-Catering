@@ -1,19 +1,23 @@
 ﻿namespace LotusCatering.Web.ViewModels.Categories
 {
+    using LotusCatering.Common;
     using System.ComponentModel.DataAnnotations;
 
     public class CategoryEditInputModel
     {
         public string Id { get; set; }
 
-        [Required(ErrorMessage = "Трябва да въведете име!")]
-        [MaxLength(30)]
+        [Display(Name = GlobalConstants.DisplayName)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredName)]
+        [MaxLength(GlobalConstants.MaxLengthName)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Трябва да веведете описание!")]
-        [MaxLength(150)]
+        [Display(Name = GlobalConstants.DisplayDescription)]
+        [Required(ErrorMessage = GlobalConstants.ErrorMessageRequiredDescription)]
+        [MaxLength(GlobalConstants.MaxLengthLargerDescription)]
         public string Description { get; set; }
 
+        [Display(Name = GlobalConstants.DisplayImage)]
         public string ImageUrl { get; set; }
     }
 }
