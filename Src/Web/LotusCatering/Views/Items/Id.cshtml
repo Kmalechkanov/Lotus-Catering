@@ -16,10 +16,16 @@
             <h1 class="more-than-half-width some-padding center-align">@Model.Name</h1>
             <div class="less-than-half-width some-padding">
                 <p>Сподели:</p>
-                <div id="fb-root"></div>
-                <div class="fb-share-button"
-                     data-href="@actionURL">
-                </div>
+                <a href="javascript:myPopup('https://www.facebook.com/sharer/sharer.php?u=@(actionURL)&display=popup');"
+                   style="font-size: 50px; color: #914360;">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <a class="twitter-share-button"
+                   href="https://twitter.com/intent/tweet?text=@(actionURL)"
+                   style="font-size: 50px; color: #914360;"
+                   data-size="large">
+                    <i class="fab fa-twitter-square"></i>
+                </a>
             </div>
         </div>
         <div>
@@ -43,7 +49,6 @@
                     {
                         <a asp-controller="Items" asp-action="Edit" asp-area="Administration" asp-route-id="@Model.Id" class="white-button header-color">Редактирай</a>
                         <a asp-controller="Items" asp-action="Delete" asp-area="Administration" asp-route-id="@Model.Id" class="white-button danger-color">Изтрий</a>
-                        <a asp-controller="Items" asp-action="EditImage" asp-area="Administration" asp-route-id="@Model.Id" class="white-button header-color">Редактирай снимка</a>
                     }
                 </form>
             </div>
@@ -66,16 +71,11 @@
                 AddAlert("Грешка!", "Свържете се с администратор!", "error");
             }
         };
-    </script>
-    <script src="~/js/numberInput.js"></script>
 
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        function myPopup(url) {
+            window.open(url, "myWindow", "status = 1, height = 500, width = 525, resizable = 0");
+        }
     </script>
+
+    <script src="~/js/numberInput.js"></script>
 }
