@@ -3,7 +3,7 @@ views : 35
 entities : 11
 (excluding asp identity)
 
-[General Requirments](12/13)
+[General Requirments](13/13)
 
 Use VS 2019 : Yes
 Use Razor template engine : Yes
@@ -12,7 +12,7 @@ Use EF Core : Yes
 Style Design : Yes
 Use Identity : Yes
 Use Ajax : Yes
-Write Unit Tests : No
+Write Unit Tests (Services 85% covered) : Yes
 Error Handling + Data Validation : Yes
 Handle Correctly special HTML characters: Yes
 Use Dependency Injection : Yes
@@ -37,4 +37,4 @@ Host the application in a cloud environment = Azure : Yes
 Use a file storage cloud API = Cloudinary : Yes
 Use of features of HTML5 : Yes
 
-Last updated : 4/28/2020
+Last updated : 4/30/2020
